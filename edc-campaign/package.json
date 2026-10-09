@@ -32,6 +32,9 @@
     "render": "npm run render:16x9 && npm run render:9x16",
     "render:16x9": "remotion render Film out/EDC-Karan-Raj-KR-16x9.mp4 --audio-codec=aac --audio-bitrate=320k",
     "render:9x16": "remotion render FilmVertical out/EDC-Karan-Raj-KR-9x16.mp4 --audio-codec=aac --audio-bitrate=320k",
-    "stills": "remotion render Film docs/stills/latest --frames=130,300,490,850,980,1100,1220,1340,1760 --image-format=png"
+    "stills": "remotion render Film docs/stills/latest --frames=130,300,490,850,980,1100,1220,1340,1760 --image-format=png",
+    "soundtrack:v2": "python3 audio/make_soundtrack_v2.py",
+    "cutouts": "python3 assets/cutout.py",
+    "render:v2": "remotion render Reel out/EDC-Karan-Raj-KR-v2-16x9.mp4 --audio-codec=aac --audio-bitrate=320k && remotion render ReelVertical out/EDC-Karan-Raj-KR-v2-9x16.mp4 --audio-codec=aac --audio-bitrate=320k"
   }
 }

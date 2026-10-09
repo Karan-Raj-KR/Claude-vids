@@ -313,7 +313,7 @@ const FormPilot: React.FC<{ t: number; s: number }> = ({ t, s }) => (
   </div>
 );
 
-const VISUALS = [Erp, Clinic, Eligent, FormPilot];
+export const VISUALS = [Erp, Clinic, Eligent, FormPilot];
 
 /** 0:07–0:12 · Proof he builds. */
 export const Builds: React.FC = () => {

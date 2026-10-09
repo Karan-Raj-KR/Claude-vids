@@ -6,6 +6,16 @@ A 30-second campaign introduction film. It is 1920×1080 and 1080×1920, 60 fps,
 - **Storyboard:** `docs/STORYBOARD.md`
 - **Still review notes and fixes:** `docs/REVIEW.md`
 
+## v2: fast cut with the LEGO character
+
+`deliverables/EDC-Karan-Raj-KR-v2-16x9.mp4` and `-v2-9x16.mp4` are the 27-shot fast-cut version, starring LEGO Karan from `assets/karan-character-sheet.webp`.
+
+- **Poses:** `npm run cutouts` cuts the seven poses out to `public/karan/*.png`.
+- **Shot list:** `timeline-v2.json` gives each shot's start, length and the sound its cut gets.
+- **Shots:** `src/v2/shots.tsx` holds the shots and `src/v2/Reel.tsx` adds the cut smear and camera shake.
+- **Soundtrack:** `npm run soundtrack:v2` rebuilds `audio/make_soundtrack_v2.py`. It has half-time trap drums, an 808 with glides, formant vocal chops, a delayed pluck lead, a stutter drop, a filtered breakdown, a key lift for the pledges, and a tape-stop into VOTE.
+- **Render:** `npm run render:v2`.
+
 ## Edit the words or colours
 
 Everything on screen comes from **`src/config.ts`**: all text, the five palette colours and the two typefaces. Change a value, then re-render.
