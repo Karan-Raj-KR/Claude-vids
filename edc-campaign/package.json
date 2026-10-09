@@ -1,0 +1,37 @@
+{
+  "name": "edc-campaign-film",
+  "version": "1.0.0",
+  "description": "30-second EDC campaign film for Karan Raj KR",
+  "repository": {},
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@remotion/cli": "4.0.534",
+    "@remotion/fonts": "4.0.534",
+    "@remotion/media": "4.0.534",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.534",
+    "@types/react": "19.2.7",
+    "@types/web": "0.0.166",
+    "eslint": "9.39.5",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "soundtrack": "python3 audio/make_soundtrack.py",
+    "render": "npm run render:16x9 && npm run render:9x16",
+    "render:16x9": "remotion render Film out/EDC-Karan-Raj-KR-16x9.mp4 --audio-codec=aac --audio-bitrate=320k",
+    "render:9x16": "remotion render FilmVertical out/EDC-Karan-Raj-KR-9x16.mp4 --audio-codec=aac --audio-bitrate=320k",
+    "stills": "remotion render Film docs/stills/latest --frames=130,300,490,850,980,1100,1220,1340,1760 --image-format=png"
+  }
+}

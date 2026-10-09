@@ -1,0 +1,14 @@
+{
+  "fps": 60,
+  "durationInFrames": 1800,
+  "bpm": 120,
+  "scenes": {
+    "hook": { "from": 0, "duration": 180 },
+    "name": { "from": 180, "duration": 240 },
+    "builds": { "from": 420, "duration": 300 },
+    "wins": { "from": 720, "duration": 300 },
+    "people": { "from": 1020, "duration": 240 },
+    "pledges": { "from": 1260, "duration": 360 },
+    "vote": { "from": 1620, "duration": 180 }
+  }
+}
