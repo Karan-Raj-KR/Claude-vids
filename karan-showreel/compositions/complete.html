@@ -1,0 +1,87 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #complete-root { position: absolute; inset: 0; }
+
+  .st-head { position: absolute; left: 140px; top: 150px; display: flex; align-items: center; gap: 34px; }
+  .st-badge { width: 150px; height: 150px; font-size: 104px; }
+  .st-title { font-size: 104px; }
+  .callout { padding: 22px 28px; display: flex; align-items: center; gap: 22px; }
+  .qty { font-size: 44px; color: var(--red-ink); }
+  [data-width="1080"] .st-head { left: 72px; top: 270px; gap: 26px; }[data-width="1080"] .st-badge { width: 120px; height: 120px; font-size: 84px; }[data-width="1080"] .st-title { font-size: 74px; }
+  
+
+
+  #complete-head { position: absolute; left: 140px; top: 150px; display: flex; align-items: center; gap: 30px; }
+  #complete-check { width: 150px; height: 150px; border-radius: 22px; background: var(--red); }
+  #complete-title { font-size: 104px; }
+  #complete-model { position: absolute; left: 160px; bottom: 110px; width: 560px; display: flex; flex-direction: column; align-items: center; }
+  #complete-fig { height: 400px; margin-bottom: -6px; position: relative; z-index: 2; }
+  #complete-pod { width: 100%; display: flex; flex-direction: column; gap: 14px; }
+  .cp-pb { height: 56px; display: flex; align-items: center; justify-content: center; font-size: 24px; border: 3px solid var(--ink); --stud: 56px; }
+  #complete-next { position: absolute; left: 820px; top: 360px; width: 960px; }
+  #complete-nt { font-size: 92px; }
+  #complete-nt b { color: var(--red-ink); }
+  #complete-pls { display: grid; gap: 22px; margin-top: 40px; }
+  .cp-pl { display: flex; align-items: center; gap: 24px; padding: 22px 28px; font-size: 40px; }
+  .cp-pl .qty { min-width: 80px; }
+  [data-width="1080"] #complete-head { left: 72px; top: 270px; }[data-width="1080"] #complete-check { width: 120px; height: 120px; }[data-width="1080"] #complete-title { font-size: 74px; }[data-width="1080"] #complete-model { left: 50%; margin-left: -230px; width: 460px; bottom: 800px; }[data-width="1080"] #complete-fig { height: 340px; }[data-width="1080"] .cp-pb { height: 44px; }[data-width="1080"] #complete-next { left: 72px; top: auto; bottom: 200px; width: 936px; }[data-width="1080"] #complete-nt { font-size: 80px; }[data-width="1080"] .cp-pl { font-size: 34px; }
+  
+
+</style>
+<div id="complete-root" data-composition-id="complete" data-width="1920" data-height="1080">
+  <div class="m-page"><div class="m-dots" id="complete-dots" data-layout-allow-overflow></div>
+    <div class="m-chrome m-mono" id="complete-chrome"><span>Builder Set No. 2026 · Karan Raj KR</span><span>Instructions · 6/7</span></div>
+    <div class="m-rail m-mono" id="complete-rail"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><span>6/6 built</span></div>
+    <div id="complete-head">
+      <svg id="complete-check" viewBox="0 0 150 150"><rect width="150" height="150" rx="22" fill="#ff4a1c"/><path id="complete-tick" d="M38 78 L64 104 L114 46" fill="none" stroke="#141414" stroke-width="16" stroke-linecap="square"/></svg>
+      <div class="m-mask"><div class="m-x" id="complete-title">Build complete</div></div>
+    </div>
+    <div id="complete-model">
+      <img id="complete-fig" src="assets/karan/front.png" alt="" />
+      <div id="complete-pod">
+        <div class="brick b-red cp-pb" id="complete-pb0"><span class="m-mono">KĀRYO</span></div>
+        <div class="brick b-yellow cp-pb" id="complete-pb1"><span class="m-mono">Products</span></div>
+        <div class="brick b-ink cp-pb" id="complete-pb2"><span class="m-mono">Wins</span></div>
+        <div class="brick b-white cp-pb" id="complete-pb3"><span class="m-mono">Community</span></div>
+      </div>
+    </div>
+    <div id="complete-next">
+      <div class="m-mask"><div class="m-x" id="complete-nt">Next build: <b>EDC</b></div></div>
+      <div id="complete-pls">
+        <div class="m-callout cp-pl" id="complete-pl0"><span class="m-mono qty">1x</span><span class="m-n">Campus hackathon this year, then a national one</span></div>
+        <div class="m-callout cp-pl" id="complete-pl1"><span class="m-mono qty">1x</span><span class="m-n">Internships through my company</span></div>
+        <div class="m-callout cp-pl" id="complete-pl2"><span class="m-mono qty">12x</span><span class="m-n">Build &amp; pitch nights — one every month</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  const P = !!document.querySelector('[data-width="1080"]');
+  const rise = (sel, at, d = 0.45) => tl.fromTo(sel, { yPercent: 112 }, { yPercent: 0, duration: d, ease: "power4.out" }, at);
+  const snap = (sel, at, from = -520) => tl.fromTo(sel, { y: from, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: "back.out(1.5)" }, at);
+  const pop = (sel, at) => tl.fromTo(sel, { scale: 0.86, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, at);
+  // page enters: camera drop-in from the previous page, then a slow push
+  tl.fromTo("#complete-root .m-page", { yPercent: 9, scale: 1.02 }, { yPercent: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0);
+  tl.fromTo("#complete-dots", { x: 0, y: 0 }, { x: -30, y: 20, duration: 6, ease: "none" }, 0);
+  if (document.getElementById("complete-chrome")) tl.fromTo("#complete-chrome", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+
+  tl.fromTo("#complete-check", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "power3.out" }, 0.15);
+  const tick = document.getElementById("complete-tick"); const len = 140;
+  tick.style.strokeDasharray = len;
+  tl.fromTo(tick, { strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.35, ease: "power2.out" }, 0.4);
+  rise("#complete-title", 0.3);
+  [3, 2, 1, 0].forEach((i, k) => snap("#complete-pb" + i, 0.5 + k * 0.25, -400));
+  tl.fromTo("#complete-fig", { y: -500, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(1.4)" }, 1.5);
+  rise("#complete-nt", 2.5, 0.5);
+  [0, 1, 2].forEach((i) => pop("#complete-pl" + i, 3.0 + i * 0.5));
+  tl.to("#complete-model", { scale: 1.03, duration: 4, ease: "sine.inOut", transformOrigin: "50% 100%" }, 2);
+  window.__timelines["complete"] = tl;
+})();
+</script>
+</template>
+</body></html>

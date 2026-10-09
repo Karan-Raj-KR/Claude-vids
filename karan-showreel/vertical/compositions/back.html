@@ -1,0 +1,66 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #back-root { position: absolute; inset: 0; }
+
+  .st-head { position: absolute; left: 140px; top: 150px; display: flex; align-items: center; gap: 34px; }
+  .st-badge { width: 150px; height: 150px; font-size: 104px; }
+  .st-title { font-size: 104px; }
+  .callout { padding: 22px 28px; display: flex; align-items: center; gap: 22px; }
+  .qty { font-size: 44px; color: var(--red-ink); }
+  [data-width="1080"] .st-head { left: 72px; top: 270px; gap: 26px; }[data-width="1080"] .st-badge { width: 120px; height: 120px; font-size: 84px; }[data-width="1080"] .st-title { font-size: 74px; }
+  
+
+
+  #back-card { position: absolute; left: 190px; top: 130px; width: 1540px; height: 840px; background: var(--red); border: 6px solid var(--ink); border-radius: 30px; box-shadow: 18px 18px 0 rgba(20,20,20,.16); overflow: hidden; }
+  #back-text { position: absolute; left: 70px; top: 90px; width: 900px; }
+  #back-n1, #back-n2 { font-size: 178px; }
+  #back-tag { font-size: 60px; margin-top: 26px; }
+  #back-links { position: absolute; left: 70px; bottom: 70px; font-size: 40px; background: var(--page); border: 5px solid var(--ink); border-radius: 16px; padding: 18px 28px; }
+  #back-fig { position: absolute; right: 90px; bottom: -8px; height: 640px; }
+  #back-small { position: absolute; right: 70px; top: 54px; font-size: 26px; }
+  [data-width="1080"] #back-card { left: 60px; top: 300px; width: 960px; height: 1380px; }[data-width="1080"] #back-text { left: 50px; top: 120px; width: 860px; }[data-width="1080"] #back-n1, [data-width="1080"] #back-n2 { font-size: 144px; }[data-width="1080"] #back-tag { font-size: 54px; }[data-width="1080"] #back-links { left: 50px; right: 50px; bottom: 600px; font-size: 34px; }[data-width="1080"] #back-fig { right: 50%; margin-right: -230px; height: 560px; }[data-width="1080"] #back-small { right: 50px; top: 40px; }
+  
+
+</style>
+<div id="back-root" data-composition-id="back" data-width="1080" data-height="1920">
+  <div class="m-page"><div class="m-dots" id="back-dots" data-layout-allow-overflow></div>
+    <div id="back-card">
+      <div id="back-small" class="m-mono">Builder Set No. 2026</div>
+      <div id="back-text">
+        <div class="m-mask"><div class="m-x" id="back-n1">Karan</div></div>
+        <div class="m-mask"><div class="m-x" id="back-n2">Raj KR</div></div>
+        <div class="m-mask"><div class="m-n" id="back-tag">Founder, KĀRYO</div></div>
+      </div>
+      <div id="back-links" class="m-mono">karanrajkr.com · @karan.rajkr</div>
+      <img id="back-fig" src="assets/karan/happy.png" alt="" />
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  const P = !!document.querySelector('[data-width="1080"]');
+  const rise = (sel, at, d = 0.45) => tl.fromTo(sel, { yPercent: 112 }, { yPercent: 0, duration: d, ease: "power4.out" }, at);
+  const snap = (sel, at, from = -520) => tl.fromTo(sel, { y: from, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: "back.out(1.5)" }, at);
+  const pop = (sel, at) => tl.fromTo(sel, { scale: 0.86, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, at);
+  // page enters: camera drop-in from the previous page, then a slow push
+  tl.fromTo("#back-root .m-page", { yPercent: 9, scale: 1.02 }, { yPercent: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0);
+  tl.fromTo("#back-dots", { x: 0, y: 0 }, { x: -30, y: 20, duration: 4, ease: "none" }, 0);
+  if (document.getElementById("back-chrome")) tl.fromTo("#back-chrome", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+
+  tl.fromTo("#back-card", { rotationY: 90, opacity: 0.6, transformPerspective: 1600 }, { rotationY: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 0);
+  rise("#back-n1", 0.35, 0.5);
+  rise("#back-n2", 0.45, 0.5);
+  rise("#back-tag", 0.7);
+  tl.fromTo("#back-fig", { y: 420 }, { y: 0, duration: 0.5, ease: "power3.out" }, 0.6);
+  pop("#back-links", 1.0);
+  tl.fromTo("#back-small", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 1.2);
+  tl.to("#back-card", { scale: 1.025, duration: 3, ease: "sine.inOut" }, 1);
+  window.__timelines["back"] = tl;
+})();
+</script>
+</template>
+</body></html>

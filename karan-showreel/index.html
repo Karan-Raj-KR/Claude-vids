@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <link rel="stylesheet" href="assets/manual.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; background: #dce5eb; overflow: hidden; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      [data-composition-id="main"] > div[data-composition-src] { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="40" data-width="1920" data-height="1080">
+      <div id="el-box" data-composition-id="box" data-composition-src="compositions/box.html" data-start="0" data-duration="6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-step1" data-composition-id="step1" data-composition-src="compositions/step1.html" data-start="6" data-duration="4" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-step2" data-composition-id="step2" data-composition-src="compositions/step2.html" data-start="10" data-duration="6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-step3" data-composition-id="step3" data-composition-src="compositions/step3.html" data-start="16" data-duration="8" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-step4" data-composition-id="step4" data-composition-src="compositions/step4.html" data-start="24" data-duration="6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-complete" data-composition-id="complete" data-composition-src="compositions/complete.html" data-start="30" data-duration="6" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-back" data-composition-id="back" data-composition-src="compositions/back.html" data-start="36" data-duration="4" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <audio id="el-score" src="assets/score.wav" data-start="0" data-duration="40" data-track-index="10" data-volume="1"></audio>
+      <div id="el-grain" data-composition-id="grain" data-composition-src="compositions/grain.html" data-start="0" data-duration="40" data-track-index="20" data-width="1920" data-height="1080"></div>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

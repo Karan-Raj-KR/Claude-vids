@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #step2-root { position: absolute; inset: 0; }
+
+  .st-head { position: absolute; left: 140px; top: 150px; display: flex; align-items: center; gap: 34px; }
+  .st-badge { width: 150px; height: 150px; font-size: 104px; }
+  .st-title { font-size: 104px; }
+  .callout { padding: 22px 28px; display: flex; align-items: center; gap: 22px; }
+  .qty { font-size: 44px; color: var(--red-ink); }
+  [data-width="1080"] .st-head { left: 72px; top: 270px; gap: 26px; }[data-width="1080"] .st-badge { width: 120px; height: 120px; font-size: 84px; }[data-width="1080"] .st-title { font-size: 74px; }
+  
+
+
+  #step2-plate { position: absolute; left: 140px; right: 140px; top: 360px; height: 470px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 34px 40px; align-content: start; }
+  .s2-brick { height: 180px; padding: 26px 32px 0; --stud: 70px; border: 4px solid var(--ink); }
+  .s2-name { font-size: 64px; }
+  .s2-line { font-size: 34px; margin-top: 16px; }
+  #step2-prs { position: absolute; left: 140px; bottom: 112px; display: flex; align-items: center; gap: 26px; padding: 18px 30px; }
+  #step2-num { font-size: 120px; color: var(--red-ink); line-height: 1; }
+  #step2-num .hf-number-wheel-digit { height: 1em; }
+  #step2-prs .m-mono { font-size: 30px; line-height: 1.35; }
+  #step2-fig { position: absolute; right: 150px; bottom: 0; height: 300px; }
+  [data-width="1080"] #step2-plate { left: 72px; right: 72px; top: 470px; grid-template-columns: 1fr; gap: 34px; height: auto; }[data-width="1080"] .s2-brick { height: 170px; }[data-width="1080"] .s2-name { font-size: 58px; }[data-width="1080"] .s2-line { font-size: 32px; }[data-width="1080"] #step2-prs { right: 72px; left: 72px; bottom: auto; top: 1310px; }[data-width="1080"] #step2-fig { right: 50px; bottom: 0; height: 330px; }
+  
+
+</style>
+<div id="step2-root" data-composition-id="step2" data-width="1080" data-height="1920">
+  <div class="m-page"><div class="m-dots" id="step2-dots" data-layout-allow-overflow></div>
+    <div class="m-chrome m-mono" id="step2-chrome"><span>Builder Set No. 2026 · Karan Raj KR</span><span>Instructions · 3/7</span></div>
+    <div class="m-rail m-mono" id="step2-rail"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><span>2/6 built</span></div>
+    <div class="st-head" id="step2-head">
+      <div class="m-step m-x st-badge" id="step2-badge">2</div>
+      <div class="m-mask"><div class="m-x st-title" id="step2-title">Ship products</div></div>
+    </div>
+    <div id="step2-plate">
+      <div class="brick b-red s2-brick" id="step2-p0"><div class="m-x s2-name">School ERP</div><div class="m-n s2-line">Live · 41 tables · ~45 routes</div></div>
+      <div class="brick b-yellow s2-brick" id="step2-p1"><div class="m-x s2-name">ClinicDesk</div><div class="m-n s2-line">Dental clinic system</div></div>
+      <div class="brick b-ink s2-brick" id="step2-p2"><div class="m-x s2-name">Eligent</div><div class="m-n s2-line">Finds it, checks eligibility, fills the form</div></div>
+      <div class="brick b-white s2-brick" id="step2-p3"><div class="m-x s2-name">FormPilot</div><div class="m-n s2-line">AI Chrome extension</div></div>
+    </div>
+    <div class="m-callout" id="step2-prs"><span class="m-x" id="step2-num"><span class="hf-number-wheel" data-value="18"></span></span><span class="m-mono">x merged PRs · GSSoC 2026<br />Maintainer · crewai-recipes</span></div>
+    <img id="step2-fig" src="assets/karan/explaining.png" alt="" />
+  </div>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  const P = !!document.querySelector('[data-width="1080"]');
+  const rise = (sel, at, d = 0.45) => tl.fromTo(sel, { yPercent: 112 }, { yPercent: 0, duration: d, ease: "power4.out" }, at);
+  const snap = (sel, at, from = -520) => tl.fromTo(sel, { y: from, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: "back.out(1.5)" }, at);
+  const pop = (sel, at) => tl.fromTo(sel, { scale: 0.86, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, at);
+  // page enters: camera drop-in from the previous page, then a slow push
+  tl.fromTo("#step2-root .m-page", { yPercent: 9, scale: 1.02 }, { yPercent: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0);
+  tl.fromTo("#step2-dots", { x: 0, y: 0 }, { x: -30, y: 20, duration: 6, ease: "none" }, 0);
+  if (document.getElementById("step2-chrome")) tl.fromTo("#step2-chrome", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+  pop("#step2-badge", 0.15);
+  rise("#step2-title", 0.3);
+  // number wheel (registry component): build the digit strips
+  document.querySelectorAll("#step2-root .hf-number-wheel").forEach((el) => {
+    if (el.dataset.ready) return;
+    const v = el.dataset.value; el.textContent = "";
+    for (const ch of v) { const f = document.createElement("span"); f.className = "hf-number-wheel-digit"; f.style.cssText = "display:inline-block;height:1em;overflow:hidden;";
+      const s = document.createElement("span"); s.className = "hf-number-wheel-strip"; s.style.display = "grid"; s.dataset.target = (-100 * (10 + Number(ch))) / (11 + Number(ch));
+      for (let i = 0; i <= 10 + Number(ch); i++) { const d = document.createElement("span"); d.style.cssText = "height:1em;line-height:1em;"; d.textContent = String(i % 10); s.appendChild(d); }
+      f.appendChild(s); el.appendChild(f); }
+    el.dataset.ready = "1";
+  });
+  [0, 1, 2, 3].forEach((i) => snap("#step2-p" + i, 0.5 + i * 0.5, -600));
+  pop("#step2-prs", 2.75);
+  gsap.utils.toArray("#step2-root .hf-number-wheel-strip").forEach((s, i) => {
+    tl.fromTo(s, { yPercent: 0 }, { yPercent: Number(s.dataset.target), duration: 1.0, ease: "power3.out" }, 2.85 + i * 0.08);
+  });
+  tl.fromTo("#step2-fig", { y: 300 }, { y: 0, duration: 0.45, ease: "power3.out" }, 3.0);
+  tl.to("#step2-plate", { scale: 1.02, duration: 3, ease: "sine.inOut", transformOrigin: "50% 50%" }, 2.6);
+  window.__timelines["step2"] = tl;
+})();
+</script>
+</template>
+</body></html>

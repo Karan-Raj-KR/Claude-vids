@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #step1-root { position: absolute; inset: 0; }
+
+  .st-head { position: absolute; left: 140px; top: 150px; display: flex; align-items: center; gap: 34px; }
+  .st-badge { width: 150px; height: 150px; font-size: 104px; }
+  .st-title { font-size: 104px; }
+  .callout { padding: 22px 28px; display: flex; align-items: center; gap: 22px; }
+  .qty { font-size: 44px; color: var(--red-ink); }
+  [data-width="1080"] .st-head { left: 72px; top: 270px; gap: 26px; }[data-width="1080"] .st-badge { width: 120px; height: 120px; font-size: 84px; }[data-width="1080"] .st-title { font-size: 74px; }
+  
+
+
+  #step1-fig { position: absolute; left: 230px; bottom: 190px; height: 600px; }
+  #step1-slot { position: absolute; left: 150px; bottom: 136px; width: 540px; height: 70px; --stud: 90px; }
+  #step1-callout { position: absolute; right: 140px; top: 340px; }
+  #step1-callout .brick { width: 300px; height: 96px; display: flex; align-items: center; justify-content: center; font-size: 52px; --stud: 75px; }
+  #step1-lines { position: absolute; left: 820px; top: 530px; width: 960px; }
+  #step1-l1 { font-size: 120px; }
+  #step1-l2 { font-size: 56px; margin-top: 30px; }
+  #step1-l3 { font-size: 30px; color: var(--muted); margin-top: 24px; }
+  #step1-arrow { position: absolute; right: 290px; top: 330px; width: 120px; height: 90px; }
+  [data-width="1080"] #step1-callout { right: 72px; top: 450px; }[data-width="1080"] #step1-arrow { display: none; }[data-width="1080"] #step1-lines { left: 72px; top: 640px; width: 936px; }[data-width="1080"] #step1-l1 { font-size: 96px; }[data-width="1080"] #step1-l2 { font-size: 48px; }[data-width="1080"] #step1-fig { left: 50%; margin-left: -200px; bottom: 260px; height: 560px; }[data-width="1080"] #step1-slot { left: 50%; margin-left: -270px; bottom: 210px; }
+  
+
+</style>
+<div id="step1-root" data-composition-id="step1" data-width="1920" data-height="1080">
+  <div class="m-page"><div class="m-dots" id="step1-dots" data-layout-allow-overflow></div>
+    <div class="m-chrome m-mono" id="step1-chrome"><span>Builder Set No. 2026 · Karan Raj KR</span><span>Instructions · 2/7</span></div>
+    <div class="m-rail m-mono" id="step1-rail"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><span>1/6 built</span></div>
+    <div class="st-head" id="step1-head">
+      <div class="m-step m-x st-badge" id="step1-badge">1</div>
+      <div class="m-mask"><div class="m-x st-title" id="step1-title">Start a company</div></div>
+    </div>
+    <div class="m-callout callout" id="step1-callout"><span class="m-mono qty">1x</span><div class="brick b-red m-x" id="step1-brick">KĀRYO</div></div>
+    <div class="brick b-red" id="step1-slot"></div>
+    <img id="step1-fig" src="assets/karan/three-quarter.png" alt="" />
+    <div id="step1-lines">
+      <div class="m-mask"><div class="m-x" id="step1-l1">Founder, KĀRYO</div></div>
+      <div class="m-mask"><div class="m-n" id="step1-l2">6-figure revenue from products &amp; agencies</div></div>
+      <div class="m-mask"><div class="m-mono" id="step1-l3">B.Tech CSE (AI/ML) · NIAT–S-VYASA University</div></div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  const P = !!document.querySelector('[data-width="1080"]');
+  const rise = (sel, at, d = 0.45) => tl.fromTo(sel, { yPercent: 112 }, { yPercent: 0, duration: d, ease: "power4.out" }, at);
+  const snap = (sel, at, from = -520) => tl.fromTo(sel, { y: from, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: "back.out(1.5)" }, at);
+  const pop = (sel, at) => tl.fromTo(sel, { scale: 0.86, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, at);
+  // page enters: camera drop-in from the previous page, then a slow push
+  tl.fromTo("#step1-root .m-page", { yPercent: 9, scale: 1.02 }, { yPercent: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0);
+  tl.fromTo("#step1-dots", { x: 0, y: 0 }, { x: -30, y: 20, duration: 4, ease: "none" }, 0);
+  if (document.getElementById("step1-chrome")) tl.fromTo("#step1-chrome", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+  pop("#step1-badge", 0.15);
+  rise("#step1-title", 0.3);
+  pop("#step1-callout", 0.5);
+  tl.fromTo("#step1-fig", { y: 90, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 0.35);
+  snap("#step1-slot", 1.0, -700);
+  rise("#step1-l1", 1.0, 0.5);
+  rise("#step1-l2", 1.5);
+  rise("#step1-l3", 2.0);
+  tl.to("#step1-fig", { y: -6, duration: 0.12, ease: "power2.out", yoyo: true, repeat: 1 }, 1.36);
+  window.__timelines["step1"] = tl;
+})();
+</script>
+</template>
+</body></html>

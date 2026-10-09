@@ -1,0 +1,70 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #box-root { position: absolute; inset: 0; }
+  #box-card { position: absolute; left: 190px; top: 130px; width: 1540px; height: 840px; background: var(--page); border: 6px solid var(--ink); border-radius: 30px; box-shadow: 18px 18px 0 rgba(20,20,20,.16); overflow: hidden; transform-origin: 50% 55%; }
+  #box-band { position: absolute; left: 0; right: 0; top: 0; height: 150px; background: var(--red); display: flex; align-items: center; justify-content: space-between; padding: 0 56px; border-bottom: 6px solid var(--ink); }
+  #box-band .m-x { font-size: 84px; }
+  #box-no { background: var(--yellow); border: 5px solid var(--ink); border-radius: 999px; padding: 14px 34px; font-size: 40px; }
+  #box-text { position: absolute; left: 70px; top: 210px; width: 900px; }
+  #box-n1, #box-n2 { font-size: 172px; }
+  #box-tag { font-size: 58px; margin-top: 26px; }
+  #box-chips { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 44px; }
+  .box-chip { display: flex; align-items: center; gap: 14px; background: #fff; border: 4px solid var(--ink); border-radius: 14px; padding: 12px 20px; font-size: 30px; }
+  .box-chip b { display: block; width: 30px; height: 18px; border-radius: 4px; background: var(--red); }
+  .box-chip:nth-child(2) b { background: var(--yellow); }
+  .box-chip:nth-child(3) b { background: #222; }
+  #box-fig { position: absolute; right: 120px; bottom: 96px; height: 610px; }
+  #box-podium { position: absolute; right: 70px; bottom: 30px; width: 480px; height: 70px; --stud: 80px; }
+  #box-ages { position: absolute; left: 70px; bottom: 44px; font-size: 26px; color: var(--muted); }
+  #box-flash { position: absolute; inset: 0; background: var(--bg); opacity: 0; }
+  [data-width="1080"] #box-card { left: 60px; top: 300px; width: 960px; height: 1380px; }[data-width="1080"] #box-band { height: 130px; padding: 0 40px; }[data-width="1080"] #box-band .m-x { font-size: 60px; }[data-width="1080"] #box-no { font-size: 30px; padding: 10px 24px; }[data-width="1080"] #box-text { left: 50px; top: 180px; width: 860px; }[data-width="1080"] #box-n1, [data-width="1080"] #box-n2 { font-size: 140px; }[data-width="1080"] #box-tag { font-size: 52px; }[data-width="1080"] #box-chips { gap: 14px; margin-top: 30px; }[data-width="1080"] .box-chip { font-size: 28px; }[data-width="1080"] #box-fig { right: 50%; margin-right: -170px; bottom: 120px; height: 560px; }[data-width="1080"] #box-podium { right: 50%; margin-right: -230px; bottom: 56px; width: 460px; }[data-width="1080"] #box-ages { left: 50px; bottom: 28px; }
+  
+</style>
+<div id="box-root" data-composition-id="box" data-width="1080" data-height="1920">
+  <div class="m-page"><div class="m-dots" id="box-dots" data-layout-allow-overflow></div>
+    <div id="box-card">
+      <div id="box-band"><div class="m-mask"><span class="m-x" id="box-set">Builder Set</span></div><div id="box-no" class="m-mono">No. 2026</div></div>
+      <div id="box-text">
+        <div class="m-mask"><div class="m-x" id="box-n1">Karan</div></div>
+        <div class="m-mask"><div class="m-x" id="box-n2">Raj KR</div></div>
+        <div class="m-mask"><div class="m-n" id="box-tag">Founder, KĀRYO</div></div>
+        <div id="box-chips" class="m-mono">
+          <div class="box-chip"><b></b>4 products</div>
+          <div class="box-chip"><b></b>18 merged PRs</div>
+          <div class="box-chip"><b></b>120+ at one event</div>
+        </div>
+      </div>
+      <div class="brick b-red" id="box-podium"></div>
+      <img id="box-fig" src="assets/karan/front.png" alt="" />
+    </div>
+    <div id="box-flash"></div>
+  </div>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  const P = !!document.querySelector('[data-width="1080"]');
+  tl.fromTo("#box-card", { y: -1100, rotation: -6 }, { y: 0, rotation: -1.2, duration: 0.6, ease: "back.out(1.25)" }, 0);
+  tl.fromTo("#box-set", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power4.out" }, 0.5);
+  tl.fromTo("#box-no", { scale: 0.6, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: 6, duration: 0.45, ease: "power3.out" }, 0.75);
+  tl.fromTo("#box-n1", { yPercent: 110 }, { yPercent: 0, duration: 0.5, ease: "power4.out" }, 1.0);
+  tl.fromTo("#box-n2", { yPercent: 110 }, { yPercent: 0, duration: 0.5, ease: "power4.out" }, 1.12);
+  tl.fromTo("#box-tag", { yPercent: 110 }, { yPercent: 0, duration: 0.45, ease: "power4.out" }, 1.4);
+  tl.fromTo("#box-podium", { y: 160, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, 1.0);
+  tl.fromTo("#box-fig", { y: 120, opacity: 0, scale: 0.92 }, { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 1.25);
+  gsap.utils.toArray("#box-chips .box-chip").forEach((el, i) => {
+    tl.fromTo(el, { y: 40, opacity: 0, scale: 0.88 }, { y: 0, opacity: 1, scale: 1, duration: 0.35, ease: "power3.out" }, 2.0 + i * 0.25);
+  });
+  tl.fromTo("#box-dots", { x: 0, y: 0 }, { x: 24, y: 16, duration: 6, ease: "none" }, 0);
+  tl.to("#box-card", { scale: 1.04, duration: 3.9, ease: "sine.inOut" }, 0.6);
+  // push-through into the instructions
+  tl.to("#box-card", { scale: 3.2, rotation: 0, duration: 1.0, ease: "power3.in" }, 5.0);
+  tl.to("#box-flash", { opacity: 1, duration: 0.3, ease: "power1.in" }, 5.7);
+  window.__timelines["box"] = tl;
+})();
+</script>
+</template>
+</body></html>

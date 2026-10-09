@@ -1,0 +1,96 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #step4-root { position: absolute; inset: 0; }
+
+  .st-head { position: absolute; left: 140px; top: 150px; display: flex; align-items: center; gap: 34px; }
+  .st-badge { width: 150px; height: 150px; font-size: 104px; }
+  .st-title { font-size: 104px; }
+  .callout { padding: 22px 28px; display: flex; align-items: center; gap: 22px; }
+  .qty { font-size: 44px; color: var(--red-ink); }
+  [data-width="1080"] .st-head { left: 72px; top: 270px; gap: 26px; }[data-width="1080"] .st-badge { width: 120px; height: 120px; font-size: 84px; }[data-width="1080"] .st-title { font-size: 74px; }
+  
+
+
+  #step4-events { position: absolute; left: 140px; right: 140px; top: 340px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+  .s4-ev { height: 190px; padding: 20px 24px; display: flex; flex-direction: column; justify-content: space-between; border: 4px solid var(--ink); --stud: 64px; }
+  .s4-ev .m-x { font-size: 36px; line-height: 1; }
+  .s4-ev .m-mono { font-size: 26px; }
+  #step4-crowd { position: absolute; right: 140px; bottom: 140px; width: 760px; display: grid; grid-template-columns: repeat(20, 1fr); gap: 7px; }
+  .s4-p { display: block; aspect-ratio: 1; border-radius: 8px; background: var(--ink); box-shadow: inset 0 -5px 0 rgba(0,0,0,.25); }
+  .s4-p.r { background: var(--red); }
+  #step4-count { position: absolute; left: 140px; bottom: 270px; display: flex; align-items: flex-end; }
+  #step4-num { font-size: 260px; color: var(--red-ink); line-height: 0.85; }
+  #step4-plus { font-size: 260px; color: var(--red-ink); line-height: 0.85; }
+  #step4-cap { position: absolute; left: 140px; bottom: 140px; width: 780px; }
+  #step4-cap1 { font-size: 52px; }
+  #step4-cap2 { font-size: 40px; margin-top: 8px; }
+  [data-width="1080"] #step4-events { left: 72px; right: 72px; top: 450px; grid-template-columns: repeat(2, 1fr); gap: 22px 22px; }[data-width="1080"] .s4-ev { height: 170px; }[data-width="1080"] .s4-ev .m-x { font-size: 38px; }[data-width="1080"] #step4-crowd { left: 72px; right: 72px; width: auto; bottom: auto; top: 1080px; grid-template-columns: repeat(15, 1fr); }[data-width="1080"] #step4-count { left: 72px; bottom: auto; top: 850px; }[data-width="1080"] #step4-num, [data-width="1080"] #step4-plus { font-size: 200px; }[data-width="1080"] #step4-cap { left: 72px; bottom: auto; top: 1620px; width: 936px; }[data-width="1080"] #step4-cap1 { font-size: 48px; }
+  
+
+</style>
+<div id="step4-root" data-composition-id="step4" data-width="1920" data-height="1080">
+  <div class="m-page"><div class="m-dots" id="step4-dots" data-layout-allow-overflow></div>
+    <div class="m-chrome m-mono" id="step4-chrome"><span>Builder Set No. 2026 · Karan Raj KR</span><span>Instructions · 5/7</span></div>
+    <div class="m-rail m-mono" id="step4-rail"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><span>4/6 built</span></div>
+    <div class="st-head" id="step4-head">
+      <div class="m-step m-x st-badge" id="step4-badge">4</div>
+      <div class="m-mask"><div class="m-x st-title" id="step4-title">Bring people in</div></div>
+    </div>
+    <div id="step4-events">
+      <div class="brick b-red s4-ev" id="step4-e0"><span class="m-mono">01</span><span class="m-x">IPL Auction</span></div>
+      <div class="brick b-yellow s4-ev" id="step4-e1"><span class="m-mono">02</span><span class="m-x">30-Min Build + Pitch</span></div>
+      <div class="brick b-white s4-ev" id="step4-e2"><span class="m-mono">03</span><span class="m-x">Every Team Sponsored</span></div>
+      <div class="brick b-ink s4-ev" id="step4-e3"><span class="m-mono">04</span><span class="m-x">Debate &amp; Rebrand</span></div>
+    </div>
+    <div id="step4-count"><span class="m-x" id="step4-num"><span class="hf-number-wheel" data-value="120"></span></span><span class="m-x" id="step4-plus">+</span></div>
+    <div id="step4-crowd"><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p"></i><i class="s4-p r"></i><i class="s4-p"></i><i class="s4-p"></i></div>
+    <div id="step4-cap">
+      <div class="m-mask"><div class="m-x" id="step4-cap1">at our biggest event</div></div>
+      <div class="m-mask"><div class="m-n" id="step4-cap2">— and teams kept building after.</div></div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const tl = gsap.timeline({ paused: true });
+  const P = !!document.querySelector('[data-width="1080"]');
+  const rise = (sel, at, d = 0.45) => tl.fromTo(sel, { yPercent: 112 }, { yPercent: 0, duration: d, ease: "power4.out" }, at);
+  const snap = (sel, at, from = -520) => tl.fromTo(sel, { y: from, opacity: 0 }, { y: 0, opacity: 1, duration: 0.36, ease: "back.out(1.5)" }, at);
+  const pop = (sel, at) => tl.fromTo(sel, { scale: 0.86, opacity: 0, y: 24 }, { scale: 1, opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, at);
+  // page enters: camera drop-in from the previous page, then a slow push
+  tl.fromTo("#step4-root .m-page", { yPercent: 9, scale: 1.02 }, { yPercent: 0, scale: 1, duration: 0.5, ease: "expo.out" }, 0);
+  tl.fromTo("#step4-dots", { x: 0, y: 0 }, { x: -30, y: 20, duration: 6, ease: "none" }, 0);
+  if (document.getElementById("step4-chrome")) tl.fromTo("#step4-chrome", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.1);
+  pop("#step4-badge", 0.15);
+  rise("#step4-title", 0.3);
+  document.querySelectorAll("#step4-root .hf-number-wheel").forEach((el) => {
+    if (el.dataset.ready) return;
+    const v = el.dataset.value; el.textContent = "";
+    for (const ch of v) { const f = document.createElement("span"); f.style.cssText = "display:inline-block;height:1em;overflow:hidden;";
+      const s = document.createElement("span"); s.className = "hf-number-wheel-strip"; s.style.display = "grid"; s.dataset.target = (-100 * (10 + Number(ch))) / (11 + Number(ch));
+      for (let i = 0; i <= 10 + Number(ch); i++) { const d = document.createElement("span"); d.style.cssText = "height:1em;line-height:1em;"; d.textContent = String(i % 10); s.appendChild(d); }
+      f.appendChild(s); el.appendChild(f); }
+    el.dataset.ready = "1";
+  });
+  [0, 1, 2, 3].forEach((i) => snap("#step4-e" + i, 0.5 + i * 0.25, -500));
+  const ppl = gsap.utils.toArray("#step4-crowd .s4-p");
+  ppl.forEach((p, k) => {
+    const cols = P ? 15 : 20, r = Math.floor(k / cols), c = k % cols;
+    const d = Math.hypot(r - (P ? 4 : 3), c - cols / 2);
+    tl.fromTo(p, { scale: 0.5, opacity: 0, y: -30 }, { scale: 1, opacity: 1, y: 0, duration: 0.22, ease: "power3.out" }, 2.0 + d * 0.11);
+  });
+  gsap.utils.toArray("#step4-root .hf-number-wheel-strip").forEach((s, i) => {
+    tl.fromTo(s, { yPercent: 0 }, { yPercent: Number(s.dataset.target), duration: 1.6, ease: "power2.out" }, 2.0 + i * 0.06);
+  });
+  tl.fromTo("#step4-count", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, 1.9);
+  tl.fromTo("#step4-plus", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(2)" }, 3.6);
+  rise("#step4-cap1", 3.2);
+  rise("#step4-cap2", 3.6);
+  window.__timelines["step4"] = tl;
+})();
+</script>
+</template>
+</body></html>
