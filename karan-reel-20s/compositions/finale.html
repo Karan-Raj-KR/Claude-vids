@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #finale-root { position: absolute; inset: 0; }
+
+</style>
+<div id="finale-root" data-composition-id="finale" data-width="1920" data-height="1080">
+  <div class="r-stage" id="finale-stage"><div class="r-rig" id="finale-rig">
+
+    <div class="r-shot bg-ink" id="f0"><div class="X fit c-paper" data-fit="0.8" id="f0t">Next build:</div></div>
+    <div class="r-shot bg-red" id="f1"><div class="X c-ink fit" data-fit="0.8" data-max="720" id="f1t" style="line-height:.8">EDC</div></div>
+    <div class="r-shot bg-yellow" id="f2"><div class="r-col" id="f2c"><div class="M" style="font-size:36px">Promise 1/3</div><div class="X fit c-ink" data-fit="0.88" id="f2t">Hackathons</div>
+      <div class="N" style="font-size:46px;margin-top:20px">Campus this year · then national</div></div></div>
+    <div class="r-shot bg-paper" id="f3"><div class="r-col" id="f3c"><div class="M" style="font-size:36px">Promise 2/3</div><div class="X fit c-red" data-fit="0.88" id="f3t">Internships</div>
+      <div class="N" style="font-size:46px;margin-top:20px">For students, through my company</div></div></div>
+    <div class="r-shot bg-red" id="f4"><div class="r-col" id="f4c"><div class="M" style="font-size:36px">Promise 3/3</div><div class="X fit c-ink" data-fit="0.88" id="f4t">Build &amp; Pitch</div>
+      <div class="N" style="font-size:46px;margin-top:20px">Every month · ideas into products</div></div></div>
+    <div class="r-shot bg-ink" id="f9">
+      <div class="r-row X c-paper" id="f9m1" style="top:3%;opacity:.12">Builds · Ships · Wins · Brings people in · Builds · Ships · Wins · Brings people in ·</div>
+      <div id="f9burst" style="position:absolute;inset:0"></div>
+      <div class="r-col" id="f9c" style="position:relative;z-index:3">
+        <div class="X fit c-paper" data-fit="0.5" data-fitv="0.86" id="f9a">Karan</div>
+        <div class="X fit c-red" data-fit="0.5" data-fitv="0.86" id="f9b">Raj KR</div>
+        <div class="r-chip bg-red M" id="f9tag" style="font-size:38px;margin-top:26px;color:#121212">Founder, KĀRYO</div>
+        <div class="M c-paper" id="f9l" style="font-size:40px;margin-top:22px">karanrajkr.com · @karan.rajkr</div>
+      </div>
+      <img class="r-kar" id="f9k" src="assets/karan/happy.png" />
+    </div>
+  </div><div class="r-flash" id="finale-flash"></div></div>
+</div>
+<script>
+R.ready().then(() => R.fitAllAsync(document.getElementById("finale-root"))).then(function () {
+  const root = document.getElementById("finale-root");
+  const W = Number(root.getAttribute("data-width")), H = Number(root.getAttribute("data-height")), V = H > W;
+  const $ = (s) => root.querySelector(s), $$ = (s) => Array.from(root.querySelectorAll(s));
+  const tl = gsap.timeline({ paused: true });
+  const FL = $("#finale-flash"), RIG = $("#finale-rig");
+
+  R.cut(tl, "#f0", 0, 0.4); R.whip(tl, "#f0t", 0, -1);
+  R.cut(tl, "#f1", 0.4, 0.4); const e = $("#f1t"); R.slam(tl, e, 0.4, 3, 8); R.flash(tl, FL, 0.4, 0.9); R.shake(tl, RIG, 0.4, 0.4, 3);
+  [2, 3, 4].forEach((i, k) => { const at = 0.8 + k * 0.4; R.cut(tl, "#f" + i, at, 0.4); if (k === 1) R.whipV(tl, "#f" + i + "c", at, -1, 1.1, 0.2); else R.whip(tl, "#f" + i + "c", at, k ? -1 : 1, 1.1, 0.2); R.punch(tl, "#f" + i + "t", at + 0.2, 1.05); });
+  // lockup: zoom-through into the name, burst, then hold
+  R.cut(tl, "#f9", 2.0, null);
+  $("#f9m1").style.fontSize = (V ? 120 : 160) + "px";
+  if (!V) { $("#f9c").style.alignItems = "flex-start"; $("#f9c").style.marginRight = "640px"; } else { $("#f9c").style.marginTop = "-720px"; }
+  tl.fromTo("#f9c", { scale: 4, filter: "blur(30px)", opacity: 0 }, { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.45, ease: "expo.out" }, 2.0);
+  R.flash(tl, FL, 2.0, 0.9); R.shake(tl, RIG, 2.0, 0.6, 2.6);
+  R.burst(tl, $("#f9burst"), 2.05, 40, W / 2, H / 2, V ? 700 : 950, ["#ff4a1c", "#ffc629", "#f2ede3"], 30);
+  const kf = $("#f9k"); const kfH = V ? 700 : 760; kf.style.height = kfH + "px"; kf.style.left = (V ? W / 2 - kfH * 0.455 : W - kfH * 1.0) + "px"; kf.style.top = (H - kfH + 6) + "px";
+  R.pop(tl, kf, 2.2, 900, 0.36);
+  tl.fromTo("#f9tag", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(2)" }, 2.4);
+  tl.fromTo("#f9l", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.25 }, 2.6);
+  R.marquee(tl, "#f9m1", 2.0, 3.2, 0, -900);
+  tl.to("#f9c", { y: -10, duration: 2.6, ease: "sine.inOut" }, 2.6);
+  tl.fromTo(kf, { rotation: 0 }, { rotation: 3, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: 5, transformOrigin: "50% 100%" }, 2.8);
+  window.__timelines["finale"] = tl;
+});
+</script>
+</template>
+</body></html>

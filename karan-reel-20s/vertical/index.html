@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <script src="assets/vendor/camera-shake.js"></script>
+    <script src="assets/reel.js"></script>
+    <link rel="stylesheet" href="assets/reel.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; background: #121212; overflow: hidden; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; }
+      [data-composition-id="main"] > div[data-composition-src] { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="20" data-width="1080" data-height="1920">
+      <div id="el-hook" data-composition-id="hook" data-composition-src="compositions/hook.html" data-start="0" data-duration="2.4" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-builds" data-composition-id="builds" data-composition-src="compositions/builds.html" data-start="2.4" data-duration="4.0" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-wins" data-composition-id="wins" data-composition-src="compositions/wins.html" data-start="6.4" data-duration="5.6" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-people" data-composition-id="people" data-composition-src="compositions/people.html" data-start="12.0" data-duration="2.8" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="el-finale" data-composition-id="finale" data-composition-src="compositions/finale.html" data-start="14.8" data-duration="5.2" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <audio id="el-score" src="assets/score.wav" data-start="0" data-duration="20" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

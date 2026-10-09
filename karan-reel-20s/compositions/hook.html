@@ -1,0 +1,52 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #hook-root { position: absolute; inset: 0; }
+
+</style>
+<div id="hook-root" data-composition-id="hook" data-width="1920" data-height="1080">
+  <div class="r-stage" id="hook-stage"><div class="r-rig" id="hook-rig">
+
+    <div class="r-shot bg-ink" id="h1"><div class="X fit" data-fit="0.8" id="h1t">Don’t</div></div>
+    <div class="r-shot bg-yellow" id="h2"><div class="X fit" data-fit="0.82" id="h2t">just</div></div>
+    <div class="r-shot bg-red" id="h3"><div style="position:relative"><div class="X fit c-ink" data-fit="0.84" id="h3t">talk.</div><i id="h3s" style="position:absolute;left:-4%;right:-4%;top:46%;height:9%;background:#f2ede3;transform-origin:0 50%;display:block"></i></div></div>
+    <div class="r-shot bg-paper" id="h4">
+      <div class="r-row X c-ink" id="h4m1" style="top:4%;opacity:.13">Karan Raj KR · Founder, KĀRYO · Karan Raj KR · Founder, KĀRYO · Karan Raj KR · Founder, KĀRYO ·</div>
+      <div class="r-row X c-ink" id="h4m2" style="bottom:4%;opacity:.13">Builds · Ships · Wins · Builds · Ships · Wins · Builds · Ships · Wins · Builds · Ships ·</div>
+      <div class="X fit c-red" data-fit="0.92" id="h4t">Build.</div>
+      <div id="h4burst" style="position:absolute;inset:0"></div>
+      <img class="r-kar" id="h4k" src="assets/karan/front.png" />
+      <div class="r-chip bg-ink M" id="h4tag" style="position:absolute;font-size:34px">Karan Raj KR · Founder, KĀRYO</div>
+    </div>
+  </div><div class="r-flash" id="hook-flash"></div></div>
+</div>
+<script>
+R.ready().then(() => R.fitAllAsync(document.getElementById("hook-root"))).then(function () {
+  const root = document.getElementById("hook-root");
+  const W = Number(root.getAttribute("data-width")), H = Number(root.getAttribute("data-height")), V = H > W;
+  const $ = (s) => root.querySelector(s), $$ = (s) => Array.from(root.querySelectorAll(s));
+  const tl = gsap.timeline({ paused: true });
+  const FL = $("#hook-flash"), RIG = $("#hook-rig");
+
+  [["#h4m1"], ["#h4m2"]].forEach(([s]) => { $(s).style.fontSize = (V ? 120 : 150) + "px"; });
+  const kH = V ? 980 : 760; const k = $("#h4k"); k.style.height = kH + "px"; k.style.left = (W / 2 - kH * 0.306) + "px"; k.style.top = (H * (V ? 0.88 : 0.97) - kH) + "px";
+  const tag = $("#h4tag"); tag.style.left = "50%"; tag.style.bottom = (V ? 170 : 60) + "px"; tag.style.transform = "translateX(-50%)";
+  R.cut(tl, "#h1", 0, 0.4); R.slam(tl, "#h1t", 0, 2.2);
+  R.cut(tl, "#h2", 0.4, 0.4); R.whip(tl, "#h2t", 0.4, 1);
+  R.cut(tl, "#h3", 0.8, 0.4); R.slam(tl, "#h3t", 0.8, 0.6); tl.fromTo("#h3s", { scaleX: 0 }, { scaleX: 1, duration: 0.12, ease: "expo.out" }, 1.0);
+  R.cut(tl, "#h4", 1.2, 1.2); R.slam(tl, "#h4t", 1.2, 2.4, -6);
+  R.marquee(tl, "#h4m1", 1.2, 1.2, 0, -900); R.marquee(tl, "#h4m2", 1.2, 1.2, -1400, -500);
+  tl.fromTo(k, { y: -H * 1.2 }, { y: 0, duration: 0.3, ease: "back.out(1.3)" }, 1.4);
+  R.burst(tl, $("#h4burst"), 1.66, 26, W / 2, H * (V ? 0.86 : 0.93), V ? 520 : 700, ["#ff4a1c", "#ffc629", "#121212"]);
+  R.flash(tl, FL, 1.2, 0.6);
+  R.shake(tl, RIG, 1.66, 0.4, 2.4);
+  tl.fromTo(tag, { yPercent: 160, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.2, ease: "expo.out" }, 1.8);
+  R.punch(tl, "#h4t", 1.66, 1.06);
+  tl.to("#h4 > *", { xPercent: -30, filter: "blur(16px)", duration: 0.16, ease: "power3.in" }, 2.24);
+  window.__timelines["hook"] = tl;
+});
+</script>
+</template>
+</body></html>

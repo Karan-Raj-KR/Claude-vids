@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #people-root { position: absolute; inset: 0; }
+
+  #people-root #ecards { position: absolute; inset: 0; }
+</style>
+<div id="people-root" data-composition-id="people" data-width="1920" data-height="1080">
+  <div class="r-stage" id="people-stage"><div class="r-rig" id="people-rig">
+
+    <div class="r-shot bg-ink" id="e">
+      <div class="X fit c-paper" data-fit="0.84" id="et" style="position:absolute;top:9%">Co-led 4+ events</div>
+      <div id="ecards">
+      <div class="pe-card" id="e0" style="background:#ff4a1c;color:#121212"><span class="M" style="font-size:30px">01</span><span class="X" style="font-size:52px;white-space:normal;line-height:.95">IPL Auction</span></div>
+      <div class="pe-card" id="e1" style="background:#ffc629;color:#121212"><span class="M" style="font-size:30px">02</span><span class="X" style="font-size:52px;white-space:normal;line-height:.95">30-min Build + Pitch</span></div>
+      <div class="pe-card" id="e2" style="background:#f2ede3;color:#121212"><span class="M" style="font-size:30px">03</span><span class="X" style="font-size:52px;white-space:normal;line-height:.95">Every Team Sponsored</span></div>
+      <div class="pe-card" id="e3" style="background:#3a3a3a;color:#f2ede3"><span class="M" style="font-size:30px">04</span><span class="X" style="font-size:52px;white-space:normal;line-height:.95">Debate &amp; Rebrand</span></div>
+      </div></div>
+    <div class="r-shot bg-paper" id="c">
+      <div id="cgrid"><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i><i class="pe-p"></i></div>
+      <div class="r-col" id="cc" style="position:relative;z-index:2"><div class="X c-redink fit" data-fit="0.62" data-max="420" id="cn" style="line-height:.8">120+</div>
+      <div class="X fit c-ink" data-fit="0.7" id="cl">at our biggest event</div>
+      <div class="N" style="font-size:44px;margin-top:16px">and teams kept building after.</div></div>
+    </div>
+  </div><div class="r-flash" id="people-flash"></div></div>
+</div>
+<script>
+R.ready().then(() => R.fitAllAsync(document.getElementById("people-root"))).then(function () {
+  const root = document.getElementById("people-root");
+  const W = Number(root.getAttribute("data-width")), H = Number(root.getAttribute("data-height")), V = H > W;
+  const $ = (s) => root.querySelector(s), $$ = (s) => Array.from(root.querySelectorAll(s));
+  const tl = gsap.timeline({ paused: true });
+  const FL = $("#people-flash"), RIG = $("#people-rig");
+
+  const cw = V ? 440 : 400, ch = V ? 330 : 300;
+  $$(".pe-card").forEach((c, i) => {
+    const col = V ? i % 2 : i, row = V ? Math.floor(i / 2) : 0, n = V ? 2 : 4;
+    const totalW = n * cw + (n - 1) * 30;
+    c.style.cssText += `;position:absolute;width:${cw}px;height:${ch}px;left:${(W - totalW) / 2 + col * (cw + 30)}px;top:${(V ? 560 : 430) + row * (ch + 30)}px;border-radius:18px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:12px 12px 0 rgba(0,0,0,.35)`;
+  });
+  R.cut(tl, "#e", 0, 1.2); R.whip(tl, "#et", 0, -1);
+  [0, 1, 2, 3].forEach((i) => tl.fromTo("#e" + i, { y: H, rotation: (i - 1.5) * 24, scale: 0.8 }, { y: 0, rotation: (i - 1.5) * 2.5, scale: 1, duration: 0.3, ease: "back.out(1.4)" }, 0.12 + i * 0.2));
+  R.shake(tl, RIG, 0.12, 0.8, 0.8);
+  // crowd: 120 squares explode from the centre into a grid behind the counter
+  R.cut(tl, "#c", 1.2, 1.6);
+  const cols = V ? 10 : 15, cs = V ? 74 : 92, gp = V ? 12 : 14;
+  const gw = cols * cs + (cols - 1) * gp, rowsN = Math.ceil(120 / cols), gh = rowsN * cs + (rowsN - 1) * gp;
+  const grid = $("#cgrid"); grid.style.cssText = `position:absolute;left:${(W - gw) / 2}px;top:${(H - gh) / 2}px;width:${gw}px;height:${gh}px`;
+  $$(".pe-p").forEach((p, k) => {
+    const r = Math.floor(k / cols), c = k % cols, x = c * (cs + gp), y = r * (cs + gp);
+    p.style.cssText = `position:absolute;left:${x}px;top:${y}px;width:${cs}px;height:${cs}px;border-radius:12px;background:${k % 7 === 3 ? "#ff4a1c" : "#121212"};opacity:.14`;
+    tl.fromTo(p, { x: gw / 2 - x - cs / 2, y: gh / 2 - y - cs / 2, scale: 0.2, rotation: (R.seeded(k) - 0.5) * 360 }, { x: 0, y: 0, scale: 1, rotation: 0, duration: 0.5, ease: "expo.out" }, 1.2 + R.seeded(k + 4) * 0.45);
+  });
+  const cn = $("#cn"); const cv = { v: 0 };
+  tl.fromTo(cv, { v: 0 }, { v: 120, duration: 0.7, ease: "power2.out", onUpdate: () => { cn.textContent = Math.round(cv.v) + (cv.v >= 119.5 ? "+" : ""); } }, 1.2);
+  tl.fromTo(cn, { scale: 0.6, filter: "blur(12px)" }, { scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power2.out" }, 1.2);
+  R.punch(tl, cn, 1.9, 1.15); R.flash(tl, FL, 1.9, 0.5); R.shake(tl, RIG, 1.9, 0.35, 2.2);
+  R.slam(tl, "#cl", 2.0, 1.6);
+  window.__timelines["people"] = tl;
+});
+</script>
+</template>
+</body></html>

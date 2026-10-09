@@ -1,0 +1,94 @@
+<!doctype html>
+<html><head><meta charset="UTF-8" /></head>
+<body>
+<template>
+<style>
+  #builds-root { position: absolute; inset: 0; }
+
+  #builds-root .ui { position: absolute; right: 7%; bottom: 9%; width: 380px; padding: 26px; background: #121212; border-radius: 18px; display: grid; gap: 14px; box-shadow: 14px 14px 0 rgba(0,0,0,.25); }
+  #builds-root .bg-ink .ui { background: #2a2a2a; }
+  #builds-root .ui b { display: block; height: 22px; border-radius: 6px; background: #ff4a1c; transform-origin: 0 50%; }
+  #builds-root .ui b:nth-child(2n) { background: #f2ede3; width: 72%; }
+  #builds-root .ui b:nth-child(3n) { background: #ffc629; width: 54%; }
+  #builds-root .r-col { position: relative; z-index: 2; }
+  [data-width="1080"] #builds-root .ui { right: auto; left: 50%; margin-left: -190px; bottom: 7%; }
+</style>
+<div id="builds-root" data-composition-id="builds" data-width="1920" data-height="1080">
+  <div class="r-stage" id="builds-stage"><div class="r-rig" id="builds-rig">
+
+    <div class="r-shot bg-ink" id="b1">
+      <div class="r-col" id="b1c"><div class="X fit c-paper" data-fit="0.62" id="b1t">I ship</div><div class="X fit c-red" data-fit="0.62" id="b1u">products.</div></div>
+      <img class="r-kar" id="b1k" src="assets/karan/three-quarter.png" />
+      <div class="r-row M c-paper" id="b1m" style="bottom:5%;font-size:40px;opacity:.5">School ERP · ClinicDesk · Eligent · FormPilot · School ERP · ClinicDesk · Eligent · FormPilot · School ERP · ClinicDesk ·</div>
+    </div>
+    <div class="r-shot bg-red" id="p0"><div class="r-col" id="p0c">
+      <div class="M" style="font-size:30px;opacity:.75">01 — Builds · 1/4</div>
+      <div class="X fit c-ink" data-fit="0.9" id="p0t">School ERP</div>
+      <div class="N" style="font-size:44px;margin-top:22px">Live · 41 tables · ~45 routes</div></div>
+      <div class="ui" id="p0u"><b></b><b></b><b></b><b></b><b></b></div>
+    </div>
+    <div class="r-shot bg-yellow" id="p1"><div class="r-col" id="p1c">
+      <div class="M" style="font-size:30px;opacity:.75">01 — Builds · 2/4</div>
+      <div class="X fit c-ink" data-fit="0.9" id="p1t">ClinicDesk</div>
+      <div class="N" style="font-size:44px;margin-top:22px">Dental clinic system</div></div>
+      <div class="ui" id="p1u"><b></b><b></b><b></b><b></b><b></b></div>
+    </div>
+    <div class="r-shot bg-paper" id="p2"><div class="r-col" id="p2c">
+      <div class="M" style="font-size:30px;opacity:.75">01 — Builds · 3/4</div>
+      <div class="X fit c-ink" data-fit="0.9" id="p2t">Eligent</div>
+      <div class="N" style="font-size:44px;margin-top:22px">Finds it · checks eligibility · fills the form</div></div>
+      <div class="ui" id="p2u"><b></b><b></b><b></b><b></b><b></b></div>
+    </div>
+    <div class="r-shot bg-ink" id="p3"><div class="r-col" id="p3c">
+      <div class="M" style="font-size:30px;opacity:.75">01 — Builds · 4/4</div>
+      <div class="X fit c-red" data-fit="0.9" id="p3t">FormPilot</div>
+      <div class="N" style="font-size:44px;margin-top:22px">AI Chrome extension</div></div>
+      <div class="ui" id="p3u"><b></b><b></b><b></b><b></b><b></b></div>
+    </div>
+    <div class="r-shot bg-paper" id="b6"><div class="r-col">
+      <div class="X fit c-ink" data-fit="0.8" id="b6a">6-figure</div>
+      <div class="X fit c-redink" data-fit="0.8" id="b6b">revenue</div>
+      <div class="M" style="font-size:38px;margin-top:26px" id="b6c">Products &amp; agencies</div></div></div>
+    <div class="r-shot bg-red" id="b7">
+      <div class="r-col" id="b7c"><div class="X c-ink fit" data-fit="0.42" data-max="560" id="b7n" style="line-height:.8">18</div>
+      <div class="X fit c-ink" data-fit="0.5" id="b7t">merged PRs</div>
+      <div class="M c-ink" style="font-size:36px;margin-top:20px">GSSoC 2026 · Maintainer, crewai-recipes</div></div>
+      <img class="r-kar" id="b7k" src="assets/karan/explaining.png" />
+    </div>
+  </div><div class="r-flash" id="builds-flash"></div></div>
+</div>
+<script>
+R.ready().then(() => R.fitAllAsync(document.getElementById("builds-root"))).then(function () {
+  const root = document.getElementById("builds-root");
+  const W = Number(root.getAttribute("data-width")), H = Number(root.getAttribute("data-height")), V = H > W;
+  const $ = (s) => root.querySelector(s), $$ = (s) => Array.from(root.querySelectorAll(s));
+  const tl = gsap.timeline({ paused: true });
+  const FL = $("#builds-flash"), RIG = $("#builds-rig");
+
+  const kq = $("#b1k"); const kqH = V ? 760 : 820; kq.style.height = kqH + "px"; kq.style.left = (V ? W / 2 - kqH * 0.28 : W - kqH * 0.62) + "px"; kq.style.top = (H - kqH - (V ? 60 : 20)) + "px";
+  if (!V) { $("#b1c").style.marginRight = "520px"; $("#b1c").style.alignItems = "flex-start"; } else { $("#b1c").style.marginTop = "-760px"; }
+  R.cut(tl, "#b1", 0, 0.8); R.whip(tl, "#b1t", 0, -1); R.whip(tl, "#b1u", 0.08, 1); R.pop(tl, kq, 0.12, 700);
+  R.marquee(tl, "#b1m", 0, 0.8, 0, -700); R.shake(tl, RIG, 0.0, 0.3, 1.6);
+  [0, 1, 2, 3].forEach((i) => {
+    const at = 0.8 + i * 0.4, dir = i % 2 ? -1 : 1;
+    R.cut(tl, "#p" + i, at, 0.4);
+    R.whip(tl, "#p" + i + "c", at, dir, 1.0, 0.2);
+    tl.fromTo("#p" + i + "u", { rotationY: dir * 70, rotationX: 18, opacity: 0, transformPerspective: 1200 }, { rotationY: dir * -14, rotationX: 8, opacity: 1, duration: 0.36, ease: "expo.out" }, at + 0.04);
+    $$("#p" + i + "u b").forEach((b, j) => tl.fromTo(b, { scaleX: 0 }, { scaleX: 1, duration: 0.18, ease: "expo.out" }, at + 0.08 + j * 0.035));
+    R.punch(tl, "#p" + i + "t", at + 0.2, 1.04);
+  });
+  R.cut(tl, "#b6", 2.4, 0.8); R.slam(tl, "#b6a", 2.4, 2.0); R.slam(tl, "#b6b", 2.6, 2.0, 4); tl.fromTo("#b6c", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.2 }, 2.8);
+  R.flash(tl, FL, 2.6, 0.45); R.shake(tl, RIG, 2.6, 0.35, 2);
+  R.cut(tl, "#b7", 3.2, 0.8);
+  const n = { v: 0 }; const nEl = $("#b7n");
+  tl.fromTo(n, { v: 0 }, { v: 18, duration: 0.45, ease: "power3.out", onUpdate: () => { nEl.textContent = Math.round(n.v); } }, 3.2);
+  tl.fromTo(nEl, { filter: "blur(16px)", scale: 1.3 }, { filter: "blur(0px)", scale: 1, duration: 0.45, ease: "power3.out" }, 3.2);
+  R.slam(tl, "#b7t", 3.4, 1.6);
+  const ke = $("#b7k"); const keH = V ? 520 : 560; ke.style.height = keH + "px"; ke.style.left = (V ? W - keH * 1.0 : W - keH * 1.1) + "px"; ke.style.top = (H - keH + 6) + "px";
+  R.pop(tl, ke, 3.45, 600);
+  tl.to("#b7c", { xPercent: -40, filter: "blur(20px)", duration: 0.16, ease: "power3.in" }, 3.84);
+  window.__timelines["builds"] = tl;
+});
+</script>
+</template>
+</body></html>

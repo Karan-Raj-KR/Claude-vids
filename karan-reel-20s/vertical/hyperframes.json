@@ -1,0 +1,35 @@
+{
+  "$schema": "https://hyperframes.heygen.com/schema/hyperframes.json",
+  "registry": "https://raw.githubusercontent.com/heygen-com/hyperframes/main/registry",
+  "paths": {
+    "blocks": "compositions",
+    "components": "compositions/components",
+    "assets": "assets"
+  },
+  "media": {
+    "autoProxy": true
+  },
+  "authoringSkill": "general-video",
+  "registryItems": [
+    {
+      "name": "whip-pan-cut",
+      "type": "hyperframes:component",
+      "target": "compositions/components/whip-pan-cut.html"
+    },
+    {
+      "name": "camera-shake",
+      "type": "hyperframes:component",
+      "target": "compositions/components/camera-shake.html"
+    },
+    {
+      "name": "confetti",
+      "type": "hyperframes:component",
+      "target": "compositions/components/confetti.html"
+    },
+    {
+      "name": "perspective-marquee",
+      "type": "hyperframes:component",
+      "target": "compositions/components/perspective-marquee.html"
+    }
+  ]
+}
