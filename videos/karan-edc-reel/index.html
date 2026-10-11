@@ -732,7 +732,9 @@
           const wall = $("#wall08");
           const cards = $$(".bcard");
           gsap.set(wall, { rotationY: -26, rotationX: 6 });
-          tl.fromTo(wall, { z: -1400, x: 520, rotationY: -40 }, { z: 0, x: 120, rotationY: -26, duration: 0.85, ease: "power4.out" }, s8);
+          tl.fromTo(wall, { z: -1400, rotationY: -40 }, { z: 0, rotationY: -26, duration: 0.85, ease: "power4.out" }, s8);
+          // one continuous x travel: fast arrival that never stops, gliding until the push-in
+          tl.fromTo(wall, { x: 620 }, { x: -1950, duration: 2.75, ease: "power2.out" }, s8);
           const cam = { x: 120 };
           const focusX = 1260;
           const dof = () => {
@@ -745,9 +747,7 @@
               c.style.borderColor = k < 0.12 ? "rgba(255,75,31,0.9)" : "rgba(243,239,231,0.16)";
             });
           };
-          tl.fromTo(cam, { x: 120 }, { x: -1950, duration: 1.95, ease: "sine.inOut" }, s8 + 0.85);
-          tl.fromTo(wall, { x: 120 }, { x: -1950, duration: 1.95, ease: "sine.inOut", immediateRender: false }, s8 + 0.85);
-          updaters.push(() => { if (tl.time() >= s8 - 0.01) dof(); });
+                    updaters.push(() => { if (tl.time() >= s8 - 0.01) dof(); });
           tl.fromTo(cards, { y: 0 }, { y: (i) => (i % 2 ? -14 : 14), duration: 1.4, ease: "sine.inOut", stagger: 0.05 }, s8 + 0.9);
           // exit: push through toward the dot
           tl.set(spine, { x: 960, y: 540, scale: 0, opacity: 1 }, 19.34);
