@@ -267,8 +267,8 @@
           <!-- ===== content & leadership ===== -->
           <div class="st" id="st-im" style="transform: translate3d(17600px, 0px, 0px)">
             <div id="im-lab" class="a mono"><span class="mask"><span class="ln">05 — Creator &amp; leader</span></span></div>
-            <div class="imr" style="top:-210px"><i class="b"></i><span class="mask"><span class="ln d">Content creator</span></span><span class="mask"><span class="ln s">GRIT Award 2026 for content.</span></span></div>
-            <div class="imr" style="top:-40px"><i class="b"></i><span class="mask"><span class="ln d">Leadership</span></span><span class="mask"><span class="ln s">Finance Head · Best Member award.</span></span></div>
+            <div class="imr" style="top:-210px"><i class="b"></i><span class="mask"><span class="ln d">Content creator</span></span></div>
+            <div class="imr" style="top:-40px"><i class="b"></i><span class="mask"><span class="ln d">Leadership</span></span><span class="mask"><span class="ln s">leads hackathon teams.</span></span></div>
             <div class="imr" style="top:130px"><i class="b"></i><span class="mask"><span class="ln d">Project Admin</span></span><span class="mask"><span class="ln s">ECSoC · crewai-recipes.</span></span></div>
           </div>
 
@@ -611,7 +611,7 @@
           $$(".imr").forEach((r, i) => {
             tl.fromTo($(".b", r), { scale: 0 }, { scale: 1, duration: 0.6, ease: "back.out(2.5)" }, imT[i]);
             tl.fromTo($(".d", r), { yPercent: 115 }, { yPercent: 0, duration: 0.9, ease: "snap" }, imT[i] + 0.05);
-            tl.fromTo($(".s", r), { yPercent: 115, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, imT[i] + 0.3);
+            if ($(".s", r)) tl.fromTo($(".s", r), { yPercent: 115, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, imT[i] + 0.3);
           });
 
           // ---------- plan (build) ----------
