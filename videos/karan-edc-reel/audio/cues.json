@@ -256,7 +256,7 @@
    "visual": "cut"
   },
   {
-   "id": "impact-1",
+   "id": "lead-1",
    "t": 29.536,
    "sound": "click",
    "weight": "support",
@@ -265,7 +265,7 @@
    "visual": "appear"
   },
   {
-   "id": "impact-2",
+   "id": "lead-2",
    "t": 31.049,
    "sound": "click",
    "weight": "support",
@@ -274,7 +274,7 @@
    "visual": "appear"
   },
   {
-   "id": "impact-3",
+   "id": "lead-3",
    "t": 32.563,
    "sound": "click",
    "weight": "support",

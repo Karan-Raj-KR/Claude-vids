@@ -127,12 +127,12 @@
       #pl-lab { left: -760px; top: -380px; font-size: 22px; color: var(--signal); }
       #pl-head { left: -772px; top: -340px; font-size: 150px; }
       #pl-head .dot { display: inline-block; width: 30px; height: 30px; border-radius: 50%; background: var(--signal); margin-left: 10px; }
-      #pl-cards { left: -760px; top: -110px; width: 1520px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
-      .pc { height: 400px; padding: 36px; border-radius: 28px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(160deg, rgba(243, 239, 231, 0.95), rgba(243, 239, 231, 0.82)); color: var(--ink); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.4); overflow: hidden; position: relative; }
+      #pl-cards { left: -760px; top: -110px; width: 1520px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+      .pc { height: 400px; padding: 30px; border-radius: 28px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(160deg, rgba(243, 239, 231, 0.95), rgba(243, 239, 231, 0.82)); color: var(--ink); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.4); overflow: hidden; position: relative; }
       .pc .n { font-size: 20px; font-weight: 700; color: #c2330f; }
-      .pc .t { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 46px; line-height: 0.95; }
-      .pc .s { font-family: "Instrument Serif"; font-style: italic; font-size: 36px; color: #4f4a44; margin-top: 12px; line-height: 1.05; }
-      .pc .s.sm { font-size: 30px; }
+      .pc .t { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 34px; line-height: 1; }
+      .pc .s { font-family: "Instrument Serif"; font-style: italic; font-size: 32px; color: #4f4a44; margin-top: 12px; line-height: 1.05; }
+      .pc .s.sm { font-size: 28px; }
 
       /* quote */
       #q1 { left: -760px; top: -300px; font-size: 92px; color: var(--muted); }
@@ -264,12 +264,12 @@
             <div class="cc"><span class="tag b mono">Build</span><div class="t sm">Personal Companion</div></div>
           </div>
 
-          <!-- ===== impact ===== -->
+          <!-- ===== content & leadership ===== -->
           <div class="st" id="st-im" style="transform: translate3d(17600px, 0px, 0px)">
-            <div id="im-lab" class="a mono"><span class="mask"><span class="ln">05 — Impact</span></span></div>
-            <div class="imr" style="top:-210px"><i class="b"></i><span class="mask"><span class="ln d">Mentored batchmates</span></span><span class="mask"><span class="ln s">who now earn.</span></span></div>
-            <div class="imr" style="top:-40px"><i class="b"></i><span class="mask"><span class="ln d">Docs-automation app</span></span><span class="mask"><span class="ln s">used by 3 batchmates.</span></span></div>
-            <div class="imr" style="top:130px"><i class="b"></i><span class="mask"><span class="ln d">On stage</span></span><span class="mask"><span class="ln s">at the juniors' orientation.</span></span></div>
+            <div id="im-lab" class="a mono"><span class="mask"><span class="ln">05 — Creator &amp; leader</span></span></div>
+            <div class="imr" style="top:-210px"><i class="b"></i><span class="mask"><span class="ln d">Content creator</span></span><span class="mask"><span class="ln s">GRIT Award 2026 for content.</span></span></div>
+            <div class="imr" style="top:-40px"><i class="b"></i><span class="mask"><span class="ln d">Leadership</span></span><span class="mask"><span class="ln s">Finance Head · Best Member award.</span></span></div>
+            <div class="imr" style="top:130px"><i class="b"></i><span class="mask"><span class="ln d">Project Admin</span></span><span class="mask"><span class="ln s">ECSoC · crewai-recipes.</span></span></div>
           </div>
 
           <!-- ===== plan ===== -->
@@ -313,7 +313,7 @@
       <div id="hud">
         <i class="br tl"></i><i class="br tr"></i><i class="br bl"></i><i class="br bk"></i>
         <span class="lt mono">Karan Raj KR · EDC 2026</span>
-        <span class="rt mono" data-layout-allow-overflow><span class="roll"><span>01 — Identity</span><span>02 — EDC</span><span>03 — Revenue</span><span>04 — Breadth</span><span>05 — Impact</span><span>06 — The plan</span><span>07 — Vote</span></span></span>
+        <span class="rt mono" data-layout-allow-overflow><span class="roll"><span>01 — Identity</span><span>02 — EDC</span><span>03 — Revenue</span><span>04 — Breadth</span><span>05 — Lead &amp; create</span><span>06 — The plan</span><span>07 — Vote</span></span></span>
         <span class="lb mono" id="tc">00:00:00:00</span>
         <span class="rb mono"><i class="beat"></i><span>128 BPM</span></span>
       </div>
@@ -605,7 +605,7 @@
           tl.fromTo("#const-title .ln", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "snap" }, 15.1);
           tl.to("#const-title .ln", { yPercent: -115, duration: 0.35, ease: "power3.in" }, 18.35);
 
-          // ---------- impact (breakdown) ----------
+          // ---------- content & leadership (breakdown) ----------
           rise("#im-lab .ln", 19.0, { d: 0.7 });
           const imT = [19.1, 20.2, 21.3];
           $$(".imr").forEach((r, i) => {
