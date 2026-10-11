@@ -1,0 +1,931 @@
+{
+ "cues_file": "/home/user/Claude-vids/videos/karan-edc-reel/audio/cues.json",
+ "fps": 60,
+ "duration_s": 30.0,
+ "target_lufs": -14,
+ "master_lufs": -14.21,
+ "master_true_peak_db": -2.0,
+ "master_gain_db": 6.22,
+ "events": [
+  {
+   "id": "intro-dot",
+   "sound": "pop",
+   "files": [
+    "audio/kit/pop/fs-188381-3-popping-pops-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 2.55,
+   "peak_s": 2.55,
+   "pan": 0.0,
+   "gain_db": -21.02,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    2.54,
+    2.59
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "name-slam",
+   "sound": "hit/fs-441593-deep-impact-1",
+   "files": [
+    "audio/kit/hit/fs-441593-deep-impact-1.wav"
+   ],
+   "weight": "hero",
+   "align": "peak",
+   "cue_s": 3.75,
+   "peak_s": 3.75,
+   "pan": 0.0,
+   "gain_db": 1.54,
+   "limited_by": "main-band target (hero)",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    3.74,
+    3.9
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "name-boom",
+   "sound": "boom",
+   "files": [
+    "audio/kit/boom/fs-337695-transition-bass-1.wav"
+   ],
+   "weight": "hero",
+   "align": "peak",
+   "cue_s": 3.75,
+   "peak_s": 3.75,
+   "pan": 0.0,
+   "gain_db": -10.72,
+   "limited_by": "main-band target (hero)",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    3.74,
+    3.9
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "degree-type",
+   "sound": "tick",
+   "files": [
+    "audio/kit/tick/fs-188033-ticking-clock-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 4.75,
+   "peak_s": 4.75,
+   "pan": -0.2,
+   "gain_db": -22.82,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    4.74,
+    4.79
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "whip-edc",
+   "sound": "transition",
+   "files": [
+    "audio/kit/transition/fs-234533-wet-transition-1.wav"
+   ],
+   "weight": "support",
+   "align": "end",
+   "cue_s": 6.1,
+   "peak_s": 5.5355,
+   "pan": 0.0,
+   "gain_db": -22.74,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    5.5255,
+    5.6855
+   ],
+   "visual": "cut"
+  },
+  {
+   "id": "best-member-pill",
+   "sound": "pop",
+   "files": [
+    "audio/kit/pop/fs-206152-bottlepop44-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 6.35,
+   "peak_s": 6.35,
+   "pan": 0.3,
+   "gain_db": -21.02,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    6.34,
+    6.39
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "event-1",
+   "sound": "tap",
+   "files": [
+    "audio/kit/tap/kenney-impact-impact-metal-heavy-003.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 7.2,
+   "peak_s": 7.2,
+   "pan": -0.4,
+   "gain_db": -20.23,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    7.19,
+    7.2504
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "event-2",
+   "sound": "tap",
+   "files": [
+    "audio/kit/tap/kenney-impact-impact-metal-light-000.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 7.7,
+   "peak_s": 7.7,
+   "pan": -0.13,
+   "gain_db": -22.7,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    7.69,
+    7.7915
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "event-3",
+   "sound": "tap",
+   "files": [
+    "audio/kit/tap/kenney-impact-impact-plate-heavy-003.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 8.2,
+   "peak_s": 8.2,
+   "pan": 0.14,
+   "gain_db": -18.7,
+   "limited_by": "best-band target",
+   "band_hz": [
+    250,
+    500
+   ],
+   "win_s": [
+    8.19,
+    8.3227
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "event-4",
+   "sound": "tap",
+   "files": [
+    "audio/kit/tap/kenney-impact-impact-metal-heavy-003.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 8.66,
+   "peak_s": 8.66,
+   "pan": 0.41,
+   "gain_db": -21.17,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    8.65,
+    8.711
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "whip-140",
+   "sound": "whoosh",
+   "files": [
+    "audio/kit/whoosh/fs-30240-swoop1-flac-1.wav"
+   ],
+   "weight": "support",
+   "align": "end",
+   "cue_s": 9.6,
+   "peak_s": 9.2181,
+   "pan": 0.0,
+   "gain_db": -15.96,
+   "limited_by": "best-band target",
+   "band_hz": [
+    500,
+    1000
+   ],
+   "win_s": [
+    9.2081,
+    9.2581
+   ],
+   "visual": "cut"
+  },
+  {
+   "id": "six-figures-slam",
+   "sound": "hit/fs-441593-deep-impact-1",
+   "files": [
+    "audio/kit/hit/fs-441593-deep-impact-1.wav"
+   ],
+   "weight": "hero",
+   "align": "peak",
+   "cue_s": 11.25,
+   "peak_s": 11.25,
+   "pan": 0.0,
+   "gain_db": -0.4,
+   "limited_by": "main-band target (hero)",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    11.24,
+    11.4
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "six-figures-boom",
+   "sound": "boom",
+   "files": [
+    "audio/kit/boom/fs-535615-low-bit-boom-1.wav"
+   ],
+   "weight": "hero",
+   "align": "peak",
+   "cue_s": 11.25,
+   "peak_s": 11.25,
+   "pan": 0.0,
+   "gain_db": -7.78,
+   "limited_by": "main-band target (hero)",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    11.24,
+    11.3344
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "figures-slide",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/fs-14175-27-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "start",
+   "cue_s": 11.53,
+   "peak_s": 11.61,
+   "pan": 0.3,
+   "gain_db": -19.98,
+   "limited_by": "best-band target",
+   "band_hz": [
+    250,
+    500
+   ],
+   "win_s": [
+    11.6,
+    11.7531
+   ],
+   "visual": "move"
+  },
+  {
+   "id": "figures-sheen",
+   "sound": "shimmer",
+   "files": [
+    "audio/kit/shimmer/fs-376745-fantasy-ui-button-3-wav-2.wav"
+   ],
+   "weight": "support",
+   "align": "start",
+   "cue_s": 12.0,
+   "peak_s": 12.1933,
+   "pan": 0.2,
+   "gain_db": -24.56,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    12.1832,
+    12.3432
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "iit-card",
+   "sound": "paper",
+   "files": [
+    "audio/kit/paper/fs-151221-page-turn-2-2.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 12.25,
+   "peak_s": 12.25,
+   "pan": 0.35,
+   "gain_db": -30.68,
+   "limited_by": "best-band target + cluster x0.6",
+   "band_hz": [
+    4000,
+    8000
+   ],
+   "win_s": [
+    12.24,
+    12.3196
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "open-loop-1st",
+   "sound": "hit",
+   "files": [
+    "audio/kit/hit/fs-337831-long-metal-hit-02-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 13.125,
+   "peak_s": 13.125,
+   "pan": -0.2,
+   "gain_db": -23.21,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    13.115,
+    13.2408
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "ol-stats",
+   "sound": "tick",
+   "files": [
+    "audio/kit/tick/fs-386206-ratchet-stahlwille-tighten-1-3.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 13.345,
+   "peak_s": 13.345,
+   "pan": 0.4,
+   "gain_db": -23.06,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    13.335,
+    13.385
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "ol-bars",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/fs-388003-double-swish-1.wav"
+   ],
+   "weight": "support",
+   "align": "start",
+   "cue_s": 13.775,
+   "peak_s": 13.8121,
+   "pan": 0.4,
+   "gain_db": -22.17,
+   "limited_by": "best-band target",
+   "band_hz": [
+    500,
+    1000
+   ],
+   "win_s": [
+    13.8021,
+    13.9621
+   ],
+   "visual": "move"
+  },
+  {
+   "id": "card-1",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/kenney-rpg-cloth1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 15.1,
+   "peak_s": 15.1,
+   "pan": -0.5,
+   "gain_db": -21.81,
+   "limited_by": "best-band target",
+   "band_hz": [
+    250,
+    500
+   ],
+   "win_s": [
+    15.09,
+    15.25
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "fly-constellation",
+   "sound": "transition",
+   "files": [
+    "audio/kit/transition/fs-432294-swoosh-2-wav-2.wav"
+   ],
+   "weight": "support",
+   "align": "end",
+   "cue_s": 15.35,
+   "peak_s": 14.8646,
+   "pan": 0.0,
+   "gain_db": -21.96,
+   "limited_by": "best-band target",
+   "band_hz": [
+    500,
+    1000
+   ],
+   "win_s": [
+    14.8546,
+    15.0146
+   ],
+   "visual": "cut"
+  },
+  {
+   "id": "card-4",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/fs-14175-27-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 15.46,
+   "peak_s": 15.46,
+   "pan": 0.5,
+   "gain_db": -22.15,
+   "limited_by": "best-band target",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    15.45,
+    15.6069
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "card-7",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/fs-388003-double-swish-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 15.82,
+   "peak_s": 15.82,
+   "pan": -0.5,
+   "gain_db": -23.98,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    15.81,
+    15.97
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "card-10",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/kenney-rpg-cloth1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 16.18,
+   "peak_s": 16.18,
+   "pan": 0.5,
+   "gain_db": -19.98,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    16.17,
+    16.33
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "card-13",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/fs-14175-27-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 16.54,
+   "peak_s": 16.54,
+   "pan": -0.5,
+   "gain_db": -19.98,
+   "limited_by": "best-band target",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    16.53,
+    16.683
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "whip-impact",
+   "sound": "whoosh",
+   "files": [
+    "audio/kit/whoosh/fs-30241-swoop2g-flac-1.wav"
+   ],
+   "weight": "support",
+   "align": "end",
+   "cue_s": 18.95,
+   "peak_s": 18.6584,
+   "pan": 0.0,
+   "gain_db": -17.94,
+   "limited_by": "best-band target",
+   "band_hz": [
+    500,
+    1000
+   ],
+   "win_s": [
+    18.6484,
+    18.7009
+   ],
+   "visual": "cut"
+  },
+  {
+   "id": "impact-1",
+   "sound": "click",
+   "files": [
+    "audio/kit/click/kenney-interface-switch-003.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 19.1,
+   "peak_s": 19.1,
+   "pan": 0.0,
+   "gain_db": -37.03,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    19.09,
+    19.1641
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "impact-2",
+   "sound": "click",
+   "files": [
+    "audio/kit/click/kenney-ui-audio-switch16.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 20.2,
+   "peak_s": 20.2,
+   "pan": 0.0,
+   "gain_db": -33.52,
+   "limited_by": "best-band target",
+   "band_hz": [
+    4000,
+    8000
+   ],
+   "win_s": [
+    20.19,
+    20.24
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "impact-3",
+   "sound": "click",
+   "files": [
+    "audio/kit/click/kenney-ui-audio-switch28.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 21.3,
+   "peak_s": 21.3,
+   "pan": 0.0,
+   "gain_db": -35.52,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    21.29,
+    21.34
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "whip-plan",
+   "sound": "whoosh",
+   "files": [
+    "audio/kit/whoosh/fs-449992-whoosh-short-low-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "end",
+   "cue_s": 22.55,
+   "peak_s": 22.2898,
+   "pan": 0.0,
+   "gain_db": -13.96,
+   "limited_by": "2-8 kHz cap",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    22.2798,
+    22.4059
+   ],
+   "visual": "cut"
+  },
+  {
+   "id": "plan-1",
+   "sound": "pop",
+   "files": [
+    "audio/kit/pop/fs-503162-mouth-pops-magic-bottle-cork-3.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 22.85,
+   "peak_s": 22.85,
+   "pan": -0.45,
+   "gain_db": -23.02,
+   "limited_by": "best-band target",
+   "band_hz": [
+    500,
+    1000
+   ],
+   "win_s": [
+    22.84,
+    22.89
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "plan-2",
+   "sound": "pop",
+   "files": [
+    "audio/kit/pop/fs-188381-3-popping-pops-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 23.15,
+   "peak_s": 23.15,
+   "pan": -0.15,
+   "gain_db": -25.02,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    23.14,
+    23.19
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "plan-3",
+   "sound": "pop",
+   "files": [
+    "audio/kit/pop/fs-206152-bottlepop44-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 23.45,
+   "peak_s": 23.45,
+   "pan": 0.15,
+   "gain_db": -24.49,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    23.44,
+    23.49
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "plan-4",
+   "sound": "pop",
+   "files": [
+    "audio/kit/pop/fs-503162-mouth-pops-magic-bottle-cork-3.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 23.75,
+   "peak_s": 23.75,
+   "pan": 0.45,
+   "gain_db": -22.01,
+   "limited_by": "best-band target",
+   "band_hz": [
+    500,
+    1000
+   ],
+   "win_s": [
+    23.74,
+    23.79
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "rise-quote",
+   "sound": "swish",
+   "files": [
+    "audio/kit/swish/fs-388003-double-swish-1.wav"
+   ],
+   "weight": "support",
+   "align": "end",
+   "cue_s": 24.5,
+   "peak_s": 24.3298,
+   "pan": 0.0,
+   "gain_db": -23.98,
+   "limited_by": "best-band target",
+   "band_hz": [
+    500,
+    1000
+   ],
+   "win_s": [
+    24.3198,
+    24.4798
+   ],
+   "visual": "move"
+  },
+  {
+   "id": "companies",
+   "sound": "chime",
+   "files": [
+    "audio/kit/chime/fs-127149-ding-wav-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 25.6,
+   "peak_s": 25.6,
+   "pan": 0.0,
+   "gain_db": -15.52,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    25.59,
+    25.75
+   ],
+   "visual": "appear"
+  },
+  {
+   "id": "final-slam",
+   "sound": "hit",
+   "files": [
+    "audio/kit/hit/fs-558238-distorted-impact-short-wav-1.wav"
+   ],
+   "weight": "hero",
+   "align": "peak",
+   "cue_s": 26.25,
+   "peak_s": 26.25,
+   "pan": 0.0,
+   "gain_db": -9.16,
+   "limited_by": "main-band target (hero)",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    26.24,
+    26.39
+   ],
+   "visual": "cut"
+  },
+  {
+   "id": "final-boom",
+   "sound": "boom",
+   "files": [
+    "audio/kit/boom/fs-636624-deep-hit-2.wav"
+   ],
+   "weight": "hero",
+   "align": "peak",
+   "cue_s": 26.25,
+   "peak_s": 26.25,
+   "pan": 0.0,
+   "gain_db": -9.78,
+   "limited_by": "main-band target (hero)",
+   "band_hz": [
+    125,
+    250
+   ],
+   "win_s": [
+    26.24,
+    26.4
+   ],
+   "visual": "cut"
+  },
+  {
+   "id": "pill",
+   "sound": "pop",
+   "files": [
+    "audio/kit/pop/fs-188381-3-popping-pops-1.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 28.125,
+   "peak_s": 28.125,
+   "pan": 0.0,
+   "gain_db": -25.02,
+   "limited_by": "best-band target",
+   "band_hz": [
+    1000,
+    2000
+   ],
+   "win_s": [
+    28.115,
+    28.165
+   ],
+   "visual": "land"
+  },
+  {
+   "id": "voting-type",
+   "sound": "tick",
+   "files": [
+    "audio/kit/tick/fs-403001-clock-tick-tik-tak-2.wav"
+   ],
+   "weight": "support",
+   "align": "peak",
+   "cue_s": 28.594,
+   "peak_s": 28.594,
+   "pan": 0.0,
+   "gain_db": -25.06,
+   "limited_by": "best-band target",
+   "band_hz": [
+    2000,
+    4000
+   ],
+   "win_s": [
+    28.584,
+    28.634
+   ],
+   "visual": "appear"
+  }
+ ]
+}

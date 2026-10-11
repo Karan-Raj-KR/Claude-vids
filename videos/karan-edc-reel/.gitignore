@@ -13,3 +13,9 @@ assets/audio/score-v2-raw.wav
 sound-layer/
 audio-src/music-raw.wav
 audio-src/*-raw.wav
+# sound kit downloads and mix outputs (regenerate with sfx.py kit / mix.py)
+audio/kit/*
+!audio/kit/CREDITS.md
+audio/mix.wav
+audio/stems/
+out/
