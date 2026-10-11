@@ -3,9 +3,9 @@
  "fps": 60,
  "duration_s": 45.0,
  "target_lufs": -14,
- "master_lufs": -14.16,
+ "master_lufs": -14.15,
  "master_true_peak_db": -2.0,
- "master_gain_db": 6.16,
+ "master_gain_db": 6.17,
  "events": [
   {
    "id": "intro-dot",
@@ -285,16 +285,16 @@
   },
   {
    "id": "six-figures-boom",
-   "sound": "boom",
+   "sound": "boom/fs-334638-yaw-bass-drop-2",
    "files": [
-    "audio/kit/boom/fs-535615-low-bit-boom-1.wav"
+    "audio/kit/boom/fs-334638-yaw-bass-drop-2.wav"
    ],
    "weight": "hero",
    "align": "peak",
    "cue_s": 16.875,
    "peak_s": 16.875,
    "pan": 0.0,
-   "gain_db": -7.74,
+   "gain_db": -14.44,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
@@ -302,7 +302,7 @@
    ],
    "win_s": [
     16.865,
-    16.9594
+    16.9968
    ],
    "visual": "cut"
   },
@@ -860,16 +860,16 @@
   },
   {
    "id": "final-boom",
-   "sound": "boom",
+   "sound": "boom/fs-334638-yaw-bass-drop-2",
    "files": [
-    "audio/kit/boom/fs-636624-deep-hit-2.wav"
+    "audio/kit/boom/fs-334638-yaw-bass-drop-2.wav"
    ],
    "weight": "hero",
    "align": "peak",
    "cue_s": 39.375,
    "peak_s": 39.375,
    "pan": 0.0,
-   "gain_db": -9.77,
+   "gain_db": -14.6,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
@@ -877,7 +877,7 @@
    ],
    "win_s": [
     39.365,
-    39.525
+    39.4954
    ],
    "visual": "cut"
   },

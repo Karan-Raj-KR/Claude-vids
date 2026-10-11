@@ -132,7 +132,7 @@
   {
    "id": "six-figures-boom",
    "t": 16.875,
-   "sound": "boom",
+   "sound": "boom/fs-334638-yaw-bass-drop-2",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
@@ -359,7 +359,7 @@
   {
    "id": "final-boom",
    "t": 39.375,
-   "sound": "boom",
+   "sound": "boom/fs-334638-yaw-bass-drop-2",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
