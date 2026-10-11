@@ -20,7 +20,7 @@
   {
    "id": "intro-dot",
    "t": 2.55,
-   "sound": "pop/?",
+   "sound": "pop",
    "weight": "support",
    "align": "peak",
    "pan": 0.0,
@@ -29,7 +29,7 @@
   {
    "id": "name-slam",
    "t": 3.75,
-   "sound": "hit/?",
+   "sound": "hit/fs-441593-deep-impact-1",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
@@ -40,7 +40,7 @@
   {
    "id": "name-boom",
    "t": 3.75,
-   "sound": "boom/?",
+   "sound": "boom",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
@@ -49,7 +49,7 @@
   {
    "id": "degree-type",
    "t": 4.75,
-   "sound": "tick/?",
+   "sound": "tick",
    "weight": "support",
    "align": "peak",
    "pan": -0.2,
@@ -58,7 +58,7 @@
   {
    "id": "whip-edc",
    "t": 6.1,
-   "sound": "transition/?",
+   "sound": "transition",
    "weight": "support",
    "align": "end",
    "pan": 0.0,
@@ -67,7 +67,7 @@
   {
    "id": "best-member-pill",
    "t": 6.35,
-   "sound": "pop/?",
+   "sound": "pop",
    "weight": "support",
    "align": "peak",
    "pan": 0.3,
@@ -76,7 +76,7 @@
   {
    "id": "event-1",
    "t": 7.2,
-   "sound": "tap/?",
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": -0.4,
@@ -85,7 +85,7 @@
   {
    "id": "event-2",
    "t": 7.7,
-   "sound": "tap/?",
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": -0.13,
@@ -94,7 +94,7 @@
   {
    "id": "event-3",
    "t": 8.2,
-   "sound": "tap/?",
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": 0.14,
@@ -103,7 +103,7 @@
   {
    "id": "event-4",
    "t": 8.66,
-   "sound": "tap/?",
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": 0.41,
@@ -112,7 +112,7 @@
   {
    "id": "whip-140",
    "t": 9.6,
-   "sound": "whoosh/?",
+   "sound": "whoosh",
    "weight": "support",
    "align": "end",
    "pan": 0.0,
@@ -121,7 +121,7 @@
   {
    "id": "six-figures-slam",
    "t": 11.25,
-   "sound": "hit/?",
+   "sound": "hit/fs-441593-deep-impact-1",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
@@ -132,7 +132,7 @@
   {
    "id": "six-figures-boom",
    "t": 11.25,
-   "sound": "boom/?",
+   "sound": "boom",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
@@ -141,7 +141,7 @@
   {
    "id": "figures-slide",
    "t": 11.53,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "start",
    "pan": 0.3,
@@ -150,7 +150,7 @@
   {
    "id": "figures-sheen",
    "t": 12.0,
-   "sound": "shimmer/?",
+   "sound": "shimmer",
    "weight": "support",
    "align": "start",
    "pan": 0.2,
@@ -159,7 +159,7 @@
   {
    "id": "iit-card",
    "t": 12.25,
-   "sound": "paper/?",
+   "sound": "paper",
    "weight": "support",
    "align": "peak",
    "pan": 0.35,
@@ -168,7 +168,7 @@
   {
    "id": "open-loop-1st",
    "t": 13.125,
-   "sound": "hit/?",
+   "sound": "hit",
    "weight": "support",
    "align": "peak",
    "pan": -0.2,
@@ -177,7 +177,7 @@
   {
    "id": "ol-stats",
    "t": 13.345,
-   "sound": "tick/?",
+   "sound": "tick",
    "weight": "support",
    "align": "peak",
    "pan": 0.4,
@@ -186,7 +186,7 @@
   {
    "id": "ol-bars",
    "t": 13.775,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "start",
    "pan": 0.4,
@@ -195,7 +195,7 @@
   {
    "id": "fly-constellation",
    "t": 15.35,
-   "sound": "transition/?",
+   "sound": "transition",
    "weight": "support",
    "align": "end",
    "pan": 0.0,
@@ -204,7 +204,7 @@
   {
    "id": "card-1",
    "t": 15.1,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "peak",
    "pan": -0.5,
@@ -213,7 +213,7 @@
   {
    "id": "card-4",
    "t": 15.46,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "peak",
    "pan": 0.5,
@@ -222,7 +222,7 @@
   {
    "id": "card-7",
    "t": 15.82,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "peak",
    "pan": -0.5,
@@ -231,7 +231,7 @@
   {
    "id": "card-10",
    "t": 16.18,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "peak",
    "pan": 0.5,
@@ -240,7 +240,7 @@
   {
    "id": "card-13",
    "t": 16.54,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "peak",
    "pan": -0.5,
@@ -249,7 +249,7 @@
   {
    "id": "whip-impact",
    "t": 18.95,
-   "sound": "whoosh/?",
+   "sound": "whoosh",
    "weight": "support",
    "align": "end",
    "pan": 0.0,
@@ -258,7 +258,7 @@
   {
    "id": "impact-1",
    "t": 19.1,
-   "sound": "click/?",
+   "sound": "click",
    "weight": "support",
    "align": "peak",
    "pan": 0.0,
@@ -267,7 +267,7 @@
   {
    "id": "impact-2",
    "t": 20.2,
-   "sound": "click/?",
+   "sound": "click",
    "weight": "support",
    "align": "peak",
    "pan": 0.0,
@@ -276,7 +276,7 @@
   {
    "id": "impact-3",
    "t": 21.3,
-   "sound": "click/?",
+   "sound": "click",
    "weight": "support",
    "align": "peak",
    "pan": 0.0,
@@ -285,7 +285,7 @@
   {
    "id": "whip-plan",
    "t": 22.55,
-   "sound": "whoosh/?",
+   "sound": "whoosh",
    "weight": "support",
    "align": "end",
    "pan": 0.0,
@@ -294,7 +294,7 @@
   {
    "id": "plan-1",
    "t": 22.85,
-   "sound": "pop/?",
+   "sound": "pop",
    "weight": "support",
    "align": "peak",
    "pan": -0.45,
@@ -303,7 +303,7 @@
   {
    "id": "plan-2",
    "t": 23.15,
-   "sound": "pop/?",
+   "sound": "pop",
    "weight": "support",
    "align": "peak",
    "pan": -0.15,
@@ -312,7 +312,7 @@
   {
    "id": "plan-3",
    "t": 23.45,
-   "sound": "pop/?",
+   "sound": "pop",
    "weight": "support",
    "align": "peak",
    "pan": 0.15,
@@ -321,7 +321,7 @@
   {
    "id": "plan-4",
    "t": 23.75,
-   "sound": "pop/?",
+   "sound": "pop",
    "weight": "support",
    "align": "peak",
    "pan": 0.45,
@@ -330,7 +330,7 @@
   {
    "id": "rise-quote",
    "t": 24.5,
-   "sound": "swish/?",
+   "sound": "swish",
    "weight": "support",
    "align": "end",
    "pan": 0.0,
@@ -339,7 +339,7 @@
   {
    "id": "companies",
    "t": 25.6,
-   "sound": "chime/?",
+   "sound": "chime",
    "weight": "support",
    "align": "peak",
    "pan": 0.0,
@@ -348,7 +348,7 @@
   {
    "id": "final-slam",
    "t": 26.25,
-   "sound": "hit/?",
+   "sound": "hit",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
@@ -359,7 +359,7 @@
   {
    "id": "final-boom",
    "t": 26.25,
-   "sound": "boom/?",
+   "sound": "boom",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
@@ -368,7 +368,7 @@
   {
    "id": "pill",
    "t": 28.125,
-   "sound": "pop/?",
+   "sound": "pop",
    "weight": "support",
    "align": "peak",
    "pan": 0.0,
@@ -377,7 +377,7 @@
   {
    "id": "voting-type",
    "t": 28.594,
-   "sound": "tick/?",
+   "sound": "tick",
    "weight": "support",
    "align": "peak",
    "pan": 0.0,
