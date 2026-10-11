@@ -69,10 +69,16 @@
       #st-140 .mono { left: -900px; width: 1800px; top: 262px; text-align: center; font-size: 24px; color: var(--acid); }
 
       /* proof money */
-      #pm-lab { left: -760px; top: -340px; font-size: 22px; color: var(--acid); }
-      #pm-fig { left: -775px; top: -300px; font-size: 250px; }
-      #pm-ser { left: -760px; top: -40px; font-size: 80px; }
-      #pm-card { left: 120px; top: 120px; width: 660px; padding: 40px 46px; border-radius: 26px; background: linear-gradient(140deg, rgba(243, 239, 231, 0.2), rgba(243, 239, 231, 0.06)); border: 2px solid rgba(243, 239, 231, 0.35); box-shadow: 0 40px 90px rgba(5, 8, 40, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4); overflow: hidden; }
+      #pm-lab { left: -330px; top: -360px; font-size: 22px; color: var(--acid); }
+      #pm-six { left: -790px; top: -400px; font-size: 580px; line-height: 0.82; color: #ffd24a; text-shadow: 0 0 90px rgba(255, 190, 40, 0.55), 0 0 18px rgba(255, 220, 120, 0.6); transform-origin: 40% 60%; }
+      #pm-figwrap { left: -330px; top: -310px; overflow: hidden; padding-right: 30px; }
+      #pm-fig { display: block; font-size: 186px; }
+      #pm-figsheen { position: absolute; left: 0; top: 0; font-size: 186px; color: transparent; background: linear-gradient(100deg, rgba(255,255,255,0) 40%, rgba(255,240,200,1) 50%, rgba(255,255,255,0) 60%); background-size: 300% 100%; background-position: 100% 0%; -webkit-background-clip: text; background-clip: text; }
+      #pm-rule { left: -330px; top: -110px; width: 900px; height: 6px; background: #ffd24a; box-shadow: 0 0 24px rgba(255, 200, 60, 0.7); transform-origin: 0 50%; }
+      #pm-ser { left: -330px; top: -78px; font-size: 64px; }
+      #pm-shards { left: -560px; top: -140px; }
+      .gshard { position: absolute; left: 0; top: 0; width: 34px; height: 7px; background: #ffd24a; box-shadow: 0 0 14px #ffc83a; }
+      #pm-card { left: 60px; top: 130px; width: 700px; padding: 40px 46px; border-radius: 26px; background: linear-gradient(140deg, rgba(243, 239, 231, 0.2), rgba(243, 239, 231, 0.06)); border: 2px solid rgba(243, 239, 231, 0.35); box-shadow: 0 40px 90px rgba(5, 8, 40, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4); overflow: hidden; }
       #pm-card .k { font-size: 20px; color: var(--acid); display: flex; gap: 12px; align-items: center; font-weight: 700; }
       #pm-card .k i { width: 12px; height: 12px; border-radius: 50%; background: var(--acid); display: inline-block; box-shadow: 0 0 14px var(--acid); }
       #pm-card .t { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 54px; line-height: 0.95; margin-top: 16px; }
@@ -100,7 +106,7 @@
       .odo .strip span { display: block; height: 1em; line-height: 1em; }
 
       /* constellation cards */
-      .cc { position: absolute; width: 560px; margin-left: -280px; margin-top: -170px; padding: 34px 38px; border-radius: 24px; background: linear-gradient(150deg, rgba(243, 239, 231, 0.16), rgba(243, 239, 231, 0.04)); border: 2px solid rgba(243, 239, 231, 0.28); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+      .cc { position: absolute; width: 560px; margin-left: -280px; margin-top: -170px; padding: 34px 38px; border-radius: 24px; background: linear-gradient(150deg, rgba(58, 62, 110, 0.92), rgba(16, 18, 44, 0.9)); border: 2px solid rgba(243, 239, 231, 0.3); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
       .cc .tag { display: inline-block; font-size: 17px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
       .cc .tag.p { background: var(--acid); color: var(--ink); }
       .cc .tag.b { background: var(--signal); color: var(--ink); }
@@ -210,7 +216,10 @@
           <!-- ===== proof: money ===== -->
           <div class="st" id="st-pm" style="transform: translate3d(7600px, -1850px, -600px)">
             <div id="pm-lab" class="a mono"><span class="mask"><span class="ln">03 — Proof</span></span></div>
-            <div id="pm-fig" class="a disp">6 figures+</div>
+            <div id="pm-shards" class="a"></div>
+            <div id="pm-six" class="a disp">6</div>
+            <div id="pm-figwrap" class="a"><span id="pm-fig" class="disp">figures+</span><span id="pm-figsheen" class="disp">figures+</span></div>
+            <div id="pm-rule" class="a"></div>
             <div id="pm-ser" class="a serif"><span class="mask"><span class="ln">earned through products &amp; agencies</span></span></div>
             <div id="pm-card" class="a">
               <i class="glint"></i>
@@ -330,13 +339,13 @@
           [9.05, 6000, 30, -50, 3, -12, 0],
           [9.6, 7600, 0, 0, 0, 0, 0],
           [10.95, 7630, -10, -90, 0, 2, 0],
-          [11.4, 7600, -1850, -600, -7, 0, 0],
-          [12.0, 7660, -1850, -690, -4, 4, 0],
-          [12.25, 9800, -1850, -600, -2, -6, 1],
-          [14.85, 9880, -1850, -770, -2, -2, 0],
-          [15.35, 12600, -1350, 900, 9, -26, 0],
-          [17.0, 13900, -1050, -1000, 4, 8, 0],
-          [18.45, 15200, -900, -2500, 0, 26, 0],
+          [11.25, 7600, -1850, -560, -6, 0, 0],
+          [12.9, 7610, -1850, -690, -3, 3, 0],
+          [13.15, 9800, -1850, -600, -2, -6, 1],
+          [14.85, 9870, -1850, -740, -2, -2, 0],
+          [15.35, 12600, -1350, 900, 6, -12, 0],
+          [17.0, 13100, -1200, 100, 3, -2, 0],
+          [18.45, 13600, -1050, -700, 1, 8, 0],
           [18.95, 17600, 0, 0, 0, 0, 0],
           [22.2, 17640, 0, -190, 0, 2, 0],
           [22.55, 20600, 0, 0, 0, 0, 0],
@@ -379,15 +388,15 @@
           return { x: out[0], y: out[1], z: out[2], rx: out[3], ry: out[4], rz: out[5] };
         };
         const R = (function (seed) { return function () { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; })(11);
-        const A = [12600, -1350, 300], Bp = [15200, -900, -2600];
+        const A = [12500, -1350, 200], Bp = [13700, -1000, -1500];
         window.constPos = Array.from({ length: 13 }, (_, i) => {
-          const s = 0.06 + (i / 12) * 0.9;
-          const side = i % 2 ? 1 : -1;
-          const up = i % 4 < 2 ? -1 : 1;
+          const s = -0.05 + (i / 12) * 1.05;
+          const a = i * 2.39996 + 0.6;
+          const rr = 0.86 + R() * 0.22;
           return [
-            A[0] + (Bp[0] - A[0]) * s + side * (560 + R() * 260),
-            A[1] + (Bp[1] - A[1]) * s + up * (170 + R() * 230),
-            A[2] + (Bp[2] - A[2]) * s - 300 - R() * 500,
+            A[0] + (Bp[0] - A[0]) * s + Math.cos(a) * 980 * rr,
+            A[1] + (Bp[1] - A[1]) * s + Math.sin(a) * 520 * rr,
+            A[2] + (Bp[2] - A[2]) * s - 420 - R() * 260,
           ];
         });
       })();
@@ -480,39 +489,52 @@
           rise("#st-140 .ser .ln", 10.05, { d: 0.9 });
           rise("#st-140 .mono .ln", 10.35, { d: 0.7 });
 
-          // ---------- proof: money ----------
-          rise("#pm-lab .ln", 11.25, { d: 0.6 });
-          const fig = SplitText.create("#pm-fig", { type: "chars" });
-          tl.fromTo(fig.chars, { rotationY: -100, opacity: 0, transformOrigin: "0% 50%" }, { rotationY: 0, opacity: 1, duration: 0.7, stagger: 0.035, ease: "expo.out" }, 11.2);
-          rise("#pm-ser .ln", 11.45, { d: 0.8 });
-          tl.fromTo("#pm-card", { y: 140, rotationX: 30, opacity: 0, transformPerspective: 1200 }, { y: 0, rotationX: 0, opacity: 1, duration: 0.8, ease: "expo.out" }, 11.55);
-          rise($$("#pm-card .ln"), 11.7, { d: 0.6, st: 0.07 });
-          tl.fromTo("#pm-card .glint", { xPercent: -120 }, { xPercent: 420, duration: 0.9, ease: "power2.inOut" }, 11.8);
+          // ---------- proof: money (hero, one full bar) ----------
+          const SIX = T(24);
+          rise("#pm-lab .ln", SIX, { d: 0.6 });
+          tl.fromTo("#pm-six", { scale: 2.6, opacity: 0, rotation: -10, filter: "blur(18px)" }, { scale: 1, opacity: 1, rotation: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, SIX);
+          tl.to("#pm-six", { keyframes: [{ x: 10, y: -6, duration: 0.035 }, { x: -8, y: 5, duration: 0.035 }, { x: 4, y: -2, duration: 0.035 }, { x: 0, y: 0, duration: 0.035 }], ease: "none" }, SIX + 0.04);
+          tl.fromTo("#pm-fig", { xPercent: -105 }, { xPercent: 0, duration: 0.75, ease: "expo.out" }, SIX + 0.28);
+          tl.fromTo("#pm-figsheen", { xPercent: -105, backgroundPosition: "100% 0%" }, { xPercent: 0, duration: 0.75, ease: "expo.out" }, SIX + 0.28);
+          tl.to("#pm-figsheen", { backgroundPosition: "0% 0%", duration: 0.9, ease: "power2.inOut" }, SIX + 0.75);
+          tl.fromTo("#pm-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "expo.inOut" }, SIX + 0.45);
+          rise("#pm-ser .ln", SIX + 0.6, { d: 0.8 });
+          tl.fromTo("#pm-six", { textShadow: "0 0 90px rgba(255,190,40,0.55), 0 0 18px rgba(255,220,120,0.6)" }, { textShadow: "0 0 140px rgba(255,190,40,0.85), 0 0 24px rgba(255,230,140,0.9)", duration: 0.6, ease: "sine.inOut", repeat: 1, yoyo: true, immediateRender: false }, SIX + 0.7);
+          const RG = rng(19), gBox = $("#pm-shards");
+          for (let k = 0; k < 26; k++) {
+            const sh = document.createElement("i"); sh.className = "gshard"; gBox.appendChild(sh);
+            const a = (k / 26) * Math.PI * 2 + (RG() - 0.5) * 0.3, dist = 300 + RG() * 360;
+            tl.fromTo(sh, { x: 0, y: 0, rotation: (a * 180) / Math.PI, scaleX: 2, opacity: 1 }, { x: Math.cos(a) * dist, y: Math.sin(a) * dist * 0.75, scaleX: 0.2, duration: 0.9, ease: "expo.out" }, SIX + 0.02);
+            tl.to(sh, { opacity: 0, duration: 0.35, ease: "power1.in" }, SIX + 0.5);
+          }
+          tl.fromTo("#pm-card", { y: 140, rotationX: 30, opacity: 0, transformPerspective: 1200 }, { y: 0, rotationX: 0, opacity: 1, duration: 0.8, ease: "expo.out" }, SIX + 1.0);
+          rise($$("#pm-card .ln"), SIX + 1.15, { d: 0.6, st: 0.07 });
+          tl.fromTo("#pm-card .glint", { xPercent: -120 }, { xPercent: 420, duration: 0.9, ease: "power2.inOut" }, SIX + 1.25);
 
           // ---------- proof: open loop ----------
-          rise("#ol-lab .ln", 12.2, { d: 0.6 });
-          tl.fromTo("#ol-first", { scale: 2.4, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.55, ease: "expo.out" }, 12.19);
+          rise("#ol-lab .ln", 13.13, { d: 0.6 });
+          tl.fromTo("#ol-first", { scale: 2.4, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.55, ease: "expo.out" }, T(28));
           const R = rng(7), shardBox = $("#ol-shards");
           for (let k = 0; k < 22; k++) {
             const sh = document.createElement("i"); sh.className = "shard"; shardBox.appendChild(sh);
             const a = (k / 22) * Math.PI * 2 + (R() - 0.5) * 0.3, dist = 260 + R() * 300;
-            tl.fromTo(sh, { x: 0, y: 0, rotation: (a * 180) / Math.PI, scaleX: 1.8, opacity: 1 }, { x: Math.cos(a) * dist, y: Math.sin(a) * dist * 0.7, scaleX: 0.2, duration: 0.8, ease: "expo.out" }, 12.22);
-            tl.to(sh, { opacity: 0, duration: 0.3, ease: "power1.in" }, 12.62);
+            tl.fromTo(sh, { x: 0, y: 0, rotation: (a * 180) / Math.PI, scaleX: 1.8, opacity: 1 }, { x: Math.cos(a) * dist, y: Math.sin(a) * dist * 0.7, scaleX: 0.2, duration: 0.8, ease: "expo.out" }, T(28) + 0.03);
+            tl.to(sh, { opacity: 0, duration: 0.3, ease: "power1.in" }, T(28) + 0.43);
           }
-          rise("#ol-ser .ln", 12.45, { d: 0.8 });
+          rise("#ol-ser .ln", T(28) + 0.25, { d: 0.8 });
           $$("#ol-stats .st2").forEach((st, i) => {
             const od = $(".odo", st), set = makeOdo(od, +od.dataset.d), c = { v: 0 };
             set(0);
-            tl.fromTo(st, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 12.45 + i * 0.07);
-            tl.to(c, { v: +od.dataset.v, duration: 1.1, ease: "power3.out" }, 12.5 + i * 0.07);
+            tl.fromTo(st, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, T(28) + 0.2 + i * 0.06);
+            tl.to(c, { v: +od.dataset.v, duration: 0.9, ease: "power3.out" }, T(28) + 0.22 + i * 0.06);
             up.push(() => set(c.v));
           });
-          tl.fromTo("#ol-bars", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, 13.0);
+          tl.fromTo("#ol-bars", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, T(28) + 0.55);
           [["#fillA", "#odoA", 0.8], ["#fillB", "#odoB", 0.6]].forEach(([f, o, k]) => {
             const od = $(o), set = makeOdo(od, 2), c = { v: 0 };
             set(0);
-            tl.fromTo(f, { scaleX: 0 }, { scaleX: k, duration: 1.0, ease: "power3.out" }, 13.15);
-            tl.to(c, { v: +od.dataset.v, duration: 1.0, ease: "power3.out" }, 13.15);
+            tl.fromTo(f, { scaleX: 0 }, { scaleX: k, duration: 0.8, ease: "power3.out" }, T(28) + 0.65);
+            tl.to(c, { v: +od.dataset.v, duration: 0.8, ease: "power3.out" }, T(28) + 0.65);
             up.push(() => set(c.v));
           });
 
@@ -522,9 +544,19 @@
             const p = window.constPos[i];
             c.style.transform = "translate3d(" + p[0] + "px," + p[1] + "px," + p[2] + "px) rotateY(" + (i % 2 ? -14 : 14) + "deg)";
           });
+          up.push(() => {
+            const t = tl.time();
+            if (t < 14.6 || t > 19.2) return;
+            cards.forEach((c, i) => {
+              const p = window.constPos[i];
+              const fy = Math.sin(t * 0.55 + i * 1.3) * 22, fx = Math.cos(t * 0.4 + i * 0.7) * 14;
+              const ry = (i % 2 ? -14 : 14) + Math.sin(t * 0.35 + i) * 4;
+              c.style.transform = "translate3d(" + (p[0] + fx).toFixed(1) + "px," + (p[1] + fy).toFixed(1) + "px," + p[2] + "px) rotateY(" + ry.toFixed(2) + "deg)";
+            });
+          });
           const inner = cards.map((c) => $$(".tag, .t, .s", c));
           cards.forEach((c, i) => {
-            tl.fromTo(inner[i], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "power3.out" }, 15.0 + i * 0.16);
+            tl.fromTo(inner[i], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.06, ease: "power3.out" }, 15.1 + i * 0.12);
           });
           up.push(() => {
             const t = tl.time();
@@ -535,9 +567,10 @@
             cards.forEach((el, i) => {
               const p = window.constPos[i];
               const d = Math.hypot(p[0] - c.x, p[1] - c.y, (p[2] - c.z) * 0.6);
-              const k = Math.min(1, Math.max(0, (d - 650) / 1500));
+              const k = Math.min(1, Math.max(0, (d - 900) / 1700));
               el.style.filter = "blur(" + (k * 7).toFixed(2) + "px)";
-              el.style.opacity = ((1 - k * 0.55) * (1 - leave)).toFixed(3);
+              const rv = Math.min(1, Math.max(0, (t - 15.0 - i * 0.12) / 0.45));
+              el.style.opacity = ((1 - k * 0.55) * (1 - leave) * rv * rv * (3 - 2 * rv)).toFixed(3);
             });
           });
           tl.fromTo("#const-title .ln", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "snap" }, 15.1);
@@ -688,9 +721,9 @@
         [9.3, WARM, AMB, SIG, 0.62],
         [9.7, INK, hex(0x5a1206), hex(0x1b2690), 0.6],
         [10.9, INK, hex(0x5a1206), hex(0x1b2690), 0.6],
-        [11.4, DCO, COB, hex(0x6f7bff), 0.85],
-        [12.1, DCO, COB, hex(0x6f7bff), 0.85],
-        [12.3, hex(0x070b3a), COB, hex(0x8aa61a), 0.9],
+        [11.15, hex(0x140b02), hex(0xffb020), hex(0x7a3a06), 0.9],
+        [12.9, hex(0x120a02), hex(0xd88a12), hex(0x3a1a60), 0.8],
+        [13.2, hex(0x070b3a), COB, hex(0x8aa61a), 0.9],
         [14.8, hex(0x070b3a), COB, hex(0x8aa61a), 0.9],
         [15.3, hex(0x05061a), DCO, hex(0x7a1a0a), 0.8],
         [18.5, hex(0x05061a), COB, SIG, 0.75],
@@ -797,7 +830,7 @@
         const p = palAt(t), c = window.camAt(t);
         U.uTime.value = t; U.uBase.value.set(...p.base); U.uA.value.set(...p.A); U.uB.value.set(...p.B); U.uAmt.value = p.amt;
         U.uPulse.value = drumOn(t) ? Math.exp(-((t % B) / B) * 5) * 0.8 : 0;
-        U.uRing.value = [3.75, 26.25].map((s) => (t >= s && t < s + 0.9 ? (t - s) / 0.9 : 1)).reduce((a, b) => Math.min(a, b), 1);
+        U.uRing.value = [3.75, 11.25, 26.25].map((s) => (t >= s && t < s + 0.9 ? (t - s) / 0.9 : 1)).reduce((a, b) => Math.min(a, b), 1);
         U.uOff.value.set(c.x * 0.00018, -c.y * 0.00018 + c.z * 0.0001); U.uSeed.value = Math.floor(t * 60) * 1.37;
         bgR.render(bgScene, bgCam);
 

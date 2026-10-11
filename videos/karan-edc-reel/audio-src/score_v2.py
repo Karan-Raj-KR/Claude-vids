@@ -12,7 +12,7 @@
   bars 15-16 (26.25-30.0)  final drop: reese bass, big chords, lead; last chord
                            on beat 60 (28.125 s) rings out to the end
 
-Big hits only at 3.75, 26.25 (plus a small one at 12.1875 for "1ST").
+Big hits at 3.75, 11.25 ("6 FIGURES+") and 26.25, plus a small one at 13.125 for "1ST".
 Deterministic (fixed seed). Usage: python score_v2.py <out_dir>
 """
 
@@ -210,7 +210,9 @@ def build():
         root = BASS[chord_at(i)]
         for k in (1, 2, 3):  # rolling bass
             place(bass, S.bass_note(root + (12 if k == 2 else 0), S16 * 0.9, 0.42, cutoff=700), b(i) + k * S16)
-    place(fx, S.impact(0.55, 1.4), b(26))                      # "1ST"
+    place(fx, reverse_cymbal(BEAT * 2, 0.5), b(22))             # into "6 FIGURES+"
+    place(fx, S.impact(1.0, 2.6), b(24))                       # "6" slam
+    place(fx, S.impact(0.6, 1.4), b(28))                       # "1ST"
     place(fx, S.whoosh(1.0, 0.6), b(32) - 0.3)                  # zoom-out
     place(fx, reverse_cymbal(BEAT * 2, 0.45), b(32))
     place(pads, pad_chord("Fm", BEAT * 2.2, 0.3, 3000), b(32))
@@ -308,10 +310,13 @@ def build():
     fs = int(29.2 * SR)
     tail[fs:] = np.linspace(1, 0, N - fs) ** 1.5
     mix *= tail[:, None]
-    return mix / (np.max(np.abs(mix)) + 1e-9)
+    stem = music * tail[:, None]
+    return mix / (np.max(np.abs(mix)) + 1e-9), stem / (np.max(np.abs(stem)) + 1e-9)
 
 
 if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else "."
-    sf.write(f"{out}/score-v2-raw.wav", (build() * 0.89).astype(np.float32), SR, subtype="PCM_24")
+    mix, stem = build()
+    sf.write(f"{out}/score-v2-raw.wav", (mix * 0.89).astype(np.float32), SR, subtype="PCM_24")
+    sf.write(f"{out}/music-raw.wav", (stem * 0.89).astype(np.float32), SR, subtype="PCM_24")
     print("wrote", out)

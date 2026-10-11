@@ -1,0 +1,387 @@
+{
+ "fps": 60,
+ "duration_s": 30.0,
+ "energy": "high",
+ "kit": "audio/kit",
+ "music": {
+  "file": "audio/music.wav",
+  "start_s": 0.0,
+  "loop": false,
+  "fade_out_s": 0.8
+ },
+ "silence_ok": [
+  [
+   29.2,
+   30.0
+  ]
+ ],
+ "_note": "Times come straight from index.html timeline constants (128 BPM, beat 0.46875 s). 'category/?' sound ids are picked with `sfx.py browse` once `sfx.py kit` can download the CC0 packs.",
+ "cues": [
+  {
+   "id": "intro-dot",
+   "t": 2.55,
+   "sound": "pop/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "appear"
+  },
+  {
+   "id": "name-slam",
+   "t": 3.75,
+   "sound": "hit/?",
+   "weight": "hero",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "land",
+   "stop_before": 0.3,
+   "build": "riser/?"
+  },
+  {
+   "id": "name-boom",
+   "t": 3.75,
+   "sound": "boom/?",
+   "weight": "hero",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "land"
+  },
+  {
+   "id": "degree-type",
+   "t": 4.75,
+   "sound": "tick/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.2,
+   "visual": "appear"
+  },
+  {
+   "id": "whip-edc",
+   "t": 6.1,
+   "sound": "transition/?",
+   "weight": "support",
+   "align": "end",
+   "pan": 0.0,
+   "visual": "cut"
+  },
+  {
+   "id": "best-member-pill",
+   "t": 6.35,
+   "sound": "pop/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.3,
+   "visual": "appear"
+  },
+  {
+   "id": "event-1",
+   "t": 7.2,
+   "sound": "tap/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.4,
+   "visual": "land"
+  },
+  {
+   "id": "event-2",
+   "t": 7.7,
+   "sound": "tap/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.13,
+   "visual": "land"
+  },
+  {
+   "id": "event-3",
+   "t": 8.2,
+   "sound": "tap/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.14,
+   "visual": "land"
+  },
+  {
+   "id": "event-4",
+   "t": 8.66,
+   "sound": "tap/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.41,
+   "visual": "land"
+  },
+  {
+   "id": "whip-140",
+   "t": 9.6,
+   "sound": "whoosh/?",
+   "weight": "support",
+   "align": "end",
+   "pan": 0.0,
+   "visual": "cut"
+  },
+  {
+   "id": "six-figures-slam",
+   "t": 11.25,
+   "sound": "hit/?",
+   "weight": "hero",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "land",
+   "stop_before": 0.35,
+   "build": "reverse/?"
+  },
+  {
+   "id": "six-figures-boom",
+   "t": 11.25,
+   "sound": "boom/?",
+   "weight": "hero",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "land"
+  },
+  {
+   "id": "figures-slide",
+   "t": 11.53,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "start",
+   "pan": 0.3,
+   "visual": "move"
+  },
+  {
+   "id": "figures-sheen",
+   "t": 12.0,
+   "sound": "shimmer/?",
+   "weight": "support",
+   "align": "start",
+   "pan": 0.2,
+   "visual": "appear"
+  },
+  {
+   "id": "iit-card",
+   "t": 12.25,
+   "sound": "paper/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.35,
+   "visual": "land"
+  },
+  {
+   "id": "open-loop-1st",
+   "t": 13.125,
+   "sound": "hit/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.2,
+   "visual": "land"
+  },
+  {
+   "id": "ol-stats",
+   "t": 13.345,
+   "sound": "tick/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.4,
+   "visual": "appear"
+  },
+  {
+   "id": "ol-bars",
+   "t": 13.775,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "start",
+   "pan": 0.4,
+   "visual": "move"
+  },
+  {
+   "id": "fly-constellation",
+   "t": 15.35,
+   "sound": "transition/?",
+   "weight": "support",
+   "align": "end",
+   "pan": 0.0,
+   "visual": "cut"
+  },
+  {
+   "id": "card-1",
+   "t": 15.1,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.5,
+   "visual": "appear"
+  },
+  {
+   "id": "card-4",
+   "t": 15.46,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.5,
+   "visual": "appear"
+  },
+  {
+   "id": "card-7",
+   "t": 15.82,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.5,
+   "visual": "appear"
+  },
+  {
+   "id": "card-10",
+   "t": 16.18,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.5,
+   "visual": "appear"
+  },
+  {
+   "id": "card-13",
+   "t": 16.54,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.5,
+   "visual": "appear"
+  },
+  {
+   "id": "whip-impact",
+   "t": 18.95,
+   "sound": "whoosh/?",
+   "weight": "support",
+   "align": "end",
+   "pan": 0.0,
+   "visual": "cut"
+  },
+  {
+   "id": "impact-1",
+   "t": 19.1,
+   "sound": "click/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "appear"
+  },
+  {
+   "id": "impact-2",
+   "t": 20.2,
+   "sound": "click/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "appear"
+  },
+  {
+   "id": "impact-3",
+   "t": 21.3,
+   "sound": "click/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "appear"
+  },
+  {
+   "id": "whip-plan",
+   "t": 22.55,
+   "sound": "whoosh/?",
+   "weight": "support",
+   "align": "end",
+   "pan": 0.0,
+   "visual": "cut"
+  },
+  {
+   "id": "plan-1",
+   "t": 22.85,
+   "sound": "pop/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.45,
+   "visual": "land"
+  },
+  {
+   "id": "plan-2",
+   "t": 23.15,
+   "sound": "pop/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": -0.15,
+   "visual": "land"
+  },
+  {
+   "id": "plan-3",
+   "t": 23.45,
+   "sound": "pop/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.15,
+   "visual": "land"
+  },
+  {
+   "id": "plan-4",
+   "t": 23.75,
+   "sound": "pop/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.45,
+   "visual": "land"
+  },
+  {
+   "id": "rise-quote",
+   "t": 24.5,
+   "sound": "swish/?",
+   "weight": "support",
+   "align": "end",
+   "pan": 0.0,
+   "visual": "move"
+  },
+  {
+   "id": "companies",
+   "t": 25.6,
+   "sound": "chime/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "appear"
+  },
+  {
+   "id": "final-slam",
+   "t": 26.25,
+   "sound": "hit/?",
+   "weight": "hero",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "cut",
+   "stop_before": 0.25,
+   "build": "riser/?"
+  },
+  {
+   "id": "final-boom",
+   "t": 26.25,
+   "sound": "boom/?",
+   "weight": "hero",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "cut"
+  },
+  {
+   "id": "pill",
+   "t": 28.125,
+   "sound": "pop/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "land"
+  },
+  {
+   "id": "voting-type",
+   "t": 28.594,
+   "sound": "tick/?",
+   "weight": "support",
+   "align": "peak",
+   "pan": 0.0,
+   "visual": "appear"
+  }
+ ]
+}

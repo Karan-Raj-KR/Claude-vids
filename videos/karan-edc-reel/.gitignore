@@ -10,3 +10,6 @@ renders/.hf-segments/
 audio-src/__pycache__/
 renders/*-v[0-9]*.mp4
 assets/audio/score-v2-raw.wav
+sound-layer/
+audio-src/music-raw.wav
+audio-src/*-raw.wav
