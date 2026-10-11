@@ -9,12 +9,12 @@
   {
    "check": "loudness",
    "status": "pass",
-   "detail": "integrated -14.17 LUFS, target -14"
+   "detail": "integrated -14.47 LUFS, target -14"
   },
   {
    "check": "true peak",
-   "status": "FAIL",
-   "detail": "-0.28 dBTP (limit -1.0)"
+   "status": "pass",
+   "detail": "-1.36 dBTP (limit -1.0)"
   },
   {
    "check": "picture intro-dot",
@@ -124,97 +124,97 @@
   {
    "check": "picture card-4",
    "status": "warn",
-   "detail": "appear at frame 1472: change at frame 1471 (0.37 vs local 0.38)"
+   "detail": "appear at frame 1471: change at frame 1472 (0.38 vs local 0.40)"
   },
   {
    "check": "picture card-7",
    "status": "warn",
-   "detail": "appear at frame 1501: change at frame 1500 (0.41 vs local 0.38)"
+   "detail": "appear at frame 1499: change at frame 1499 (0.40 vs local 0.39)"
   },
   {
    "check": "picture card-10",
    "status": "warn",
-   "detail": "appear at frame 1531: change at frame 1530 (0.34 vs local 0.35)"
+   "detail": "appear at frame 1527: change at frame 1527 (0.36 vs local 0.37)"
   },
   {
    "check": "picture card-13",
    "status": "warn",
-   "detail": "appear at frame 1561: change at frame 1561 (0.46 vs local 0.47)"
+   "detail": "appear at frame 1556: change at frame 1557 (0.50 vs local 0.49)"
   },
   {
    "check": "picture whip-impact",
    "status": "warn",
-   "detail": "cut at frame 1760: largest change at frame 1759 (0.3 vs local 1.3)"
+   "detail": "cut at frame 1744: largest change at frame 1744 (2.4 vs local 1.4)"
   },
   {
-   "check": "picture impact-1",
-   "status": "pass",
-   "detail": "appear at frame 1772: change at frame 1772 (2.32 vs local 0.29)"
-  },
-  {
-   "check": "picture impact-2",
+   "check": "picture lead-1",
    "status": "warn",
-   "detail": "appear at frame 1863: change at frame 1863 (0.22 vs local 0.21)"
+   "detail": "appear at frame 1755: change at frame 1756 (0.20 vs local 0.29)"
   },
   {
-   "check": "picture impact-3",
+   "check": "picture lead-2",
    "status": "warn",
-   "detail": "appear at frame 1954: change at frame 1954 (0.33 vs local 0.31)"
+   "detail": "appear at frame 1841: change at frame 1842 (0.20 vs local 0.20)"
+  },
+  {
+   "check": "picture lead-3",
+   "status": "warn",
+   "detail": "appear at frame 1927: change at frame 1928 (0.37 vs local 0.29)"
   },
   {
    "check": "picture whip-plan",
-   "status": "warn",
-   "detail": "cut at frame 2057: largest change at frame 2056 (0.9 vs local 1.9)"
+   "status": "pass",
+   "detail": "cut at frame 2025: largest change at frame 2025 (9.3 vs local 2.0)"
   },
   {
    "check": "picture plan-1",
    "status": "warn",
-   "detail": "land at frame 2082: motion does not stop near the cue"
+   "detail": "land at frame 2109: no motion before the landing"
   },
   {
    "check": "picture plan-2",
    "status": "warn",
-   "detail": "land at frame 2107: motion does not stop near the cue"
+   "detail": "land at frame 2194: no motion before the landing"
   },
   {
    "check": "picture plan-3",
    "status": "warn",
-   "detail": "land at frame 2131: motion does not stop near the cue"
+   "detail": "land at frame 2278: no motion before the landing"
   },
   {
    "check": "picture plan-4",
    "status": "warn",
-   "detail": "land at frame 2156: motion does not stop near the cue"
+   "detail": "land at frame 2362: no motion before the landing"
   },
   {
    "check": "picture rise-quote",
    "status": "pass",
-   "detail": "move at frame 2218: motion peak at frame 2216"
+   "detail": "move at frame 2539: motion peak at frame 2538"
   },
   {
    "check": "picture companies",
    "status": "warn",
-   "detail": "appear at frame 2309: change at frame 2308 (1.83 vs local 1.38)"
+   "detail": "appear at frame 2711: change at frame 2710 (0.49 vs local 0.49)"
   },
   {
    "check": "picture final-slam",
    "status": "pass",
-   "detail": "cut at frame 2362: largest change at frame 2363 (60.7 vs local 3.6)"
+   "detail": "cut at frame 2812: largest change at frame 2813 (60.6 vs local 1.5)"
   },
   {
    "check": "picture final-boom",
    "status": "pass",
-   "detail": "cut at frame 2362: largest change at frame 2363 (60.7 vs local 3.6)"
+   "detail": "cut at frame 2812: largest change at frame 2813 (60.6 vs local 1.5)"
   },
   {
    "check": "picture pill",
    "status": "warn",
-   "detail": "land at frame 2531: no motion before the landing"
+   "detail": "land at frame 2981: no motion before the landing"
   },
   {
    "check": "picture voting-type",
    "status": "warn",
-   "detail": "appear at frame 2573: change at frame 2573 (0.30 vs local 0.32)"
+   "detail": "appear at frame 3023: change at frame 3023 (0.30 vs local 0.32)"
   },
   {
    "check": "sync intro-dot",
@@ -224,7 +224,7 @@
   {
    "check": "audible intro-dot",
    "status": "pass",
-   "detail": "stands out by 1.6 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 2.2 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync name-slam",
@@ -264,7 +264,7 @@
   {
    "check": "audible degree-type",
    "status": "FAIL",
-   "detail": "stands out by 1.4 dB in 500-1000 Hz over music+voice"
+   "detail": "stands out by 1.3 dB in 500-1000 Hz over music+voice"
   },
   {
    "check": "audible whip-edc",
@@ -279,7 +279,7 @@
   {
    "check": "audible best-member-pill",
    "status": "FAIL",
-   "detail": "stands out by 0.8 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 1.5 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync event-1",
@@ -289,7 +289,7 @@
   {
    "check": "audible event-1",
    "status": "FAIL",
-   "detail": "stands out by 0.8 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 1.4 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync event-2",
@@ -299,7 +299,7 @@
   {
    "check": "audible event-2",
    "status": "pass",
-   "detail": "stands out by 3.8 dB in 2000-4000 Hz over music+voice"
+   "detail": "stands out by 5.5 dB in 2000-4000 Hz over music+voice"
   },
   {
    "check": "sync event-3",
@@ -309,7 +309,7 @@
   {
    "check": "audible event-3",
    "status": "pass",
-   "detail": "stands out by 2.1 dB in 250-500 Hz over music+voice"
+   "detail": "stands out by 3.0 dB in 250-500 Hz over music+voice"
   },
   {
    "check": "sync event-4",
@@ -318,13 +318,13 @@
   },
   {
    "check": "audible event-4",
-   "status": "FAIL",
-   "detail": "stands out by 1.4 dB in 1000-2000 Hz over music+voice"
+   "status": "pass",
+   "detail": "stands out by 1.8 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "audible whip-140",
    "status": "pass",
-   "detail": "stands out by 2.6 dB in 250-500 Hz over music+voice"
+   "detail": "stands out by 2.5 dB in 250-500 Hz over music+voice"
   },
   {
    "check": "sync six-figures-slam",
@@ -334,12 +334,12 @@
   {
    "check": "audible six-figures-slam",
    "status": "pass",
-   "detail": "stands out by 7.0 dB in 125-250 Hz over music+voice"
+   "detail": "stands out by 6.9 dB in 125-250 Hz over music+voice"
   },
   {
    "check": "hero body six-figures-slam",
    "status": "pass",
-   "detail": "main band 125-250 Hz lifted 7.0 dB (needs 3)"
+   "detail": "main band 125-250 Hz lifted 6.9 dB (needs 3)"
   },
   {
    "check": "sync six-figures-boom",
@@ -349,22 +349,22 @@
   {
    "check": "audible six-figures-boom",
    "status": "pass",
-   "detail": "stands out by 6.9 dB in 125-250 Hz over music+voice"
+   "detail": "stands out by 6.8 dB in 125-250 Hz over music+voice"
   },
   {
    "check": "hero body six-figures-boom",
    "status": "pass",
-   "detail": "main band 125-250 Hz lifted 6.9 dB (needs 3)"
+   "detail": "main band 125-250 Hz lifted 6.8 dB (needs 3)"
   },
   {
    "check": "audible figures-slide",
    "status": "pass",
-   "detail": "stands out by 2.0 dB in 125-250 Hz over music+voice"
+   "detail": "stands out by 2.1 dB in 125-250 Hz over music+voice"
   },
   {
    "check": "audible figures-sheen",
-   "status": "FAIL",
-   "detail": "stands out by 1.2 dB in 250-500 Hz over music+voice"
+   "status": "pass",
+   "detail": "stands out by 1.9 dB in 2000-4000 Hz over music+voice"
   },
   {
    "check": "sync iit-card",
@@ -374,7 +374,7 @@
   {
    "check": "audible iit-card",
    "status": "pass",
-   "detail": "stands out by 2.2 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 2.3 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync open-loop-1st",
@@ -384,7 +384,7 @@
   {
    "check": "audible open-loop-1st",
    "status": "pass",
-   "detail": "stands out by 1.7 dB in 4000-8000 Hz over music+voice"
+   "detail": "stands out by 1.6 dB in 4000-8000 Hz over music+voice"
   },
   {
    "check": "sync ol-stats",
@@ -394,7 +394,7 @@
   {
    "check": "audible ol-stats",
    "status": "pass",
-   "detail": "stands out by 2.1 dB in 2000-4000 Hz over music+voice"
+   "detail": "stands out by 2.0 dB in 2000-4000 Hz over music+voice"
   },
   {
    "check": "audible ol-bars",
@@ -404,12 +404,12 @@
   {
    "check": "sync card-1",
    "status": "pass",
-   "detail": "peak 0.00 frames from its cue"
+   "detail": "peak 0.07 frames from its cue"
   },
   {
    "check": "audible card-1",
-   "status": "pass",
-   "detail": "stands out by 1.5 dB in 500-1000 Hz over music+voice"
+   "status": "FAIL",
+   "detail": "stands out by 1.4 dB in 500-1000 Hz over music+voice"
   },
   {
    "check": "audible fly-constellation",
@@ -424,7 +424,7 @@
   {
    "check": "audible card-4",
    "status": "pass",
-   "detail": "stands out by 2.2 dB in 125-250 Hz over music+voice"
+   "detail": "stands out by 2.4 dB in 125-250 Hz over music+voice"
   },
   {
    "check": "sync card-7",
@@ -434,7 +434,7 @@
   {
    "check": "audible card-7",
    "status": "pass",
-   "detail": "stands out by 3.4 dB in 500-1000 Hz over music+voice"
+   "detail": "stands out by 2.0 dB in 500-1000 Hz over music+voice"
   },
   {
    "check": "sync card-10",
@@ -444,7 +444,7 @@
   {
    "check": "audible card-10",
    "status": "pass",
-   "detail": "stands out by 1.9 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 2.1 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync card-13",
@@ -454,47 +454,47 @@
   {
    "check": "audible card-13",
    "status": "FAIL",
-   "detail": "stands out by -0.0 dB in 125-250 Hz over music+voice"
+   "detail": "stands out by 0.0 dB in 250-500 Hz over music+voice"
   },
   {
    "check": "audible whip-impact",
    "status": "pass",
-   "detail": "stands out by 2.0 dB in 500-1000 Hz over music+voice"
+   "detail": "stands out by 4.2 dB in 500-1000 Hz over music+voice"
   },
   {
-   "check": "sync impact-1",
+   "check": "sync lead-1",
    "status": "pass",
    "detail": "peak 0.00 frames from its cue"
   },
   {
-   "check": "audible impact-1",
+   "check": "audible lead-1",
    "status": "FAIL",
-   "detail": "stands out by 0.1 dB in 2000-4000 Hz over music+voice"
+   "detail": "stands out by 0.5 dB in 2000-4000 Hz over music+voice"
   },
   {
-   "check": "sync impact-2",
+   "check": "sync lead-2",
    "status": "pass",
    "detail": "peak 0.00 frames from its cue"
   },
   {
-   "check": "audible impact-2",
+   "check": "audible lead-2",
    "status": "pass",
-   "detail": "stands out by 2.1 dB in 4000-8000 Hz over music+voice"
+   "detail": "stands out by 4.7 dB in 4000-8000 Hz over music+voice"
   },
   {
-   "check": "sync impact-3",
+   "check": "sync lead-3",
    "status": "pass",
    "detail": "peak 0.00 frames from its cue"
   },
   {
-   "check": "audible impact-3",
+   "check": "audible lead-3",
    "status": "pass",
-   "detail": "stands out by 2.6 dB in 2000-4000 Hz over music+voice"
+   "detail": "stands out by 2.2 dB in 2000-4000 Hz over music+voice"
   },
   {
    "check": "audible whip-plan",
-   "status": "pass",
-   "detail": "stands out by 1.6 dB in 500-1000 Hz over music+voice"
+   "status": "FAIL",
+   "detail": "stands out by 0.2 dB in 125-250 Hz over music+voice"
   },
   {
    "check": "sync plan-1",
@@ -503,8 +503,8 @@
   },
   {
    "check": "audible plan-1",
-   "status": "FAIL",
-   "detail": "stands out by 0.4 dB in 500-1000 Hz over music+voice"
+   "status": "pass",
+   "detail": "stands out by 1.7 dB in 2000-4000 Hz over music+voice"
   },
   {
    "check": "sync plan-2",
@@ -514,7 +514,7 @@
   {
    "check": "audible plan-2",
    "status": "pass",
-   "detail": "stands out by 3.6 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 1.6 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync plan-3",
@@ -524,7 +524,7 @@
   {
    "check": "audible plan-3",
    "status": "pass",
-   "detail": "stands out by 6.3 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 1.8 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync plan-4",
@@ -533,13 +533,13 @@
   },
   {
    "check": "audible plan-4",
-   "status": "FAIL",
-   "detail": "stands out by 1.1 dB in 500-1000 Hz over music+voice"
+   "status": "pass",
+   "detail": "stands out by 7.9 dB in 2000-4000 Hz over music+voice"
   },
   {
    "check": "audible rise-quote",
    "status": "pass",
-   "detail": "stands out by 2.3 dB in 500-1000 Hz over music+voice"
+   "detail": "stands out by 3.8 dB in 500-1000 Hz over music+voice"
   },
   {
    "check": "sync companies",
@@ -549,7 +549,7 @@
   {
    "check": "audible companies",
    "status": "pass",
-   "detail": "stands out by 1.5 dB in 1000-2000 Hz over music+voice"
+   "detail": "stands out by 2.0 dB in 1000-2000 Hz over music+voice"
   },
   {
    "check": "sync final-slam",
@@ -559,12 +559,12 @@
   {
    "check": "audible final-slam",
    "status": "pass",
-   "detail": "stands out by 11.5 dB in 500-1000 Hz over music+voice"
+   "detail": "stands out by 11.6 dB in 500-1000 Hz over music+voice"
   },
   {
    "check": "hero body final-slam",
    "status": "pass",
-   "detail": "main band 125-250 Hz lifted 5.9 dB (needs 3)"
+   "detail": "main band 125-250 Hz lifted 5.8 dB (needs 3)"
   },
   {
    "check": "sync final-boom",
@@ -574,12 +574,12 @@
   {
    "check": "audible final-boom",
    "status": "pass",
-   "detail": "stands out by 6.1 dB in 125-250 Hz over music+voice"
+   "detail": "stands out by 6.0 dB in 125-250 Hz over music+voice"
   },
   {
    "check": "hero body final-boom",
    "status": "pass",
-   "detail": "main band 125-250 Hz lifted 6.1 dB (needs 3)"
+   "detail": "main band 125-250 Hz lifted 6.0 dB (needs 3)"
   },
   {
    "check": "sync pill",
@@ -588,8 +588,8 @@
   },
   {
    "check": "audible pill",
-   "status": "pass",
-   "detail": "stands out by 2.9 dB in 1000-2000 Hz over music+voice"
+   "status": "FAIL",
+   "detail": "stands out by -0.0 dB in 250-500 Hz over music+voice"
   },
   {
    "check": "sync voting-type",
@@ -599,7 +599,7 @@
   {
    "check": "audible voting-type",
    "status": "pass",
-   "detail": "stands out by 1.8 dB in 2000-4000 Hz over music+voice"
+   "detail": "stands out by 2.3 dB in 2000-4000 Hz over music+voice"
   },
   {
    "check": "music",

@@ -1,25 +1,21 @@
-# Listen check: karan-showreel v4 (45 s)
+# Listen check: karan-showreel v6 (52.5 s)
 
 Sounds are real CC0 recordings from the opus-sound-layer kit (audio/kit/CREDITS.md),
 placed from the picture's own timing (audio/cues.json). Music is the synthesized bed
-audio-src/score_45.py (128 BPM, 96 beats). A human ear check is the final call.
+audio-src/score_52.py (128 BPM, 112 beats). Final mux: loudnorm to -14 LUFS plus a
+latency-compensated limiter. A human ear check is the final call.
 
 Timecodes to check by ear:
 1. 0:05.6: name slam (hero hit + boom)
-2. 0:16.9: "6 FIGURES+" revenue slam (hero; the longest hold in the film, to 0:21.5)
-3. 0:21.6: "1ST" Open Loop hit
-4. 0:24.4: whoosh as the camera flies into the proof cards
-5. 0:39.4: closing slam into KARAN FOR EDC PRESIDENT (hero)
+2. 0:16.9: "6 FIGURES+" revenue slam (hero; held to ~0:21.5)
+3. 0:35.2 to 0:39.4: the plan, one card landing on each of 35.2 / 36.6 / 38.0 / 39.4
+4. 0:42.2: quote starts over the snare build
+5. 0:46.9: closing slam into KARAN FOR EDC PRESIDENT (hero)
 
-QA (sound-layer qa.py, after 2 fix rounds): 14 FAIL, 30 warnings.
-- Pass: all three hero hits now lift the 125-250 Hz band 5.6-7.0 dB (needs 3); music level steady.
-- Fail, picture: at 16.9 s the frame change is a fast camera move + gold fade, not a hard cut,
-  so the "cut" check does not find a clean frame change (motion spike ~12 vs ~60 at the other heroes).
+QA (sound-layer qa.py, last run): 12 FAIL, 30 warnings.
+- Pass: loudness -14.5 LUFS, true peak -1.36 dBTP, audio offset 0 ms, music level steady,
+  all three hero hits lift 125-250 Hz by 5.6-6.9 dB (needs 3), all four plan-card cues audible.
+- Fail, picture: at 16.9 s the frame change is a fast camera move + gold fade, not a hard cut.
 - Fail, sync: the 6-figures hit's peak is 1.6 frames after its cue.
-- Fail, audible: small cues (degree type, best-member pill, events 1 and 4, figures sheen,
-  card 13, impact 1, plans 1 and 4) sit under the music.
-- Fail, true peak: -0.28 dBTP (limit -1.0).
-
-qa.png at the hero cues: at 5.6 s, 16.9 s and 39.4 s the waveform shows a short dip
-(stop_before) then a full-band spike from the sub up past 10 kHz; picture-motion spikes are tall
-at 5.6 s and 39.4 s and small at 16.9 s.
+- Fail, audible: small cues (degree type, best-member pill, event 1, card 1, card 13,
+  leadership line, whip into the plan, closing pill) sit under the music.
