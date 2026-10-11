@@ -1,11 +1,11 @@
 {
  "cues_file": "/home/user/Claude-vids/videos/karan-edc-reel/audio/cues.json",
  "fps": 60,
- "duration_s": 45.0,
+ "duration_s": 52.5,
  "target_lufs": -14,
  "master_lufs": -14.15,
  "master_true_peak_db": -2.0,
- "master_gain_db": 6.17,
+ "master_gain_db": 6.12,
  "events": [
   {
    "id": "intro-dot",
@@ -18,7 +18,7 @@
    "cue_s": 3.825,
    "peak_s": 3.825,
    "pan": 0.0,
-   "gain_db": -23.76,
+   "gain_db": -22.79,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
@@ -41,7 +41,7 @@
    "cue_s": 5.625,
    "peak_s": 5.625,
    "pan": 0.0,
-   "gain_db": 2.52,
+   "gain_db": 2.72,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
@@ -64,7 +64,7 @@
    "cue_s": 5.625,
    "peak_s": 5.625,
    "pan": 0.0,
-   "gain_db": -9.74,
+   "gain_db": -9.54,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
@@ -87,7 +87,7 @@
    "cue_s": 7.125,
    "peak_s": 7.125,
    "pan": -0.2,
-   "gain_db": -19.73,
+   "gain_db": -19.61,
    "limited_by": "best-band target",
    "band_hz": [
     500,
@@ -110,7 +110,7 @@
    "cue_s": 9.15,
    "peak_s": 8.5855,
    "pan": 0.0,
-   "gain_db": -21.52,
+   "gain_db": -20.34,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
@@ -133,11 +133,11 @@
    "cue_s": 9.525,
    "peak_s": 9.525,
    "pan": 0.3,
-   "gain_db": -23.76,
+   "gain_db": -20.79,
    "limited_by": "best-band target",
    "band_hz": [
-    500,
-    1000
+    1000,
+    2000
    ],
    "win_s": [
     9.515,
@@ -156,7 +156,7 @@
    "cue_s": 10.8,
    "peak_s": 10.8,
    "pan": -0.4,
-   "gain_db": -18.25,
+   "gain_db": -15.15,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
@@ -179,7 +179,7 @@
    "cue_s": 11.55,
    "peak_s": 11.55,
    "pan": -0.13,
-   "gain_db": -22.25,
+   "gain_db": -19.15,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
@@ -202,7 +202,7 @@
    "cue_s": 12.3,
    "peak_s": 12.3,
    "pan": 0.14,
-   "gain_db": -20.6,
+   "gain_db": -19.15,
    "limited_by": "best-band target",
    "band_hz": [
     250,
@@ -225,7 +225,7 @@
    "cue_s": 12.99,
    "peak_s": 12.99,
    "pan": 0.41,
-   "gain_db": -19.9,
+   "gain_db": -19.15,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
@@ -248,7 +248,7 @@
    "cue_s": 14.4,
    "peak_s": 14.0181,
    "pan": 0.0,
-   "gain_db": -22.64,
+   "gain_db": -22.2,
    "limited_by": "best-band target",
    "band_hz": [
     250,
@@ -271,7 +271,7 @@
    "cue_s": 16.875,
    "peak_s": 16.875,
    "pan": 0.0,
-   "gain_db": -0.14,
+   "gain_db": -0.09,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
@@ -294,7 +294,7 @@
    "cue_s": 16.875,
    "peak_s": 16.875,
    "pan": 0.0,
-   "gain_db": -14.44,
+   "gain_db": -14.42,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
@@ -317,7 +317,7 @@
    "cue_s": 17.575,
    "peak_s": 17.655,
    "pan": 0.3,
-   "gain_db": -18.7,
+   "gain_db": -19.83,
    "limited_by": "best-band target",
    "band_hz": [
     125,
@@ -340,7 +340,7 @@
    "cue_s": 18.75,
    "peak_s": 18.9432,
    "pan": 0.2,
-   "gain_db": -25.05,
+   "gain_db": -24.04,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
@@ -363,7 +363,7 @@
    "cue_s": 19.375,
    "peak_s": 19.375,
    "pan": 0.35,
-   "gain_db": -20.65,
+   "gain_db": -20.51,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
@@ -386,7 +386,7 @@
    "cue_s": 21.562,
    "peak_s": 21.562,
    "pan": -0.2,
-   "gain_db": -23.44,
+   "gain_db": -23.28,
    "limited_by": "best-band target",
    "band_hz": [
     4000,
@@ -409,7 +409,7 @@
    "cue_s": 21.841,
    "peak_s": 21.841,
    "pan": 0.4,
-   "gain_db": -21.73,
+   "gain_db": -21.61,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
@@ -432,7 +432,7 @@
    "cue_s": 22.384,
    "peak_s": 22.4211,
    "pan": 0.4,
-   "gain_db": -20.75,
+   "gain_db": -21.24,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
@@ -455,7 +455,7 @@
    "cue_s": 24.059,
    "peak_s": 24.059,
    "pan": -0.5,
-   "gain_db": -18.7,
+   "gain_db": -19.83,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
@@ -478,7 +478,7 @@
    "cue_s": 24.375,
    "peak_s": 23.8896,
    "pan": 0.0,
-   "gain_db": -23.05,
+   "gain_db": -22.75,
    "limited_by": "best-band target",
    "band_hz": [
     500,
@@ -498,18 +498,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 24.526,
-   "peak_s": 24.526,
+   "cue_s": 24.518,
+   "peak_s": 24.518,
    "pan": 0.5,
-   "gain_db": -22.7,
+   "gain_db": -23.83,
    "limited_by": "best-band target",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    24.516,
-    24.6729
+    24.508,
+    24.6649
    ],
    "visual": "appear"
   },
@@ -521,18 +521,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 25.022,
-   "peak_s": 25.022,
+   "cue_s": 24.987,
+   "peak_s": 24.987,
    "pan": -0.5,
-   "gain_db": -22.7,
+   "gain_db": -23.83,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    25.012,
-    25.172
+    24.977,
+    25.137
    ],
    "visual": "appear"
   },
@@ -544,18 +544,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 25.517,
-   "peak_s": 25.517,
+   "cue_s": 25.456,
+   "peak_s": 25.456,
    "pan": 0.5,
-   "gain_db": -20.64,
+   "gain_db": -22.42,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    25.507,
-    25.667
+    25.446,
+    25.606
    ],
    "visual": "appear"
   },
@@ -567,18 +567,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 26.013,
-   "peak_s": 26.013,
+   "cue_s": 25.925,
+   "peak_s": 25.925,
    "pan": -0.5,
-   "gain_db": -18.7,
+   "gain_db": -19.83,
    "limited_by": "best-band target",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    26.003,
-    26.156
+    25.915,
+    26.068
    ],
    "visual": "appear"
   },
@@ -590,87 +590,87 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 29.329,
-   "peak_s": 29.0374,
+   "cue_s": 29.062,
+   "peak_s": 28.7704,
    "pan": 0.0,
-   "gain_db": -22.94,
+   "gain_db": -24.2,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    29.0274,
-    29.0799
+    28.7604,
+    28.8129
    ],
    "visual": "cut"
   },
   {
-   "id": "impact-1",
+   "id": "lead-1",
    "sound": "click",
    "files": [
     "audio/kit/click/kenney-interface-switch-003.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 29.536,
-   "peak_s": 29.536,
+   "cue_s": 29.258,
+   "peak_s": 29.258,
    "pan": 0.0,
-   "gain_db": -30.29,
+   "gain_db": -32.64,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    29.526,
-    29.6001
+    29.248,
+    29.3252
    ],
    "visual": "appear"
   },
   {
-   "id": "impact-2",
+   "id": "lead-2",
    "sound": "click",
    "files": [
     "audio/kit/click/kenney-ui-audio-switch16.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 31.049,
-   "peak_s": 31.049,
+   "cue_s": 30.69,
+   "peak_s": 30.69,
    "pan": 0.0,
-   "gain_db": -32.29,
+   "gain_db": -34.64,
    "limited_by": "best-band target",
    "band_hz": [
     4000,
     8000
    ],
    "win_s": [
-    31.039,
-    31.089
+    30.68,
+    30.73
    ],
    "visual": "appear"
   },
   {
-   "id": "impact-3",
+   "id": "lead-3",
    "sound": "click",
    "files": [
     "audio/kit/click/kenney-ui-audio-switch28.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 32.563,
-   "peak_s": 32.563,
+   "cue_s": 32.122,
+   "peak_s": 32.122,
    "pan": 0.0,
-   "gain_db": -34.29,
+   "gain_db": -35.15,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    32.553,
-    32.603
+    32.112,
+    32.162
    ],
    "visual": "appear"
   },
@@ -682,110 +682,110 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 34.283,
-   "peak_s": 34.0228,
+   "cue_s": 33.75,
+   "peak_s": 33.4898,
    "pan": 0.0,
-   "gain_db": -20.64,
+   "gain_db": -20.2,
    "limited_by": "best-band target",
    "band_hz": [
-    500,
-    1000
+    125,
+    250
    ],
    "win_s": [
-    34.0128,
-    34.1389
+    33.4798,
+    33.6059
    ],
    "visual": "cut"
   },
   {
    "id": "plan-1",
-   "sound": "pop",
+   "sound": "tap",
    "files": [
-    "audio/kit/pop/fs-503162-mouth-pops-magic-bottle-cork-3.wav"
+    "audio/kit/tap/kenney-impact-impact-metal-light-000.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 34.696,
-   "peak_s": 34.696,
+   "cue_s": 35.156,
+   "peak_s": 35.156,
    "pan": -0.45,
-   "gain_db": -25.76,
+   "gain_db": -15.15,
    "limited_by": "best-band target",
    "band_hz": [
-    500,
-    1000
+    2000,
+    4000
    ],
    "win_s": [
-    34.686,
-    34.736
+    35.146,
+    35.2476
    ],
    "visual": "land"
   },
   {
    "id": "plan-2",
-   "sound": "pop",
+   "sound": "tap",
    "files": [
-    "audio/kit/pop/fs-188381-3-popping-pops-1.wav"
+    "audio/kit/tap/kenney-impact-impact-plate-heavy-003.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 35.109,
-   "peak_s": 35.109,
+   "cue_s": 36.563,
+   "peak_s": 36.563,
    "pan": -0.15,
-   "gain_db": -27.76,
+   "gain_db": -15.15,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    35.099,
-    35.149
+    36.553,
+    36.6841
    ],
    "visual": "land"
   },
   {
    "id": "plan-3",
-   "sound": "pop",
+   "sound": "tap",
    "files": [
-    "audio/kit/pop/fs-206152-bottlepop44-wav-1.wav"
+    "audio/kit/tap/kenney-impact-impact-metal-heavy-003.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 35.522,
-   "peak_s": 35.522,
+   "cue_s": 37.969,
+   "peak_s": 37.969,
    "pan": 0.15,
-   "gain_db": -27.76,
+   "gain_db": -15.15,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    35.512,
-    35.562
+    37.959,
+    38.0212
    ],
    "visual": "land"
   },
   {
    "id": "plan-4",
-   "sound": "pop",
+   "sound": "tap",
    "files": [
-    "audio/kit/pop/fs-503162-mouth-pops-magic-bottle-cork-3.wav"
+    "audio/kit/tap/kenney-impact-impact-metal-light-000.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 35.935,
-   "peak_s": 35.935,
+   "cue_s": 39.375,
+   "peak_s": 39.375,
    "pan": 0.45,
-   "gain_db": -23.76,
+   "gain_db": -19.15,
    "limited_by": "best-band target",
    "band_hz": [
-    500,
-    1000
+    2000,
+    4000
    ],
    "win_s": [
-    35.925,
-    35.975
+    39.365,
+    39.4659
    ],
    "visual": "land"
   },
@@ -797,18 +797,18 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 36.967,
-   "peak_s": 36.7968,
+   "cue_s": 42.318,
+   "peak_s": 42.1478,
    "pan": 0.0,
-   "gain_db": -21.52,
+   "gain_db": -23.83,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    36.7868,
-    36.9468
+    42.1378,
+    42.2978
    ],
    "visual": "move"
   },
@@ -820,18 +820,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 38.481,
-   "peak_s": 38.481,
+   "cue_s": 45.183,
+   "peak_s": 45.183,
    "pan": 0.0,
-   "gain_db": -18.36,
+   "gain_db": -20.36,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    38.471,
-    38.631
+    45.173,
+    45.333
    ],
    "visual": "appear"
   },
@@ -843,18 +843,18 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 39.375,
-   "peak_s": 39.375,
+   "cue_s": 46.875,
+   "peak_s": 46.875,
    "pan": 0.0,
-   "gain_db": -9.08,
+   "gain_db": -9.02,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    39.365,
-    39.515
+    46.865,
+    47.015
    ],
    "visual": "cut"
   },
@@ -866,18 +866,18 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 39.375,
-   "peak_s": 39.375,
+   "cue_s": 46.875,
+   "peak_s": 46.875,
    "pan": 0.0,
-   "gain_db": -14.6,
+   "gain_db": -14.52,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    39.365,
-    39.4954
+    46.865,
+    46.9954
    ],
    "visual": "cut"
   },
@@ -885,22 +885,22 @@
    "id": "pill",
    "sound": "pop",
    "files": [
-    "audio/kit/pop/fs-188381-3-popping-pops-1.wav"
+    "audio/kit/pop/fs-503162-mouth-pops-magic-bottle-cork-3.wav"
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 42.188,
-   "peak_s": 42.188,
+   "cue_s": 49.688,
+   "peak_s": 49.688,
    "pan": 0.0,
-   "gain_db": -27.76,
+   "gain_db": -24.79,
    "limited_by": "best-band target",
    "band_hz": [
-    1000,
-    2000
+    500,
+    1000
    ],
    "win_s": [
-    42.178,
-    42.228
+    49.678,
+    49.728
    ],
    "visual": "land"
   },
@@ -912,18 +912,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 42.891,
-   "peak_s": 42.891,
+   "cue_s": 50.391,
+   "peak_s": 50.391,
    "pan": 0.0,
-   "gain_db": -21.99,
+   "gain_db": -21.8,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    42.881,
-    42.931
+    50.381,
+    50.431
    ],
    "visual": "appear"
   }
