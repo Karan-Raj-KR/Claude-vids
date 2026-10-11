@@ -171,7 +171,7 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="45" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="52.5" data-width="1920" data-height="1080">
       <canvas id="bg" width="960" height="540"></canvas>
 
       <div id="cam" data-layout-allow-overflow>
@@ -322,7 +322,7 @@
         <defs><filter id="mblur" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feGaussianBlur id="mdev" stdDeviation="0 0" /></filter></defs>
       </svg>
 
-      <audio id="score" src="assets/audio/score-45.wav" data-start="0" data-duration="45" data-track-index="20" data-volume="1"></audio>
+      <audio id="score" src="assets/audio/score-52.wav" data-start="0" data-duration="52.5" data-track-index="20" data-volume="1"></audio>
     </div>
 
     <script>
@@ -349,7 +349,7 @@
           [18.95, 17600, 0, 0, 0, 0, 0],
           [22.2, 17640, 0, -190, 0, 2, 0],
           [22.55, 20600, 0, 0, 0, 0, 0],
-          [24.15, 20630, 20, -90, 0, -3, 0],
+          [24.38, 20630, 20, -90, 0, -3, 0],
           [24.5, 20600, 1500, 0, 10, 0, 0],
           [25.55, 20615, 1515, -100, 7, 0, 0],
           [26.0, 20615, 1515, -100, 7, 0, 0],
@@ -373,9 +373,9 @@
           }
           slopes.push(m);
         }
-        // Time-warp: the timeline is authored on a 30 s base and played over 45 s.
-        // Each section gets its own stretch; "6 FIGURES+" (11.25-13.125) gets the most.
-        const KN = [[0, 0], [11.25, 16.875], [13.125, 21.5625], [15.35, 24.375], [26.25, 39.375], [30, 45]];
+        // Time-warp: the timeline is authored on a 30 s base and played over 52.5 s.
+        // Each section gets its own stretch; the plan (22.55-24.45) and "6 FIGURES+" (11.25-13.125) get the most.
+        const KN = [[0, 0], [11.25, 16.875], [13.125, 21.5625], [15.35, 24.375], [22.55, 33.75], [24.45, 42.1875], [26.25, 46.875], [30, 52.5]];
         const lerpKn = (t, a, b) => {
           if (t <= KN[0][a]) return KN[0][b] + (t - KN[0][a]);
           for (let i = 0; i < KN.length - 1; i++) {
@@ -618,8 +618,12 @@
           rise("#pl-lab .ln", 22.55, { d: 0.6 });
           const ph = SplitText.create("#pl-head", { type: "chars", mask: "chars" });
           tl.fromTo(ph.chars, { yPercent: 120 }, { yPercent: 0, duration: 0.6, stagger: 0.03, ease: "snap" }, 22.5);
-          $$(".pc").forEach((c, i) => {
-            const t = 22.85 + i * 0.3;
+          const pcs = $$(".pc"), pcT = [22.8667, 23.1833, 23.5, 23.8167];
+          pcs.forEach((c, i) => {
+            const t = pcT[i];
+            tl.to(c, { scale: 1.07, y: -22, boxShadow: "0 40px 90px rgba(255, 75, 31, 0.35)", duration: 0.5, ease: "power3.out" }, t + 0.08);
+            tl.to(c, { scale: 1, y: 0, boxShadow: "0 40px 90px rgba(0, 0, 0, 0.4)", duration: 0.55, ease: "power3.inOut" }, i < 3 ? pcT[i + 1] : 24.02);
+            tl.fromTo($(".glint", c), { xPercent: -120 }, { xPercent: 420, duration: 0.8, ease: "power2.inOut", immediateRender: false }, 24.1 + i * 0.03);
             tl.fromTo(c, { rotationY: -70, x: -60, opacity: 0, transformOrigin: "0% 50%", transformPerspective: 1400 }, { rotationY: 0, x: 0, opacity: 1, duration: 0.7, ease: "back.out(1.4)" }, t);
             tl.fromTo($(".glint", c), { xPercent: -120 }, { xPercent: 420, duration: 0.8, ease: "power2.inOut" }, t + 0.3);
           });
@@ -657,7 +661,7 @@
           const tc = $("#tc"), beat = $("#hud .beat"), grain = $("#grain");
           let lastTc = "";
           up.push(() => {
-            const t = Math.max(0, Math.min(44.999, tl.time()));
+            const t = Math.max(0, Math.min(52.499, tl.time()));
             const f = Math.floor(t * 30), txt = "00:00:" + String(Math.floor(f / 30)).padStart(2, "0") + ":" + String(f % 30).padStart(2, "0");
             if (txt !== lastTc) { tc.textContent = txt; lastTc = txt; }
             beat.style.opacity = (0.2 + 0.8 * Math.pow(1 - (t % B) / B, 3)).toFixed(3);
@@ -667,7 +671,7 @@
             grain.style.transform = "translate(" + (h * 60).toFixed(1) + "px," + (h2 * 60).toFixed(1) + "px)";
           });
 
-          _to({}, { duration: 0.001 }, 45 - 0.001);
+          _to({}, { duration: 0.001 }, 52.5 - 0.001);
           const runAll = () => up.forEach((f) => f());
           tl.eventCallback("onUpdate", runAll);
           runAll();
@@ -773,7 +777,7 @@
         const mix = (x, y) => x.map((v, j) => v + (y[j] - v) * k);
         return { base: mix(a[1], b[1]), A: mix(a[2], b[2]), B: mix(a[3], b[3]), amt: a[4] + (b[4] - a[4]) * k };
       }
-      const drumOn = (T) => (T >= 5.625 && T < 30 && !(T >= 24.375 && T < 25.3125)) || (T >= 39.375 && T < 43.125);
+      const drumOn = (T) => (T >= 5.625 && T < 30 && !(T >= 24.375 && T < 25.3125)) || (T >= 33.75 && T < 41.25) || (T >= 46.875 && T < 50.625);
 
       // ===================== fx layer: dust, 140+ particles, network =====================
       const fxR = new THREE.WebGLRenderer({ canvas: document.getElementById("fx"), antialias: true, alpha: true, premultipliedAlpha: false, preserveDrawingBuffer: true });

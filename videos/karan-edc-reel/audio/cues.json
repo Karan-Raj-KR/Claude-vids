@@ -1,6 +1,6 @@
 {
  "fps": 60,
- "duration_s": 45.0,
+ "duration_s": 52.5,
  "energy": "high",
  "kit": "audio/kit",
  "music": {
@@ -11,11 +11,11 @@
  },
  "silence_ok": [
   [
-   44.2,
-   45.0
+   51.7,
+   52.5
   ]
  ],
- "_note": "Times come from index.html's 30 s authoring base mapped through its time-warp window.W (45 s). Sounds picked from the opus-sound-layer kit.",
+ "_note": "Times come from index.html's 30 s authoring base mapped through its time-warp window.W (52.5 s). Plan cards land on beats 75/78/81/84.",
  "cues": [
   {
    "id": "intro-dot",
@@ -212,7 +212,7 @@
   },
   {
    "id": "card-4",
-   "t": 24.526,
+   "t": 24.518,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -221,7 +221,7 @@
   },
   {
    "id": "card-7",
-   "t": 25.022,
+   "t": 24.987,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -230,7 +230,7 @@
   },
   {
    "id": "card-10",
-   "t": 25.517,
+   "t": 25.456,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -239,7 +239,7 @@
   },
   {
    "id": "card-13",
-   "t": 26.013,
+   "t": 25.925,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -248,7 +248,7 @@
   },
   {
    "id": "whip-impact",
-   "t": 29.329,
+   "t": 29.062,
    "sound": "whoosh",
    "weight": "support",
    "align": "end",
@@ -257,7 +257,7 @@
   },
   {
    "id": "lead-1",
-   "t": 29.536,
+   "t": 29.258,
    "sound": "click",
    "weight": "support",
    "align": "peak",
@@ -266,7 +266,7 @@
   },
   {
    "id": "lead-2",
-   "t": 31.049,
+   "t": 30.69,
    "sound": "click",
    "weight": "support",
    "align": "peak",
@@ -275,7 +275,7 @@
   },
   {
    "id": "lead-3",
-   "t": 32.563,
+   "t": 32.122,
    "sound": "click",
    "weight": "support",
    "align": "peak",
@@ -284,7 +284,7 @@
   },
   {
    "id": "whip-plan",
-   "t": 34.283,
+   "t": 33.75,
    "sound": "whoosh",
    "weight": "support",
    "align": "end",
@@ -293,8 +293,8 @@
   },
   {
    "id": "plan-1",
-   "t": 34.696,
-   "sound": "pop",
+   "t": 35.156,
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": -0.45,
@@ -302,8 +302,8 @@
   },
   {
    "id": "plan-2",
-   "t": 35.109,
-   "sound": "pop",
+   "t": 36.563,
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": -0.15,
@@ -311,8 +311,8 @@
   },
   {
    "id": "plan-3",
-   "t": 35.522,
-   "sound": "pop",
+   "t": 37.969,
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": 0.15,
@@ -320,8 +320,8 @@
   },
   {
    "id": "plan-4",
-   "t": 35.935,
-   "sound": "pop",
+   "t": 39.375,
+   "sound": "tap",
    "weight": "support",
    "align": "peak",
    "pan": 0.45,
@@ -329,7 +329,7 @@
   },
   {
    "id": "rise-quote",
-   "t": 36.967,
+   "t": 42.318,
    "sound": "swish",
    "weight": "support",
    "align": "end",
@@ -338,7 +338,7 @@
   },
   {
    "id": "companies",
-   "t": 38.481,
+   "t": 45.183,
    "sound": "chime",
    "weight": "support",
    "align": "peak",
@@ -347,7 +347,7 @@
   },
   {
    "id": "final-slam",
-   "t": 39.375,
+   "t": 46.875,
    "sound": "hit",
    "weight": "hero",
    "align": "peak",
@@ -358,7 +358,7 @@
   },
   {
    "id": "final-boom",
-   "t": 39.375,
+   "t": 46.875,
    "sound": "boom/fs-334638-yaw-bass-drop-2",
    "weight": "hero",
    "align": "peak",
@@ -367,7 +367,7 @@
   },
   {
    "id": "pill",
-   "t": 42.188,
+   "t": 49.688,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -376,7 +376,7 @@
   },
   {
    "id": "voting-type",
-   "t": 42.891,
+   "t": 50.391,
    "sound": "tick",
    "weight": "support",
    "align": "peak",
