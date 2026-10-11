@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "preferences": {
+    "destination": {
+      "value": "youtube",
+      "confirmed_in": [
+        "karan-edc-reel"
+      ],
+      "updated_at": "2026-10-11T02:04:54.708Z"
+    },
+    "aspect": {
+      "value": "1920x1080",
+      "confirmed_in": [
+        "karan-edc-reel"
+      ],
+      "updated_at": "2026-10-11T02:04:54.788Z"
+    },
+    "language": {
+      "value": "en",
+      "confirmed_in": [
+        "karan-edc-reel"
+      ],
+      "updated_at": "2026-10-11T02:04:54.881Z"
+    },
+    "flow": {
+      "value": "automation",
+      "confirmed_in": [
+        "karan-edc-reel"
+      ],
+      "updated_at": "2026-10-11T02:04:54.963Z"
+    },
+    "storyboard": {
+      "value": "yes",
+      "confirmed_in": [
+        "karan-edc-reel"
+      ],
+      "updated_at": "2026-10-11T02:04:55.064Z"
+    }
+  },
+  "sightings": {}
+}

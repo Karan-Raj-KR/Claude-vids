@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap/gsap.min.js"></script>
+    <script src="assets/vendor/gsap/SplitText.min.js"></script>
+    <script src="assets/vendor/gsap/CustomEase.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo Black"; src: url(assets/fonts/archivo-black-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2190-21FF, U+2600-26FF; }
+      @font-face { font-family: "Archivo Black"; src: url(assets/fonts/archivo-black-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; src: url(assets/fonts/instrument-serif-italic-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; src: url(assets/fonts/instrument-serif-italic-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url(assets/fonts/jetbrains-mono-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2190-21FF, U+2600-26FF; }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url(assets/fonts/jetbrains-mono-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+
+      :root { --ink: #0e0d0c; --paper: #f3efe7; --signal: #ff4b1f; --cobalt: #2b3df5; --acid: #d9ff3a; --muted: #a39b90; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #0e0d0c; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--ink); color: var(--paper); font-family: "JetBrains Mono", monospace; -webkit-font-smoothing: antialiased; }
+
+      #bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+      #fx { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 5; pointer-events: none; }
+
+      /* camera + 3D world */
+      #cam { position: absolute; inset: 0; perspective: 1600px; perspective-origin: 50% 50%; z-index: 10; }
+      #world { position: absolute; left: 960px; top: 540px; width: 0; height: 0; transform-style: preserve-3d; }
+      .st { position: absolute; left: 0; top: 0; width: 0; height: 0; transform-style: preserve-3d; }
+      .a { position: absolute; }
+      .disp { font-family: "Archivo Black", sans-serif; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.88; white-space: nowrap; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; letter-spacing: -0.02em; line-height: 1.04; white-space: nowrap; }
+      .mono { font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.16em; white-space: nowrap; }
+      .mask { display: block; overflow: hidden; padding: 0 0.12em 0.12em 0.02em; margin: 0 -0.12em -0.12em -0.02em; }
+      .ln { display: block; }
+
+      /* intro */
+      #st-intro .w { position: absolute; left: -900px; width: 1800px; text-align: center; font-size: 120px; }
+      #w1 { top: -230px; } #w2 { top: -90px; } #w3 { top: 50px; color: var(--paper); }
+      #w3 .dot { display: inline-block; width: 26px; height: 26px; border-radius: 50%; background: var(--signal); margin-left: 8px; box-shadow: 0 0 30px 6px rgba(255, 75, 31, 0.55); }
+
+      /* name */
+      #name { position: absolute; left: -900px; width: 1800px; top: -180px; text-align: center; font-size: 196px; color: var(--paper); }
+      #name .dot { display: inline-block; width: 52px; height: 52px; border-radius: 50%; background: var(--signal); margin-left: 16px; box-shadow: 0 0 50px 10px rgba(255, 75, 31, 0.5); }
+      .rgb { position: absolute; left: -900px; width: 1800px; top: -180px; text-align: center; font-size: 196px; mix-blend-mode: screen; opacity: 0; }
+      #rgbA { color: #ff2a3d; } #rgbB { color: #2b6bff; }
+      #sheen { position: absolute; left: -900px; width: 1800px; top: -180px; text-align: center; font-size: 196px; color: transparent; background: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0) 60%); background-size: 300% 100%; background-position: 100% 0%; -webkit-background-clip: text; background-clip: text; }
+      #founder { position: absolute; left: -900px; width: 1800px; top: 50px; text-align: center; font-size: 86px; }
+      #founder em { font-style: italic; color: var(--signal); }
+      #degree { position: absolute; left: -900px; width: 1800px; top: 172px; text-align: center; font-size: 24px; color: var(--muted); }
+
+      /* EDC track */
+      #edc-lab { left: -760px; top: -340px; font-size: 22px; color: var(--acid); }
+      #edc-fin { left: -772px; top: -300px; font-size: 200px; }
+      #edc-club { left: -760px; top: -62px; font-size: 70px; }
+      #edc-pill { left: -760px; top: 52px; font-size: 24px; font-weight: 700; color: var(--ink); background: var(--paper); padding: 16px 30px; border-radius: 999px; display: flex; gap: 12px; align-items: center; }
+      #edc-pill .star { color: var(--signal); display: inline-block; }
+      #edc-line { left: -760px; top: 300px; width: 3660px; height: 4px; background: rgba(243, 239, 231, 0.85); transform-origin: 0 50%; }
+      #edc-count { left: -760px; top: 340px; font-size: 22px; color: var(--muted); }
+      .node { position: absolute; top: 302px; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 26px 6px rgba(255, 75, 31, 0.6); }
+      .ring { position: absolute; top: 302px; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; border: 3px solid var(--signal); opacity: 0; }
+      .ev { position: absolute; width: 520px; }
+      .ev.up { bottom: -250px; } .ev.dn { top: 350px; }
+      .ev .t { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 52px; line-height: 0.96; }
+      .ev .s { font-size: 20px; margin-top: 12px; color: var(--muted); }
+      .ev .k { font-size: 20px; color: var(--signal); margin-bottom: 12px; }
+
+      /* 140 */
+      #st-140 .ser { left: -900px; width: 1800px; top: 150px; text-align: center; font-size: 80px; }
+      #st-140 .mono { left: -900px; width: 1800px; top: 262px; text-align: center; font-size: 24px; color: var(--acid); }
+
+      /* proof money */
+      #pm-lab { left: -330px; top: -360px; font-size: 22px; color: var(--acid); }
+      #pm-six { left: -790px; top: -400px; font-size: 580px; line-height: 0.82; color: #ffd24a; text-shadow: 0 0 90px rgba(255, 190, 40, 0.55), 0 0 18px rgba(255, 220, 120, 0.6); transform-origin: 40% 60%; }
+      #pm-figwrap { left: -330px; top: -310px; overflow: hidden; padding-right: 30px; }
+      #pm-fig { display: block; font-size: 186px; }
+      #pm-figsheen { position: absolute; left: 0; top: 0; font-size: 186px; color: transparent; background: linear-gradient(100deg, rgba(255,255,255,0) 40%, rgba(255,240,200,1) 50%, rgba(255,255,255,0) 60%); background-size: 300% 100%; background-position: 100% 0%; -webkit-background-clip: text; background-clip: text; }
+      #pm-rule { left: -330px; top: -110px; width: 900px; height: 6px; background: #ffd24a; box-shadow: 0 0 24px rgba(255, 200, 60, 0.7); transform-origin: 0 50%; }
+      #pm-ser { left: -330px; top: -78px; font-size: 64px; }
+      #pm-shards { left: -560px; top: -140px; }
+      .gshard { position: absolute; left: 0; top: 0; width: 34px; height: 7px; background: #ffd24a; box-shadow: 0 0 14px #ffc83a; }
+      #pm-card { left: 60px; top: 130px; width: 700px; padding: 40px 46px; border-radius: 26px; background: linear-gradient(140deg, rgba(243, 239, 231, 0.2), rgba(243, 239, 231, 0.06)); border: 2px solid rgba(243, 239, 231, 0.35); box-shadow: 0 40px 90px rgba(5, 8, 40, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4); overflow: hidden; }
+      #pm-card .k { font-size: 20px; color: var(--acid); display: flex; gap: 12px; align-items: center; font-weight: 700; }
+      #pm-card .k i { width: 12px; height: 12px; border-radius: 50%; background: var(--acid); display: inline-block; box-shadow: 0 0 14px var(--acid); }
+      #pm-card .t { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 54px; line-height: 0.95; margin-top: 16px; }
+      #pm-card .c { font-family: "Instrument Serif"; font-style: italic; font-size: 46px; margin-top: 6px; color: #e8e2d8; }
+      .glint { position: absolute; top: -40%; left: 0; width: 34%; height: 180%; background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0)); }
+
+      /* open loop */
+      #ol-lab { left: -760px; top: -340px; font-size: 22px; color: var(--acid); }
+      #ol-first { left: -780px; top: -310px; font-size: 330px; color: var(--acid); text-shadow: 0 0 60px rgba(217, 255, 58, 0.45); transform-origin: 30% 60%; }
+      #ol-ser { left: -760px; top: 0; font-size: 70px; }
+      #ol-stats { left: 160px; top: -320px; width: 620px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+      #ol-stats .n { font-family: "Archivo Black"; font-size: 116px; letter-spacing: -0.04em; line-height: 1; }
+      #ol-stats .l { font-size: 18px; margin-top: 10px; color: #d9d3c9; }
+      #ol-bars { left: -760px; top: 190px; width: 1540px; }
+      .bar { display: flex; align-items: center; gap: 22px; }
+      .bar + .bar { margin-top: 18px; }
+      .bar .l { width: 210px; font-size: 20px; }
+      .bar .trk { flex: 1; height: 34px; position: relative; background: rgba(243, 239, 231, 0.1); border-radius: 6px; overflow: hidden; }
+      .bar .fill { position: absolute; inset: 0; transform-origin: 0 50%; border-radius: 6px; }
+      .bar .v { width: 110px; text-align: right; font-family: "Archivo Black"; font-size: 48px; }
+      .shard { position: absolute; left: 0; top: 0; width: 30px; height: 6px; background: var(--acid); box-shadow: 0 0 12px var(--acid); }
+      .odo { display: inline-flex; align-items: flex-end; line-height: 1; }
+      .odo .col { display: inline-block; height: 1em; overflow: hidden; width: 0.66em; text-align: center; }
+      .odo .strip { display: block; }
+      .odo .strip span { display: block; height: 1em; line-height: 1em; }
+
+      /* constellation cards */
+      .cc { position: absolute; width: 560px; margin-left: -280px; margin-top: -170px; padding: 34px 38px; border-radius: 24px; background: linear-gradient(150deg, rgba(58, 62, 110, 0.92), rgba(16, 18, 44, 0.9)); border: 2px solid rgba(243, 239, 231, 0.3); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3); }
+      .cc .tag { display: inline-block; font-size: 17px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+      .cc .tag.p { background: var(--acid); color: var(--ink); }
+      .cc .tag.b { background: var(--signal); color: var(--ink); }
+      .cc .t { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 54px; line-height: 0.95; margin-top: 22px; }
+      .cc .t.sm { font-size: 40px; }
+      .cc .s { font-family: "Instrument Serif"; font-style: italic; font-size: 40px; color: #e3ddd3; margin-top: 8px; line-height: 1.05; }
+      .cc .s.url { font-family: "JetBrains Mono"; font-style: normal; font-size: 20px; letter-spacing: 0.04em; margin-top: 14px; }
+      #const-title { left: 92px; top: 130px; z-index: 40; font-size: 22px; color: var(--acid); }
+
+      /* impact */
+      #im-lab { left: -760px; top: -330px; font-size: 22px; color: var(--muted); }
+      .imr { position: absolute; left: -760px; display: flex; align-items: center; gap: 34px; }
+      .imr .b { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 22px 4px rgba(255, 75, 31, 0.55); }
+      .imr .d { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 68px; line-height: 1; white-space: nowrap; }
+      .imr .s { font-family: "Instrument Serif"; font-style: italic; font-size: 70px; color: var(--muted); line-height: 1; margin-left: 20px; white-space: nowrap; }
+
+      /* plan */
+      #pl-lab { left: -760px; top: -380px; font-size: 22px; color: var(--signal); }
+      #pl-head { left: -772px; top: -340px; font-size: 150px; }
+      #pl-head .dot { display: inline-block; width: 30px; height: 30px; border-radius: 50%; background: var(--signal); margin-left: 10px; }
+      #pl-cards { left: -760px; top: -110px; width: 1520px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+      .pc { height: 400px; padding: 36px; border-radius: 28px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(160deg, rgba(243, 239, 231, 0.95), rgba(243, 239, 231, 0.82)); color: var(--ink); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.4); overflow: hidden; position: relative; }
+      .pc .n { font-size: 20px; font-weight: 700; color: #c2330f; }
+      .pc .t { font-family: "Archivo Black"; text-transform: uppercase; letter-spacing: -0.03em; font-size: 46px; line-height: 0.95; }
+      .pc .s { font-family: "Instrument Serif"; font-style: italic; font-size: 36px; color: #4f4a44; margin-top: 12px; line-height: 1.05; }
+      .pc .s.sm { font-size: 30px; }
+
+      /* quote */
+      #q1 { left: -760px; top: -300px; font-size: 92px; color: var(--muted); }
+      #q2 { left: -760px; top: -190px; font-size: 92px; color: var(--muted); }
+      #q3 { left: -760px; top: -40px; width: 1560px; font-size: 104px; line-height: 0.96; white-space: normal; }
+      #q3 .dot { display: inline-block; width: 26px; height: 26px; border-radius: 50%; background: var(--signal); margin-left: 6px; }
+
+      /* final */
+      #fin { left: -900px; width: 1800px; top: -260px; display: flex; flex-direction: column; align-items: center; }
+      #fin-name { font-size: 270px; display: flex; align-items: flex-end; }
+      #fin-name .dot { display: inline-block; width: 62px; height: 62px; border-radius: 50%; background: var(--signal); margin: 0 0 18px 16px; box-shadow: 0 0 60px 14px rgba(255, 75, 31, 0.55); }
+      #fin-for { font-size: 78px; color: var(--signal); margin-top: 24px; letter-spacing: -0.02em; }
+      #fin-pill { margin-top: 44px; background: var(--acid); color: var(--ink); border-radius: 999px; padding: 20px 42px; font-family: "Archivo Black"; text-transform: uppercase; font-size: 42px; box-shadow: 0 0 60px rgba(217, 255, 58, 0.35); }
+      #fin-vote { margin-top: 50px; font-size: 25px; }
+
+      /* HUD + finishing */
+      #hud { position: absolute; inset: 0; z-index: 60; color: rgba(243, 239, 231, 0.8); font-size: 19px; pointer-events: none; }
+      #hud .br { position: absolute; width: 26px; height: 26px; border: 0 solid currentColor; opacity: 0.55; }
+      #hud .tl { left: 46px; top: 46px; border-left-width: 2px; border-top-width: 2px; }
+      #hud .tr { right: 46px; top: 46px; border-right-width: 2px; border-top-width: 2px; }
+      #hud .bl { left: 46px; bottom: 46px; border-left-width: 2px; border-bottom-width: 2px; }
+      #hud .bk { right: 46px; bottom: 46px; border-right-width: 2px; border-bottom-width: 2px; }
+      #hud .lt { position: absolute; left: 92px; top: 54px; }
+      #hud .rt { position: absolute; right: 92px; top: 54px; height: 26px; overflow: hidden; text-align: right; }
+      #hud .rt .roll { display: block; }
+      #hud .rt .roll span { display: block; height: 26px; line-height: 26px; }
+      #hud .lb { position: absolute; left: 92px; bottom: 54px; }
+      #hud .rb { position: absolute; right: 92px; bottom: 54px; display: flex; gap: 12px; align-items: center; }
+      #hud .beat { width: 9px; height: 9px; border-radius: 50%; background: var(--signal); }
+      #letterbox-t, #letterbox-b { position: absolute; left: 0; right: 0; height: 120px; background: #000; z-index: 55; }
+      #letterbox-t { top: -120px; } #letterbox-b { bottom: -120px; }
+      #flash { position: absolute; inset: 0; z-index: 58; background: radial-gradient(circle at 50% 50%, rgba(255, 240, 225, 0.95), rgba(255, 120, 60, 0.5) 45%, rgba(255, 75, 31, 0) 75%); opacity: 0; pointer-events: none; mix-blend-mode: screen; }
+      #grain { position: absolute; inset: -60px; z-index: 66; pointer-events: none; opacity: 0.055; mix-blend-mode: overlay;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+      #vig { position: absolute; inset: 0; z-index: 64; pointer-events: none; background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.42) 100%); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+      <canvas id="bg" width="960" height="540"></canvas>
+
+      <div id="cam" data-layout-allow-overflow>
+        <div id="world">
+          <!-- ===== intro + name ===== -->
+          <div class="st" id="st-intro" style="transform: translate3d(0px, 0px, 0px)">
+            <div class="w serif" id="w1">Every company</div>
+            <div class="w serif" id="w2">starts as</div>
+            <div class="w disp" id="w3">an idea<span class="dot"></span></div>
+            <div id="rgbA" class="rgb disp">Karan Raj KR</div>
+            <div id="rgbB" class="rgb disp">Karan Raj KR</div>
+            <div id="name" class="disp"><span class="nm">Karan Raj KR</span><span class="dot"></span></div>
+            <div id="sheen" class="disp">Karan Raj KR</div>
+            <div id="founder" class="serif"><span class="mask"><span class="ln">Founder, <em>KĀRYO</em></span></span></div>
+            <div id="degree" class="mono">B.Tech CSE (AI/ML) · NIAT-S-VYASA, Bengaluru · Candidate, EDC President</div>
+          </div>
+
+          <!-- ===== EDC track ===== -->
+          <div class="st" id="st-edc" style="transform: translate3d(3300px, 0px, 0px)">
+            <div id="edc-lab" class="a mono"><span class="mask"><span class="ln">02 — Entrepreneurship Club · last term</span></span></div>
+            <div id="edc-fin" class="a serif">Finance Head</div>
+            <div id="edc-club" class="a disp">Entrepreneurship Club</div>
+            <div id="edc-pill" class="a mono"><span class="star">★</span><span>Best member award</span></div>
+            <div id="edc-line" class="a"></div>
+            <div id="edc-count" class="a mono"><span class="mask"><span class="ln">Co-organised 4+ events →</span></span></div>
+            <div class="ring" style="left:700px"></div><div class="node" style="left:700px"></div>
+            <div class="ring" style="left:1350px"></div><div class="node" style="left:1350px"></div>
+            <div class="ring" style="left:2000px"></div><div class="node" style="left:2000px"></div>
+            <div class="ring" style="left:2650px"></div><div class="node" style="left:2650px"></div>
+            <div class="ev up" style="left:676px"><div class="mask"><div class="ln k mono">Event 01</div></div><div class="mask"><div class="ln t">Build a product in 30 minutes</div></div><div class="mask"><div class="ln s mono">Pitch event</div></div></div>
+            <div class="ev dn" style="left:1326px"><div class="mask"><div class="ln k mono">Event 02</div></div><div class="mask"><div class="ln t">All teams sponsored</div></div></div>
+            <div class="ev up" style="left:1976px"><div class="mask"><div class="ln k mono">Event 03</div></div><div class="mask"><div class="ln t">Entrepreneurship debate</div></div></div>
+            <div class="ev dn" style="left:2626px"><div class="mask"><div class="ln k mono">Event 04</div></div><div class="mask"><div class="ln t">IPL auction</div></div></div>
+          </div>
+
+          <!-- ===== 140 ===== -->
+          <div class="st" id="st-140" style="transform: translate3d(7600px, 0px, 0px)">
+            <div class="a ser serif"><span class="mask"><span class="ln">attendees at the biggest one</span></span></div>
+            <div class="a mono"><span class="mask"><span class="ln">and the teams kept building afterwards →</span></span></div>
+          </div>
+
+          <!-- ===== proof: money ===== -->
+          <div class="st" id="st-pm" style="transform: translate3d(7600px, -1850px, -600px)">
+            <div id="pm-lab" class="a mono"><span class="mask"><span class="ln">03 — Proof</span></span></div>
+            <div id="pm-shards" class="a"></div>
+            <div id="pm-six" class="a disp">6</div>
+            <div id="pm-figwrap" class="a"><span id="pm-fig" class="disp">figures+</span><span id="pm-figsheen" class="disp">figures+</span></div>
+            <div id="pm-rule" class="a"></div>
+            <div id="pm-ser" class="a serif"><span class="mask"><span class="ln">earned through products &amp; agencies</span></span></div>
+            <div id="pm-card" class="a">
+              <i class="glint"></i>
+              <div class="k mono"><i></i><span>Selected</span></div>
+              <div class="mask"><div class="ln t">IIT Alumni Incubation Centre</div></div>
+              <div class="mask"><div class="ln c">cohort</div></div>
+            </div>
+          </div>
+
+          <!-- ===== proof: open loop ===== -->
+          <div class="st" id="st-ol" style="transform: translate3d(9800px, -1850px, -600px)">
+            <div id="ol-lab" class="a mono"><span class="mask"><span class="ln">Open Loop 2026</span></span></div>
+            <div id="ol-shards" class="a" style="left:-560px;top:-160px"></div>
+            <div id="ol-first" class="a disp">1st</div>
+            <div id="ol-ser" class="a serif"><span class="mask"><span class="ln">place · with FormPilot</span></span></div>
+            <div id="ol-stats" class="a">
+              <div class="st2"><div class="n"><span class="odo" data-v="309" data-d="3"></span></div><div class="l mono">Participants</div></div>
+              <div class="st2"><div class="n"><span class="odo" data-v="121" data-d="3"></span></div><div class="l mono">Teams</div></div>
+              <div class="st2"><div class="n"><span class="odo" data-v="109" data-d="3"></span></div><div class="l mono">Colleges</div></div>
+              <div class="st2"><div class="n"><span class="odo" data-v="14" data-d="2"></span></div><div class="l mono">States</div></div>
+            </div>
+            <div id="ol-bars" class="a">
+              <div class="bar"><span class="l mono">FormPilot</span><div class="trk"><div class="fill" id="fillA" style="background:var(--acid);box-shadow:0 0 24px rgba(217,255,58,0.6)"></div></div><span class="v"><span class="odo" id="odoA" data-v="80" data-d="2"></span></span></div>
+              <div class="bar"><span class="l mono">Next best</span><div class="trk"><div class="fill" id="fillB" style="background:rgba(243,239,231,0.45)"></div></div><span class="v" style="opacity:0.7"><span class="odo" id="odoB" data-v="60" data-d="2"></span></span></div>
+            </div>
+          </div>
+
+          <!-- ===== constellation (positions set in script) ===== -->
+          <div class="st" id="st-const" style="transform: translate3d(0px, 0px, 0px)">
+            <div class="cc"><span class="tag p mono">Proof</span><div class="t">Ideathon</div><div class="s">winner</div></div>
+            <div class="cc"><span class="tag b mono">Build</span><div class="t">Eligent</div><div class="s url">app.karanrajkr.com</div></div>
+            <div class="cc"><span class="tag p mono">Proof</span><div class="t">Hack BLR 2026</div><div class="s">Top 40 of 2,500+ teams · solo</div></div>
+            <div class="cc"><span class="tag b mono">Build</span><div class="t">FormPilot</div><div class="s">Chrome extension</div></div>
+            <div class="cc"><span class="tag p mono">Proof</span><div class="t">GRIT Awards 2026</div><div class="s">Content + Hackathons</div></div>
+            <div class="cc"><span class="tag b mono">Build · 24 hours</span><div class="t sm">KĀRYO Client Onboarding Manager</div></div>
+            <div class="cc"><span class="tag p mono">Proof</span><div class="t sm">Technology Innovators Award</div></div>
+            <div class="cc"><span class="tag b mono">Build</span><div class="t">School ERP</div></div>
+            <div class="cc"><span class="tag p mono">Open source</span><div class="t">20+ merged PRs</div></div>
+            <div class="cc"><span class="tag b mono">Build</span><div class="t">VC Pitches</div></div>
+            <div class="cc"><span class="tag p mono">Open source</span><div class="t">ECSoC</div><div class="s">Project Admin · crewai-recipes</div></div>
+            <div class="cc"><span class="tag b mono">Build</span><div class="t">OSS Mentor</div></div>
+            <div class="cc"><span class="tag b mono">Build</span><div class="t sm">Personal Companion</div></div>
+          </div>
+
+          <!-- ===== impact ===== -->
+          <div class="st" id="st-im" style="transform: translate3d(17600px, 0px, 0px)">
+            <div id="im-lab" class="a mono"><span class="mask"><span class="ln">05 — Impact</span></span></div>
+            <div class="imr" style="top:-210px"><i class="b"></i><span class="mask"><span class="ln d">Mentored batchmates</span></span><span class="mask"><span class="ln s">who now earn.</span></span></div>
+            <div class="imr" style="top:-40px"><i class="b"></i><span class="mask"><span class="ln d">Docs-automation app</span></span><span class="mask"><span class="ln s">used by 3 batchmates.</span></span></div>
+            <div class="imr" style="top:130px"><i class="b"></i><span class="mask"><span class="ln d">On stage</span></span><span class="mask"><span class="ln s">at the juniors' orientation.</span></span></div>
+          </div>
+
+          <!-- ===== plan ===== -->
+          <div class="st" id="st-pl" style="transform: translate3d(20600px, 0px, 0px)">
+            <div id="pl-lab" class="a mono"><span class="mask"><span class="ln">06 — Proposals, not promises</span></span></div>
+            <div id="pl-head" class="a disp">The plan<span class="dot"></span></div>
+            <div id="pl-cards" class="a">
+              <div class="pc"><i class="glint"></i><span class="n mono">01</span><div><div class="t">Founder sessions</div><div class="s">on campus</div></div></div>
+              <div class="pc"><i class="glint"></i><span class="n mono">02</span><div><div class="t">Build nights &amp; hackathons</div><div class="s">campus + national</div></div></div>
+              <div class="pc"><i class="glint"></i><span class="n mono">03</span><div><div class="t">Demo Day</div><div class="s">for student products</div></div></div>
+              <div class="pc"><i class="glint"></i><span class="n mono">04</span><div><div class="t">Opportunities board</div><div class="s sm">internships · programmes · competitions</div></div></div>
+            </div>
+          </div>
+
+          <!-- ===== quote ===== -->
+          <div class="st" id="st-q" style="transform: translate3d(20600px, 1500px, 0px)">
+            <div id="q1" class="a serif"><span class="mask"><span class="ln">We've attended events.</span></span></div>
+            <div id="q2" class="a serif"><span class="mask"><span class="ln">We've built projects.</span></span></div>
+            <div id="q3" class="a disp">Now let's build a campus where ideas turn into companies<span class="dot"></span></div>
+          </div>
+
+          <!-- ===== final ===== -->
+          <div class="st" id="st-fin" style="transform: translate3d(23600px, 0px, 0px)">
+            <div id="fin" class="a">
+              <div id="fin-name" class="disp"><span class="nm">Karan</span><span class="dot"></span></div>
+              <div id="fin-for" class="disp">For EDC President</div>
+              <div id="fin-pill"><span class="mask"><span class="ln">Don't just attend. Build.</span></span></div>
+              <div id="fin-vote" class="mono">Voting starts Monday · NIAT-S-VYASA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <canvas id="fx" width="1920" height="1080"></canvas>
+      <div id="const-title" class="a mono"><span class="mask"><span class="ln">04 — Proof, builds &amp; open source</span></span></div>
+
+      <div id="letterbox-t"></div><div id="letterbox-b"></div>
+      <div id="flash"></div>
+      <div id="vig"></div>
+      <div id="grain"></div>
+      <div id="hud">
+        <i class="br tl"></i><i class="br tr"></i><i class="br bl"></i><i class="br bk"></i>
+        <span class="lt mono">Karan Raj KR · EDC 2026</span>
+        <span class="rt mono" data-layout-allow-overflow><span class="roll"><span>01 — Identity</span><span>02 — EDC</span><span>03 — Proof</span><span>04 — Breadth</span><span>05 — Impact</span><span>06 — The plan</span><span>07 — Vote</span></span></span>
+        <span class="lb mono" id="tc">00:00:00:00</span>
+        <span class="rb mono"><i class="beat"></i><span>128 BPM</span></span>
+      </div>
+
+      <svg width="0" height="0" style="position:absolute">
+        <defs><filter id="mblur" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB"><feGaussianBlur id="mdev" stdDeviation="0 0" /></filter></defs>
+      </svg>
+
+      <audio id="score" src="assets/audio/score-v2.wav" data-start="0" data-duration="30" data-track-index="20" data-volume="1"></audio>
+    </div>
+
+    <script>
+      // ---------------- camera path (shared with the WebGL module) ----------------
+      (function () {
+        // [time, focusX, focusY, focusZ, rotX, rotY, rotZ]
+        const K = [
+          [0.0, 0, 0, 380, 0, 0, 0],
+          [3.55, 0, 0, 90, 0, 0, 0],
+          [3.75, 0, 0, 0, 0, 0, 0],
+          [5.45, 40, 10, -60, 1, -3, 0],
+          [6.1, 3000, 20, 0, 2, -8, 0],
+          [7.0, 3250, 25, -30, 3, -11, 0],
+          [9.05, 6000, 30, -50, 3, -12, 0],
+          [9.6, 7600, 0, 0, 0, 0, 0],
+          [10.95, 7630, -10, -90, 0, 2, 0],
+          [11.25, 7600, -1850, -560, -6, 0, 0],
+          [12.9, 7610, -1850, -690, -3, 3, 0],
+          [13.15, 9800, -1850, -600, -2, -6, 1],
+          [14.85, 9870, -1850, -740, -2, -2, 0],
+          [15.35, 12600, -1350, 900, 6, -12, 0],
+          [17.0, 13100, -1200, 100, 3, -2, 0],
+          [18.45, 13600, -1050, -700, 1, 8, 0],
+          [18.95, 17600, 0, 0, 0, 0, 0],
+          [22.2, 17640, 0, -190, 0, 2, 0],
+          [22.55, 20600, 0, 0, 0, 0, 0],
+          [24.15, 20630, 20, -90, 0, -3, 0],
+          [24.5, 20600, 1500, 0, 10, 0, 0],
+          [25.55, 20615, 1515, -100, 7, 0, 0],
+          [26.0, 20615, 1515, -100, 7, 0, 0],
+          [26.25, 23600, 0, 0, 0, 0, 0],
+          [28.6, 23600, 0, -150, 0, 0, 0],
+          [30.0, 23600, 0, -160, 0, 0, 0],
+        ];
+        const C = 7;
+        const T = K.map((k) => k[0]);
+        const slopes = [];
+        for (let c = 1; c < C; c++) {
+          const y = K.map((k) => k[c]);
+          const n = y.length, d = [], m = new Array(n);
+          for (let i = 0; i < n - 1; i++) d.push((y[i + 1] - y[i]) / (T[i + 1] - T[i]));
+          m[0] = d[0]; m[n - 1] = d[n - 2];
+          for (let i = 1; i < n - 1; i++) m[i] = d[i - 1] * d[i] <= 0 ? 0 : (d[i - 1] + d[i]) / 2;
+          for (let i = 0; i < n - 1; i++) {
+            if (d[i] === 0) { m[i] = 0; m[i + 1] = 0; continue; }
+            const a = m[i] / d[i], b = m[i + 1] / d[i], h = a * a + b * b;
+            if (h > 9) { const t = 3 / Math.sqrt(h); m[i] = t * a * d[i]; m[i + 1] = t * b * d[i]; }
+          }
+          slopes.push(m);
+        }
+        window.camAt = function (t) {
+          t = Math.max(0, Math.min(30, t));
+          let i = 0;
+          while (i < K.length - 2 && t > T[i + 1]) i++;
+          const h = T[i + 1] - T[i], s = (t - T[i]) / h;
+          const s2 = s * s, s3 = s2 * s;
+          const h00 = 2 * s3 - 3 * s2 + 1, h10 = s3 - 2 * s2 + s, h01 = -2 * s3 + 3 * s2, h11 = s3 - s2;
+          const out = [];
+          for (let c = 1; c < C; c++) {
+            const m = slopes[c - 1];
+            out.push(h00 * K[i][c] + h10 * h * m[i] + h01 * K[i + 1][c] + h11 * h * m[i + 1]);
+          }
+          return { x: out[0], y: out[1], z: out[2], rx: out[3], ry: out[4], rz: out[5] };
+        };
+        const R = (function (seed) { return function () { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; })(11);
+        const A = [12500, -1350, 200], Bp = [13700, -1000, -1500];
+        window.constPos = Array.from({ length: 13 }, (_, i) => {
+          const s = -0.05 + (i / 12) * 1.05;
+          const a = i * 2.39996 + 0.6;
+          const rr = 0.86 + R() * 0.22;
+          return [
+            A[0] + (Bp[0] - A[0]) * s + Math.cos(a) * 980 * rr,
+            A[1] + (Bp[1] - A[1]) * s + Math.sin(a) * 520 * rr,
+            A[2] + (Bp[2] - A[2]) * s - 420 - R() * 260,
+          ];
+        });
+      })();
+
+      (function () {
+        const B = 0.46875, T = (n) => n * B;
+        const $ = (s, c) => (c || document).querySelector(s);
+        const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+        function rng(seed) { return function () { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+
+        function makeOdo(el, digits) {
+          el.innerHTML = "";
+          const strips = [], cols = [];
+          for (let k = digits - 1; k >= 0; k--) {
+            const col = document.createElement("span"); col.className = "col";
+            const strip = document.createElement("span"); strip.className = "strip";
+            for (let d = 0; d <= 10; d++) { const s = document.createElement("span"); s.textContent = String(d % 10); strip.appendChild(s); }
+            col.appendChild(strip); el.appendChild(col); strips[k] = strip; cols[k] = col;
+          }
+          return function (v) {
+            const h = parseFloat(getComputedStyle(el).fontSize);
+            for (let k = 0; k < digits; k++) {
+              const p10 = Math.pow(10, k);
+              const pos = k === 0 ? v % 10 : (Math.floor(v / p10) % 10) + Math.max(0, (v % p10) - (p10 - 1));
+              strips[k].style.transform = "translateY(" + (-pos * h).toFixed(2) + "px)";
+              cols[k].style.opacity = k > 0 && v < p10 ? 0.25 : 1;
+            }
+          };
+        }
+
+        function build() {
+          gsap.registerPlugin(SplitText, CustomEase);
+          CustomEase.create("snap", "0.16,1,0.3,1");
+          const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out" } });
+          const up = [];
+          const rise = (t, at, o = {}) => tl.fromTo(t, { yPercent: 115, rotation: o.rot || 0 }, { yPercent: 0, rotation: 0, duration: o.d || 0.8, stagger: o.st || 0, ease: o.ease || "snap" }, at);
+
+          // ---------- camera ----------
+          const world = $("#world"), cam = $("#cam"), mdev = $("#mdev");
+          up.push(() => {
+            const t = tl.time();
+            const c = window.camAt(t), c2 = window.camAt(t + 1 / 60);
+            world.style.transform = "rotateZ(" + (-c.rz).toFixed(3) + "deg) rotateX(" + (-c.rx).toFixed(3) + "deg) rotateY(" + (-c.ry).toFixed(3) + "deg) translate3d(" + (-c.x).toFixed(2) + "px," + (-c.y).toFixed(2) + "px," + (-c.z).toFixed(2) + "px)";
+            const vx = Math.abs(c2.x - c.x), vy = Math.abs(c2.y - c.y);
+            const bx = Math.min(40, Math.max(0, (vx - 32) * 0.5)), by = Math.min(32, Math.max(0, (vy - 32) * 0.5));
+            if (bx + by > 0.3) { mdev.setAttribute("stdDeviation", bx.toFixed(2) + " " + by.toFixed(2)); cam.style.filter = "url(#mblur)"; }
+            else cam.style.filter = "none";
+          });
+
+          // ---------- intro ----------
+          [["#w1", 0.25], ["#w2", 1.05], ["#w3", 1.85]].forEach(([id, t]) => {
+            tl.fromTo(id, { opacity: 0, filter: "blur(22px)", scale: 1.22, y: 30 }, { opacity: 1, filter: "blur(0px)", scale: 1, y: 0, duration: 1.1, ease: "power3.out" }, t);
+          });
+          tl.fromTo("#w3 .dot", { scale: 0 }, { scale: 1, duration: 0.6, ease: "back.out(3)" }, 2.55);
+          tl.to("#w3 .dot", { keyframes: [{ scale: 1.5, duration: 0.12 }, { scale: 1, duration: 0.35, ease: "power2.out" }] }, T(6));
+          tl.to(["#w1", "#w2", "#w3"], { opacity: 0, filter: "blur(16px)", scale: 1.18, duration: 0.32, stagger: 0.03, ease: "power2.in" }, 3.38);
+
+          // ---------- name (drop 1) ----------
+          const ns = SplitText.create("#name .nm", { type: "chars" });
+          tl.fromTo(ns.chars, { z: 900, opacity: 0, rotationX: -70, transformOrigin: "50% 100%" }, { z: 0, opacity: 1, rotationX: 0, duration: 0.7, stagger: { each: 0.025, from: "center" }, ease: "expo.out" }, T(8));
+          tl.fromTo("#name .dot", { scale: 0 }, { scale: 1, duration: 0.6, ease: "back.out(3)" }, T(8) + 0.32);
+          tl.fromTo("#rgbA", { opacity: 0.85, x: -34 }, { opacity: 0, x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, T(8));
+          tl.fromTo("#rgbB", { opacity: 0.85, x: 34 }, { opacity: 0, x: 0, duration: 0.5, ease: "power3.out", immediateRender: false }, T(8));
+          tl.fromTo("#flash", { opacity: 0.9 }, { opacity: 0, duration: 0.6, ease: "power2.out", immediateRender: false }, T(8));
+          tl.fromTo("#sheen", { backgroundPosition: "100% 0%" }, { backgroundPosition: "0% 0%", duration: 0.9, ease: "power2.inOut" }, 4.55);
+          rise("#founder .ln", 4.35, { d: 0.9, rot: 2 });
+          const deg = SplitText.create("#degree", { type: "chars" });
+          tl.fromTo(deg.chars, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.009, ease: "none" }, 4.75);
+          tl.fromTo(["#letterbox-t", "#letterbox-b"], { y: 0 }, { y: (i) => (i ? -120 : 120), duration: 0.5, ease: "power3.out" }, T(8));
+          tl.to(["#letterbox-t", "#letterbox-b"], { y: 0, duration: 0.5, ease: "power3.in" }, 5.4);
+
+          // ---------- EDC track ----------
+          rise("#edc-lab .ln", 6.0, { d: 0.6 });
+          const fin = SplitText.create("#edc-fin", { type: "chars", mask: "chars" });
+          tl.fromTo(fin.chars, { yPercent: 120, rotation: 8 }, { yPercent: 0, rotation: 0, duration: 0.8, stagger: 0.025, ease: "snap" }, 5.95);
+          const club = SplitText.create("#edc-club", { type: "chars", mask: "chars" });
+          tl.fromTo(club.chars, { yPercent: 120 }, { yPercent: 0, duration: 0.6, stagger: 0.012, ease: "snap" }, 6.12);
+          tl.fromTo("#edc-pill", { scale: 0, rotation: -8 }, { scale: 1, rotation: 0, duration: 0.6, ease: "back.out(2.4)" }, 6.35);
+          tl.fromTo("#edc-pill .star", { rotation: -220 }, { rotation: 0, duration: 0.9, ease: "expo.out" }, 6.35);
+          tl.fromTo("#edc-line", { scaleX: 0 }, { scaleX: 1, duration: 3.1, ease: "power1.inOut" }, 6.0);
+          rise("#edc-count .ln", 6.3, { d: 0.6 });
+          const evT = [7.2, 7.7, 8.2, 8.66];
+          $$("#st-edc .node").forEach((n, i) => {
+            tl.fromTo(n, { scale: 0 }, { scale: 1, duration: 0.5, ease: "back.out(3)" }, evT[i]);
+            tl.fromTo($$("#st-edc .ring")[i], { scale: 1, opacity: 0.9 }, { scale: 4, opacity: 0, duration: 0.8, ease: "power2.out" }, evT[i]);
+            rise($$(".ln", $$("#st-edc .ev")[i]), evT[i] + 0.04, { d: 0.6, st: 0.06 });
+          });
+
+          // ---------- 140 (particles live in the WebGL layer) ----------
+          rise("#st-140 .ser .ln", 10.05, { d: 0.9 });
+          rise("#st-140 .mono .ln", 10.35, { d: 0.7 });
+
+          // ---------- proof: money (hero, one full bar) ----------
+          const SIX = T(24);
+          rise("#pm-lab .ln", SIX, { d: 0.6 });
+          tl.fromTo("#pm-six", { scale: 2.6, opacity: 0, rotation: -10, filter: "blur(18px)" }, { scale: 1, opacity: 1, rotation: 0, filter: "blur(0px)", duration: 0.6, ease: "expo.out" }, SIX);
+          tl.to("#pm-six", { keyframes: [{ x: 10, y: -6, duration: 0.035 }, { x: -8, y: 5, duration: 0.035 }, { x: 4, y: -2, duration: 0.035 }, { x: 0, y: 0, duration: 0.035 }], ease: "none" }, SIX + 0.04);
+          tl.fromTo("#pm-fig", { xPercent: -105 }, { xPercent: 0, duration: 0.75, ease: "expo.out" }, SIX + 0.28);
+          tl.fromTo("#pm-figsheen", { xPercent: -105, backgroundPosition: "100% 0%" }, { xPercent: 0, duration: 0.75, ease: "expo.out" }, SIX + 0.28);
+          tl.to("#pm-figsheen", { backgroundPosition: "0% 0%", duration: 0.9, ease: "power2.inOut" }, SIX + 0.75);
+          tl.fromTo("#pm-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "expo.inOut" }, SIX + 0.45);
+          rise("#pm-ser .ln", SIX + 0.6, { d: 0.8 });
+          tl.fromTo("#pm-six", { textShadow: "0 0 90px rgba(255,190,40,0.55), 0 0 18px rgba(255,220,120,0.6)" }, { textShadow: "0 0 140px rgba(255,190,40,0.85), 0 0 24px rgba(255,230,140,0.9)", duration: 0.6, ease: "sine.inOut", repeat: 1, yoyo: true, immediateRender: false }, SIX + 0.7);
+          const RG = rng(19), gBox = $("#pm-shards");
+          for (let k = 0; k < 26; k++) {
+            const sh = document.createElement("i"); sh.className = "gshard"; gBox.appendChild(sh);
+            const a = (k / 26) * Math.PI * 2 + (RG() - 0.5) * 0.3, dist = 300 + RG() * 360;
+            tl.fromTo(sh, { x: 0, y: 0, rotation: (a * 180) / Math.PI, scaleX: 2, opacity: 1 }, { x: Math.cos(a) * dist, y: Math.sin(a) * dist * 0.75, scaleX: 0.2, duration: 0.9, ease: "expo.out" }, SIX + 0.02);
+            tl.to(sh, { opacity: 0, duration: 0.35, ease: "power1.in" }, SIX + 0.5);
+          }
+          tl.fromTo("#pm-card", { y: 140, rotationX: 30, opacity: 0, transformPerspective: 1200 }, { y: 0, rotationX: 0, opacity: 1, duration: 0.8, ease: "expo.out" }, SIX + 1.0);
+          rise($$("#pm-card .ln"), SIX + 1.15, { d: 0.6, st: 0.07 });
+          tl.fromTo("#pm-card .glint", { xPercent: -120 }, { xPercent: 420, duration: 0.9, ease: "power2.inOut" }, SIX + 1.25);
+
+          // ---------- proof: open loop ----------
+          rise("#ol-lab .ln", 13.13, { d: 0.6 });
+          tl.fromTo("#ol-first", { scale: 2.4, opacity: 0, rotation: -8 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.55, ease: "expo.out" }, T(28));
+          const R = rng(7), shardBox = $("#ol-shards");
+          for (let k = 0; k < 22; k++) {
+            const sh = document.createElement("i"); sh.className = "shard"; shardBox.appendChild(sh);
+            const a = (k / 22) * Math.PI * 2 + (R() - 0.5) * 0.3, dist = 260 + R() * 300;
+            tl.fromTo(sh, { x: 0, y: 0, rotation: (a * 180) / Math.PI, scaleX: 1.8, opacity: 1 }, { x: Math.cos(a) * dist, y: Math.sin(a) * dist * 0.7, scaleX: 0.2, duration: 0.8, ease: "expo.out" }, T(28) + 0.03);
+            tl.to(sh, { opacity: 0, duration: 0.3, ease: "power1.in" }, T(28) + 0.43);
+          }
+          rise("#ol-ser .ln", T(28) + 0.25, { d: 0.8 });
+          $$("#ol-stats .st2").forEach((st, i) => {
+            const od = $(".odo", st), set = makeOdo(od, +od.dataset.d), c = { v: 0 };
+            set(0);
+            tl.fromTo(st, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, T(28) + 0.2 + i * 0.06);
+            tl.to(c, { v: +od.dataset.v, duration: 0.9, ease: "power3.out" }, T(28) + 0.22 + i * 0.06);
+            up.push(() => set(c.v));
+          });
+          tl.fromTo("#ol-bars", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, T(28) + 0.55);
+          [["#fillA", "#odoA", 0.8], ["#fillB", "#odoB", 0.6]].forEach(([f, o, k]) => {
+            const od = $(o), set = makeOdo(od, 2), c = { v: 0 };
+            set(0);
+            tl.fromTo(f, { scaleX: 0 }, { scaleX: k, duration: 0.8, ease: "power3.out" }, T(28) + 0.65);
+            tl.to(c, { v: +od.dataset.v, duration: 0.8, ease: "power3.out" }, T(28) + 0.65);
+            up.push(() => set(c.v));
+          });
+
+          // ---------- constellation ----------
+          const cards = $$("#st-const .cc");
+          cards.forEach((c, i) => {
+            const p = window.constPos[i];
+            c.style.transform = "translate3d(" + p[0] + "px," + p[1] + "px," + p[2] + "px) rotateY(" + (i % 2 ? -14 : 14) + "deg)";
+          });
+          up.push(() => {
+            const t = tl.time();
+            if (t < 14.6 || t > 19.2) return;
+            cards.forEach((c, i) => {
+              const p = window.constPos[i];
+              const fy = Math.sin(t * 0.55 + i * 1.3) * 22, fx = Math.cos(t * 0.4 + i * 0.7) * 14;
+              const ry = (i % 2 ? -14 : 14) + Math.sin(t * 0.35 + i) * 4;
+              c.style.transform = "translate3d(" + (p[0] + fx).toFixed(1) + "px," + (p[1] + fy).toFixed(1) + "px," + p[2] + "px) rotateY(" + ry.toFixed(2) + "deg)";
+            });
+          });
+          const inner = cards.map((c) => $$(".tag, .t, .s", c));
+          cards.forEach((c, i) => {
+            tl.fromTo(inner[i], { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.06, ease: "power3.out" }, 15.1 + i * 0.12);
+          });
+          up.push(() => {
+            const t = tl.time();
+            if (t < 14.6) return;
+            const leave = Math.min(1, Math.max(0, (t - 18.45) / 0.35));
+            if (t > 19.2) { cards.forEach((el) => (el.style.opacity = "0")); return; }
+            const c = window.camAt(t);
+            cards.forEach((el, i) => {
+              const p = window.constPos[i];
+              const d = Math.hypot(p[0] - c.x, p[1] - c.y, (p[2] - c.z) * 0.6);
+              const k = Math.min(1, Math.max(0, (d - 900) / 1700));
+              el.style.filter = "blur(" + (k * 7).toFixed(2) + "px)";
+              const rv = Math.min(1, Math.max(0, (t - 15.0 - i * 0.12) / 0.45));
+              el.style.opacity = ((1 - k * 0.55) * (1 - leave) * rv * rv * (3 - 2 * rv)).toFixed(3);
+            });
+          });
+          tl.fromTo("#const-title .ln", { yPercent: 115 }, { yPercent: 0, duration: 0.6, ease: "snap" }, 15.1);
+          tl.to("#const-title .ln", { yPercent: -115, duration: 0.35, ease: "power3.in" }, 18.35);
+
+          // ---------- impact (breakdown) ----------
+          rise("#im-lab .ln", 19.0, { d: 0.7 });
+          const imT = [19.1, 20.2, 21.3];
+          $$(".imr").forEach((r, i) => {
+            tl.fromTo($(".b", r), { scale: 0 }, { scale: 1, duration: 0.6, ease: "back.out(2.5)" }, imT[i]);
+            tl.fromTo($(".d", r), { yPercent: 115 }, { yPercent: 0, duration: 0.9, ease: "snap" }, imT[i] + 0.05);
+            tl.fromTo($(".s", r), { yPercent: 115, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, imT[i] + 0.3);
+          });
+
+          // ---------- plan (build) ----------
+          rise("#pl-lab .ln", 22.55, { d: 0.6 });
+          const ph = SplitText.create("#pl-head", { type: "chars", mask: "chars" });
+          tl.fromTo(ph.chars, { yPercent: 120 }, { yPercent: 0, duration: 0.6, stagger: 0.03, ease: "snap" }, 22.5);
+          $$(".pc").forEach((c, i) => {
+            const t = 22.85 + i * 0.3;
+            tl.fromTo(c, { rotationY: -70, x: -60, opacity: 0, transformOrigin: "0% 50%", transformPerspective: 1400 }, { rotationY: 0, x: 0, opacity: 1, duration: 0.7, ease: "back.out(1.4)" }, t);
+            tl.fromTo($(".glint", c), { xPercent: -120 }, { xPercent: 420, duration: 0.8, ease: "power2.inOut" }, t + 0.3);
+          });
+
+          // ---------- quote (snare roll) ----------
+          rise("#q1 .ln", 24.45, { d: 0.7, rot: 2 });
+          rise("#q2 .ln", T(53), { d: 0.7, rot: 2 });
+          const q3 = SplitText.create("#q3", { type: "words", mask: "words" });
+          const qT = [24.98, 25.08, 25.17, 25.25, 25.32, 25.38, 25.43, 25.47, 25.5];
+          q3.words.forEach((w, i) => {
+            tl.fromTo(w, { yPercent: 120, rotation: 6 }, { yPercent: 0, rotation: 0, duration: 0.5, ease: "snap" }, qT[Math.min(i, qT.length - 1)]);
+          });
+          const comp = q3.words.find((w) => /compan/i.test(w.textContent));
+          tl.fromTo(comp, { color: "#f3efe7" }, { color: "#ff4b1f", duration: 0.25, ease: "none" }, 25.6);
+          tl.fromTo("#q3 .dot", { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(3)" }, 25.6);
+
+          // ---------- final drop ----------
+          const fn = SplitText.create("#fin-name .nm", { type: "chars", mask: "chars" });
+          tl.fromTo("#flash", { opacity: 1 }, { opacity: 0, duration: 0.8, ease: "power2.out", immediateRender: false }, T(56));
+          tl.fromTo(fn.chars, { yPercent: 150, scaleY: 1.6 }, { yPercent: 0, scaleY: 1, duration: 0.7, stagger: 0.04, ease: "snap" }, T(56));
+          tl.fromTo("#fin-name .dot", { scale: 0 }, { scale: 1, duration: 0.6, ease: "back.out(3)" }, T(56) + 0.35);
+          tl.fromTo("#fin", { scale: 1.12 }, { scale: 1, duration: 2.2, ease: "expo.out" }, T(56));
+          const ff = SplitText.create("#fin-for", { type: "words", mask: "words" });
+          tl.fromTo(ff.words, { yPercent: 120 }, { yPercent: 0, duration: 0.7, stagger: 0.07, ease: "snap" }, T(57));
+          tl.fromTo("#fin-pill", { scaleX: 0.05, scaleY: 0.6, opacity: 0 }, { scaleX: 1, scaleY: 1, opacity: 1, duration: 0.6, ease: "back.out(1.8)" }, T(60));
+          rise("#fin-pill .ln", T(60) + 0.12, { d: 0.6 });
+          const fv = SplitText.create("#fin-vote", { type: "chars" });
+          tl.fromTo(fv.chars, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.012, ease: "none" }, T(61));
+          tl.fromTo("#flash", { opacity: 0.45 }, { opacity: 0, duration: 0.7, ease: "power2.out", immediateRender: false }, T(60));
+
+          // ---------- HUD, grain ----------
+          const roll = $("#hud .rt .roll");
+          [[0, 0], [5.9, 1], [11.2, 2], [15.0, 3], [18.8, 4], [22.5, 5], [26.25, 6]].forEach(([t, i]) => tl.to(roll, { y: -26 * i, duration: 0.45, ease: "expo.out" }, t));
+          tl.fromTo("#hud", { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "power2.out" }, 0.4);
+          const tc = $("#tc"), beat = $("#hud .beat"), grain = $("#grain");
+          let lastTc = "";
+          up.push(() => {
+            const t = Math.max(0, Math.min(29.999, tl.time()));
+            const f = Math.floor(t * 30), txt = "00:00:" + String(Math.floor(f / 30)).padStart(2, "0") + ":" + String(f % 30).padStart(2, "0");
+            if (txt !== lastTc) { tc.textContent = txt; lastTc = txt; }
+            beat.style.opacity = (0.2 + 0.8 * Math.pow(1 - (t % B) / B, 3)).toFixed(3);
+            const fr = Math.floor(t * 60);
+            const h = Math.abs((Math.sin(fr * 12.9898) * 43758.5453) % 1);
+            const h2 = Math.abs((Math.sin(fr * 78.233) * 12345.678) % 1);
+            grain.style.transform = "translate(" + (h * 60).toFixed(1) + "px," + (h2 * 60).toFixed(1) + "px)";
+          });
+
+          const runAll = () => up.forEach((f) => f());
+          tl.eventCallback("onUpdate", runAll);
+          runAll();
+          return tl;
+        }
+
+        document.fonts.ready.then(() => {
+          window.__timelines["main"] = build();
+          if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+        });
+      })();
+    </script>
+
+    <script type="importmap">
+      { "imports": { "three": "./assets/vendor/three/build/three.module.min.js" } }
+    </script>
+    <script type="module">
+      import * as THREE from "three";
+
+      window.__hf = window.__hf || {};
+      window.__hf.buildReady = window.__hf.buildReady || {};
+      let resolveReady;
+      window.__hf.buildReady["karan-webgl"] = new Promise((r) => (resolveReady = r));
+
+      const B = 0.46875;
+      const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+      const sm = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+      const eo = (x) => 1 - Math.pow(1 - clamp(x, 0, 1), 4);
+      function rng(seed) { return function () { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+      const hex = (h) => [((h >> 16) & 255) / 255, ((h >> 8) & 255) / 255, (h & 255) / 255];
+
+      // ===================== background: flowing light shader =====================
+      const bgR = new THREE.WebGLRenderer({ canvas: document.getElementById("bg"), antialias: false, preserveDrawingBuffer: true });
+      bgR.setPixelRatio(1); bgR.setSize(960, 540, false); bgR.outputColorSpace = THREE.LinearSRGBColorSpace;
+      const bgScene = new THREE.Scene();
+      const bgCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+      const U = {
+        uTime: { value: 0 }, uBase: { value: new THREE.Vector3() }, uA: { value: new THREE.Vector3() }, uB: { value: new THREE.Vector3() },
+        uAmt: { value: 0.5 }, uPulse: { value: 0 }, uRing: { value: 1 }, uOff: { value: new THREE.Vector2() }, uSeed: { value: 0 },
+      };
+      bgScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({
+        uniforms: U,
+        vertexShader: "varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }",
+        fragmentShader: `
+          precision highp float;
+          varying vec2 vUv;
+          uniform float uTime, uAmt, uPulse, uRing, uSeed;
+          uniform vec3 uBase, uA, uB;
+          uniform vec2 uOff;
+          float h(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+          float n(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
+            return mix(mix(h(i), h(i+vec2(1,0)), f.x), mix(h(i+vec2(0,1)), h(i+vec2(1,1)), f.x), f.y); }
+          float fbm(vec2 p){ float v = 0.0, a = 0.5; for (int i = 0; i < 5; i++){ v += a*n(p); p = p*2.03 + 17.1; a *= 0.5; } return v; }
+          void main(){
+            vec2 uv = vUv; vec2 p = (uv - 0.5) * vec2(1.7778, 1.0);
+            vec2 q = p * 1.6 + uOff;
+            float t = uTime * 0.07;
+            vec2 w = vec2(fbm(q + vec2(t, -t)), fbm(q + vec2(5.2, 1.3) - t));
+            float f = fbm(q + 1.8 * w + t);
+            float g = fbm(q * 1.4 + vec2(3.1, 7.7) - 1.3 * w - t * 0.8);
+            vec3 col = uBase;
+            col = mix(col, uA, smoothstep(0.42, 0.95, f) * uAmt);
+            col = mix(col, uB, smoothstep(0.52, 0.98, g) * uAmt * 0.85);
+            float r = length(p);
+            col += uA * uPulse * 0.22 * exp(-r * 2.2);
+            float ring = exp(-pow((r - uRing * 1.6) * 9.0, 2.0)) * (1.0 - uRing);
+            col += uA * ring * 0.55;
+            col *= 1.0 - 0.38 * smoothstep(0.35, 1.05, r);
+            col += (h(uv * 960.0 + uSeed) - 0.5) / 255.0 * 2.0;
+            gl_FragColor = vec4(col, 1.0);
+          }`,
+      })));
+
+      const INK = hex(0x0b0a0a), SIG = hex(0xff4b1f), EMB = hex(0x8a1d0a), COB = hex(0x2b3df5), DCO = hex(0x0d1350), WARM = hex(0x2a1208), AMB = hex(0xff8a3d);
+      const PAL = [
+        [0, INK, EMB, DCO, 0.55],
+        [3.6, INK, EMB, DCO, 0.55],
+        [3.9, hex(0x1a0704), SIG, AMB, 0.85],
+        [5.6, hex(0x140604), SIG, hex(0x6a1407), 0.7],
+        [6.3, WARM, AMB, SIG, 0.62],
+        [9.3, WARM, AMB, SIG, 0.62],
+        [9.7, INK, hex(0x5a1206), hex(0x1b2690), 0.6],
+        [10.9, INK, hex(0x5a1206), hex(0x1b2690), 0.6],
+        [11.15, hex(0x140b02), hex(0xffb020), hex(0x7a3a06), 0.9],
+        [12.9, hex(0x120a02), hex(0xd88a12), hex(0x3a1a60), 0.8],
+        [13.2, hex(0x070b3a), COB, hex(0x8aa61a), 0.9],
+        [14.8, hex(0x070b3a), COB, hex(0x8aa61a), 0.9],
+        [15.3, hex(0x05061a), DCO, hex(0x7a1a0a), 0.8],
+        [18.5, hex(0x05061a), COB, SIG, 0.75],
+        [19.0, hex(0x0c0a09), hex(0x3a2a20), hex(0x1a1c3a), 0.6],
+        [22.3, hex(0x0c0a09), hex(0x4a3020), hex(0x1a1c3a), 0.65],
+        [22.6, hex(0x1a120e), hex(0xb8a48a), SIG, 0.55],
+        [24.3, hex(0x1a120e), hex(0xb8a48a), SIG, 0.55],
+        [24.5, INK, hex(0x4a0f05), hex(0x101646), 0.6],
+        [26.1, INK, hex(0x4a0f05), hex(0x101646), 0.6],
+        [26.3, hex(0x0a0606), SIG, COB, 0.75],
+        [30, hex(0x0a0606), hex(0xb02a10), COB, 0.62],
+      ];
+      function palAt(t) {
+        let i = 0;
+        while (i < PAL.length - 2 && t > PAL[i + 1][0]) i++;
+        const a = PAL[i], b = PAL[i + 1], k = sm(a[0], b[0], t);
+        const mix = (x, y) => x.map((v, j) => v + (y[j] - v) * k);
+        return { base: mix(a[1], b[1]), A: mix(a[2], b[2]), B: mix(a[3], b[3]), amt: a[4] + (b[4] - a[4]) * k };
+      }
+      const drumOn = (t) => (t >= 3.75 && t < 18.75 && !(t >= 15 && t < 15.94)) || (t >= 26.25 && t < 28.125);
+
+      // ===================== fx layer: dust, 140+ particles, network =====================
+      const fxR = new THREE.WebGLRenderer({ canvas: document.getElementById("fx"), antialias: true, alpha: true, premultipliedAlpha: false, preserveDrawingBuffer: true });
+      fxR.setPixelRatio(1); fxR.setSize(1920, 1080, false); fxR.outputColorSpace = THREE.LinearSRGBColorSpace; fxR.setClearColor(0x000000, 0); fxR.autoClear = false;
+      const spr = document.createElement("canvas"); spr.width = spr.height = 64;
+      const g2 = spr.getContext("2d"), grd = g2.createRadialGradient(32, 32, 0, 32, 32, 32);
+      grd.addColorStop(0, "rgba(255,255,255,1)"); grd.addColorStop(0.3, "rgba(255,255,255,0.9)"); grd.addColorStop(0.55, "rgba(255,255,255,0.25)"); grd.addColorStop(1, "rgba(255,255,255,0)");
+      g2.fillStyle = grd; g2.fillRect(0, 0, 64, 64);
+      const sprite = new THREE.CanvasTexture(spr);
+      const R = rng(42);
+
+      const persp = new THREE.PerspectiveCamera(40, 16 / 9, 0.1, 200);
+      const dustScene = new THREE.Scene();
+      const DN = 700, dPos = new Float32Array(DN * 3), dBase = [], dCol = new Float32Array(DN * 3);
+      for (let i = 0; i < DN; i++) {
+        dBase.push([(R() - 0.5) * 60, (R() - 0.5) * 34, -R() * 50]);
+        const c = R() < 0.15 ? hex(0xff6a3d) : hex(0xf3efe7), k = 0.25 + R() * 0.55;
+        dCol.set([c[0] * k, c[1] * k, c[2] * k], i * 3);
+      }
+      const dGeo = new THREE.BufferGeometry();
+      dGeo.setAttribute("position", new THREE.BufferAttribute(dPos, 3));
+      dGeo.setAttribute("color", new THREE.BufferAttribute(dCol, 3));
+      const dMat = new THREE.PointsMaterial({ size: 0.11, map: sprite, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending });
+      dustScene.add(new THREE.Points(dGeo, dMat));
+
+      const ortho = new THREE.OrthographicCamera(-960, 960, 540, -540, -10, 10);
+      const pScene = new THREE.Scene();
+      const PN = 3000, pPos = new Float32Array(PN * 3), pCol = new Float32Array(PN * 3), pFrom = [], pTo = [], pDelay = [], pBase = [];
+      const pGeo = new THREE.BufferGeometry();
+      pGeo.setAttribute("position", new THREE.BufferAttribute(pPos, 3));
+      pGeo.setAttribute("color", new THREE.BufferAttribute(pCol, 3));
+      const pMat = new THREE.PointsMaterial({ size: 9, map: sprite, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, sizeAttenuation: false });
+      pScene.add(new THREE.Points(pGeo, pMat));
+
+      const nScene = new THREE.Scene();
+      const NN = 90, nodes = [];
+      for (let i = 0; i < NN; i++) {
+        let x, y, z;
+        do {
+          const u = R() * 2 - 1, th = R() * Math.PI * 2, r = 2.4 + Math.pow(R(), 0.6) * 3.0;
+          x = Math.sqrt(1 - u * u) * Math.cos(th) * r * 1.9; y = Math.sqrt(1 - u * u) * Math.sin(th) * r; z = u * r * 0.9;
+        } while (Math.abs(x) < 3.3 && Math.abs(y) < 1.9 && z > -2.5);
+        const kind = R();
+        nodes.push({ p: new THREE.Vector3(x, y, z), c: kind < 0.18 ? hex(0xff4b1f) : kind < 0.24 ? hex(0xd9ff3a) : kind < 0.34 ? hex(0x5b6cff) : hex(0xf3efe7), big: kind < 0.34, birth: 0, k: 0 });
+      }
+      nodes.forEach((n) => (n.birth = 26.3 + Math.min(1, n.p.length() / 7) * 0.8));
+      const edges = [];
+      nodes.forEach((a, i) => {
+        const d = nodes.map((b, j) => [j, a.p.distanceTo(b.p)]).filter(([j]) => j !== i).sort((m, n) => m[1] - n[1]);
+        for (let k = 0; k < 3; k++) { const j = d[k][0]; if (!edges.some(([p, q]) => p === j && q === i)) edges.push([i, j]); }
+      });
+      const nPos = new Float32Array(NN * 3), nCol = new Float32Array(NN * 3);
+      const nGeo = new THREE.BufferGeometry(); nGeo.setAttribute("position", new THREE.BufferAttribute(nPos, 3)); nGeo.setAttribute("color", new THREE.BufferAttribute(nCol, 3));
+      const nPts = new THREE.Points(nGeo, new THREE.PointsMaterial({ size: 0.2, map: sprite, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+      const gPos = new Float32Array(NN * 3), gCol = new Float32Array(NN * 3);
+      const gGeo = new THREE.BufferGeometry(); gGeo.setAttribute("position", new THREE.BufferAttribute(gPos, 3)); gGeo.setAttribute("color", new THREE.BufferAttribute(gCol, 3));
+      const gPts = new THREE.Points(gGeo, new THREE.PointsMaterial({ size: 0.9, map: sprite, vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+      const lPos = new Float32Array(edges.length * 6), lCol = new Float32Array(edges.length * 6);
+      const lGeo = new THREE.BufferGeometry(); lGeo.setAttribute("position", new THREE.BufferAttribute(lPos, 3)); lGeo.setAttribute("color", new THREE.BufferAttribute(lCol, 3));
+      const lines = new THREE.LineSegments(lGeo, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+      const net = new THREE.Group(); net.add(lines, gPts, nPts); nScene.add(net);
+
+      async function prep() {
+        await document.fonts.load('400 420px "Archivo Black"');
+        const cv = document.createElement("canvas"); cv.width = 1400; cv.height = 520;
+        const c = cv.getContext("2d");
+        c.fillStyle = "#fff"; c.font = '400 420px "Archivo Black"'; c.textAlign = "center"; c.textBaseline = "middle";
+        c.fillText("140+", 700, 270);
+        const data = c.getImageData(0, 0, 1400, 520).data, pts = [];
+        for (let y = 0; y < 520; y += 5) for (let x = 0; x < 1400; x += 5) if (data[(y * 1400 + x) * 4 + 3] > 128) pts.push([x - 700, 270 - y]);
+        const R2 = rng(5);
+        for (let i = 0; i < PN; i++) {
+          const tp = pts[Math.floor(R2() * pts.length)] || [0, 0];
+          pTo.push([tp[0] + (R2() - 0.5) * 3, tp[1] + 130 + (R2() - 0.5) * 3]);
+          const a = R2() * Math.PI * 2, r = 700 + R2() * 900;
+          pFrom.push([Math.cos(a) * r * 1.4, Math.sin(a) * r]);
+          pDelay.push(R2() * 0.55 + (Math.hypot(tp[0], tp[1]) / 1400) * 0.25);
+          const k = R2();
+          pBase.push(k < 0.72 ? hex(0xff4b1f) : k < 0.9 ? hex(0xffb38a) : hex(0xd9ff3a));
+        }
+      }
+
+      function renderAt(t) {
+        const p = palAt(t), c = window.camAt(t);
+        U.uTime.value = t; U.uBase.value.set(...p.base); U.uA.value.set(...p.A); U.uB.value.set(...p.B); U.uAmt.value = p.amt;
+        U.uPulse.value = drumOn(t) ? Math.exp(-((t % B) / B) * 5) * 0.8 : 0;
+        U.uRing.value = [3.75, 11.25, 26.25].map((s) => (t >= s && t < s + 0.9 ? (t - s) / 0.9 : 1)).reduce((a, b) => Math.min(a, b), 1);
+        U.uOff.value.set(c.x * 0.00018, -c.y * 0.00018 + c.z * 0.0001); U.uSeed.value = Math.floor(t * 60) * 1.37;
+        bgR.render(bgScene, bgCam);
+
+        fxR.clear();
+        const dustA = sm(0, 1.2, t) * (1 - sm(26.0, 26.6, t) * 0.6);
+        for (let i = 0; i < DN; i++) {
+          const b = dBase[i];
+          dPos[i * 3] = ((((b[0] - c.x * 0.006) % 60) + 90) % 60) - 30;
+          dPos[i * 3 + 1] = ((((b[1] + c.y * 0.006) % 34) + 51) % 34) - 17;
+          dPos[i * 3 + 2] = ((((b[2] - c.z * 0.006 + t * 0.6) % 50) + 50) % 50) - 46;
+        }
+        dGeo.attributes.position.needsUpdate = true;
+        dMat.opacity = dustA * 0.85;
+        persp.position.set(0, 0, 6); persp.lookAt(0, 0, 0);
+        fxR.render(dustScene, persp);
+
+        if (t > 9.2 && t < 11.7 && pTo.length) {
+          const out = sm(10.95, 11.5, t), a = sm(9.3, 9.6, t) * (1 - sm(11.2, 11.55, t));
+          for (let i = 0; i < PN; i++) {
+            const k = eo((t - 9.35 - pDelay[i] * 0.9) / 0.95);
+            const fx0 = pFrom[i][0], fy0 = pFrom[i][1], tx = pTo[i][0], ty = pTo[i][1];
+            pPos[i * 3] = fx0 + (tx - fx0) * k + Math.sin(t * 7 + i) * 1.2 * k;
+            pPos[i * 3 + 1] = fy0 + (ty - fy0) * k + out * (900 + (i % 37) * 20) + Math.cos(t * 6 + i) * 1.2 * k;
+            const tw = 0.75 + 0.25 * Math.sin(t * 9 + i * 1.7);
+            pCol[i * 3] = pBase[i][0] * a * tw; pCol[i * 3 + 1] = pBase[i][1] * a * tw; pCol[i * 3 + 2] = pBase[i][2] * a * tw;
+          }
+          pGeo.attributes.position.needsUpdate = true; pGeo.attributes.color.needsUpdate = true;
+          fxR.render(pScene, ortho);
+        }
+
+        if (t > 26.2) {
+          const e = eo(clamp((t - 26.25) / 3.2, 0, 1));
+          persp.position.set(Math.sin(e * 0.6) * 2.2, 0.4 - e * 0.5, 13 - e * 3.2); persp.lookAt(0, 0, 0);
+          net.rotation.y = e * 0.4; net.rotation.x = 0.1 - e * 0.06;
+          nodes.forEach((n, i) => {
+            const k = eo((t - n.birth) / 0.8), fade = clamp((t - n.birth) / 0.25, 0, 1);
+            n.k = k;
+            nPos[i * 3] = n.p.x * k; nPos[i * 3 + 1] = n.p.y * k; nPos[i * 3 + 2] = n.p.z * k;
+            const tw = 0.7 + 0.3 * Math.sin(t * 3 + i * 2.1);
+            nCol[i * 3] = n.c[0] * fade * tw; nCol[i * 3 + 1] = n.c[1] * fade * tw; nCol[i * 3 + 2] = n.c[2] * fade * tw;
+            gPos.set([nPos[i * 3], nPos[i * 3 + 1], nPos[i * 3 + 2]], i * 3);
+            const gk = n.big ? 0.32 * fade : 0.06 * fade;
+            gCol.set([n.c[0] * gk, n.c[1] * gk, n.c[2] * gk], i * 3);
+          });
+          edges.forEach(([a, b], j) => {
+            const A = nodes[a], Bn = nodes[b], vis = clamp((Math.min(A.k, Bn.k) - 0.4) * 1.8, 0, 1) * 0.42;
+            for (let k = 0; k < 3; k++) { lPos[j * 6 + k] = nPos[a * 3 + k]; lPos[j * 6 + 3 + k] = nPos[b * 3 + k]; }
+            lCol.set([A.c[0] * vis, A.c[1] * vis, A.c[2] * vis, Bn.c[0] * vis, Bn.c[1] * vis, Bn.c[2] * vis], j * 6);
+          });
+          [nGeo, gGeo, lGeo].forEach((gg) => { gg.attributes.position.needsUpdate = true; gg.attributes.color.needsUpdate = true; });
+          fxR.render(nScene, persp);
+        }
+      }
+
+      window.addEventListener("hf-seek", (ev) => renderAt(ev.detail.time));
+      prep().then(() => { renderAt(window.__hfThreeTime || 0); resolveReady(); });
+    </script>
+  </body>
+</html>

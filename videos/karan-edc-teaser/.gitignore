@@ -1,0 +1,5 @@
+renders/work-*/
+renders/.*hf-transaction*/
+node_modules/
+.hyperframes/
+renders/*-v[0-9]*.mp4

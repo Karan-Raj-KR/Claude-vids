@@ -1,0 +1,15 @@
+assets/audio/music.wav
+assets/audio/sfx.wav
+assets/audio/mix-raw.wav
+.hyperframes/
+node_modules/
+assets/audio/teaser-raw.wav
+renders/work-*/
+renders/.*hf-transaction*/
+renders/.hf-segments/
+audio-src/__pycache__/
+renders/*-v[0-9]*.mp4
+assets/audio/score-v2-raw.wav
+sound-layer/
+audio-src/music-raw.wav
+audio-src/*-raw.wav
