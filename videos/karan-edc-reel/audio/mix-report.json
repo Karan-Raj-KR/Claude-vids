@@ -1,11 +1,11 @@
 {
  "cues_file": "/home/user/Claude-vids/videos/karan-edc-reel/audio/cues.json",
  "fps": 60,
- "duration_s": 30.0,
+ "duration_s": 45.0,
  "target_lufs": -14,
- "master_lufs": -14.21,
+ "master_lufs": -14.16,
  "master_true_peak_db": -2.0,
- "master_gain_db": 6.22,
+ "master_gain_db": 6.16,
  "events": [
   {
    "id": "intro-dot",
@@ -15,18 +15,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 2.55,
-   "peak_s": 2.55,
+   "cue_s": 3.825,
+   "peak_s": 3.825,
    "pan": 0.0,
-   "gain_db": -21.02,
+   "gain_db": -23.76,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    2.54,
-    2.59
+    3.815,
+    3.865
    ],
    "visual": "appear"
   },
@@ -38,20 +38,20 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 3.75,
-   "peak_s": 3.75,
+   "cue_s": 5.625,
+   "peak_s": 5.625,
    "pan": 0.0,
-   "gain_db": 1.54,
+   "gain_db": 2.52,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    3.74,
-    3.9
+    5.615,
+    5.775
    ],
-   "visual": "land"
+   "visual": "cut"
   },
   {
    "id": "name-boom",
@@ -61,20 +61,20 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 3.75,
-   "peak_s": 3.75,
+   "cue_s": 5.625,
+   "peak_s": 5.625,
    "pan": 0.0,
-   "gain_db": -10.72,
+   "gain_db": -9.74,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    3.74,
-    3.9
+    5.615,
+    5.775
    ],
-   "visual": "land"
+   "visual": "cut"
   },
   {
    "id": "degree-type",
@@ -84,18 +84,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 4.75,
-   "peak_s": 4.75,
+   "cue_s": 7.125,
+   "peak_s": 7.125,
    "pan": -0.2,
-   "gain_db": -22.82,
+   "gain_db": -19.73,
    "limited_by": "best-band target",
    "band_hz": [
-    2000,
-    4000
+    500,
+    1000
    ],
    "win_s": [
-    4.74,
-    4.79
+    7.115,
+    7.165
    ],
    "visual": "appear"
   },
@@ -107,18 +107,18 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 6.1,
-   "peak_s": 5.5355,
+   "cue_s": 9.15,
+   "peak_s": 8.5855,
    "pan": 0.0,
-   "gain_db": -22.74,
+   "gain_db": -21.52,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    5.5255,
-    5.6855
+    8.5755,
+    8.7355
    ],
    "visual": "cut"
   },
@@ -130,18 +130,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 6.35,
-   "peak_s": 6.35,
+   "cue_s": 9.525,
+   "peak_s": 9.525,
    "pan": 0.3,
-   "gain_db": -21.02,
+   "gain_db": -23.76,
    "limited_by": "best-band target",
    "band_hz": [
-    1000,
-    2000
+    500,
+    1000
    ],
    "win_s": [
-    6.34,
-    6.39
+    9.515,
+    9.565
    ],
    "visual": "appear"
   },
@@ -153,18 +153,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 7.2,
-   "peak_s": 7.2,
+   "cue_s": 10.8,
+   "peak_s": 10.8,
    "pan": -0.4,
-   "gain_db": -20.23,
+   "gain_db": -18.25,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    7.19,
-    7.2504
+    10.79,
+    10.8504
    ],
    "visual": "land"
   },
@@ -176,18 +176,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 7.7,
-   "peak_s": 7.7,
+   "cue_s": 11.55,
+   "peak_s": 11.55,
    "pan": -0.13,
-   "gain_db": -22.7,
+   "gain_db": -22.25,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    7.69,
-    7.7915
+    11.54,
+    11.6415
    ],
    "visual": "land"
   },
@@ -199,18 +199,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 8.2,
-   "peak_s": 8.2,
+   "cue_s": 12.3,
+   "peak_s": 12.3,
    "pan": 0.14,
-   "gain_db": -18.7,
+   "gain_db": -20.6,
    "limited_by": "best-band target",
    "band_hz": [
     250,
     500
    ],
    "win_s": [
-    8.19,
-    8.3227
+    12.29,
+    12.4227
    ],
    "visual": "land"
   },
@@ -222,18 +222,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 8.66,
-   "peak_s": 8.66,
+   "cue_s": 12.99,
+   "peak_s": 12.99,
    "pan": 0.41,
-   "gain_db": -21.17,
+   "gain_db": -19.9,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    8.65,
-    8.711
+    12.98,
+    13.041
    ],
    "visual": "land"
   },
@@ -245,18 +245,18 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 9.6,
-   "peak_s": 9.2181,
+   "cue_s": 14.4,
+   "peak_s": 14.0181,
    "pan": 0.0,
-   "gain_db": -15.96,
+   "gain_db": -22.64,
    "limited_by": "best-band target",
    "band_hz": [
-    500,
-    1000
+    250,
+    500
    ],
    "win_s": [
-    9.2081,
-    9.2581
+    14.0081,
+    14.0581
    ],
    "visual": "cut"
   },
@@ -268,20 +268,20 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 11.25,
-   "peak_s": 11.25,
+   "cue_s": 16.875,
+   "peak_s": 16.875,
    "pan": 0.0,
-   "gain_db": -0.4,
+   "gain_db": -0.14,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    11.24,
-    11.4
+    16.865,
+    17.025
    ],
-   "visual": "land"
+   "visual": "cut"
   },
   {
    "id": "six-figures-boom",
@@ -291,20 +291,20 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 11.25,
-   "peak_s": 11.25,
+   "cue_s": 16.875,
+   "peak_s": 16.875,
    "pan": 0.0,
-   "gain_db": -7.78,
+   "gain_db": -7.74,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    11.24,
-    11.3344
+    16.865,
+    16.9594
    ],
-   "visual": "land"
+   "visual": "cut"
   },
   {
    "id": "figures-slide",
@@ -314,18 +314,18 @@
    ],
    "weight": "support",
    "align": "start",
-   "cue_s": 11.53,
-   "peak_s": 11.61,
+   "cue_s": 17.575,
+   "peak_s": 17.655,
    "pan": 0.3,
-   "gain_db": -19.98,
+   "gain_db": -18.7,
    "limited_by": "best-band target",
    "band_hz": [
-    250,
-    500
+    125,
+    250
    ],
    "win_s": [
-    11.6,
-    11.7531
+    17.645,
+    17.7981
    ],
    "visual": "move"
   },
@@ -337,18 +337,18 @@
    ],
    "weight": "support",
    "align": "start",
-   "cue_s": 12.0,
-   "peak_s": 12.1933,
+   "cue_s": 18.75,
+   "peak_s": 18.9432,
    "pan": 0.2,
-   "gain_db": -24.56,
+   "gain_db": -25.05,
    "limited_by": "best-band target",
    "band_hz": [
-    1000,
-    2000
+    2000,
+    4000
    ],
    "win_s": [
-    12.1832,
-    12.3432
+    18.9333,
+    19.0933
    ],
    "visual": "appear"
   },
@@ -360,18 +360,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 12.25,
-   "peak_s": 12.25,
+   "cue_s": 19.375,
+   "peak_s": 19.375,
    "pan": 0.35,
-   "gain_db": -30.68,
-   "limited_by": "best-band target + cluster x0.6",
+   "gain_db": -20.65,
+   "limited_by": "best-band target",
    "band_hz": [
-    4000,
-    8000
+    1000,
+    2000
    ],
    "win_s": [
-    12.24,
-    12.3196
+    19.365,
+    19.4446
    ],
    "visual": "land"
   },
@@ -383,18 +383,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 13.125,
-   "peak_s": 13.125,
+   "cue_s": 21.562,
+   "peak_s": 21.562,
    "pan": -0.2,
-   "gain_db": -23.21,
+   "gain_db": -23.44,
    "limited_by": "best-band target",
    "band_hz": [
-    2000,
-    4000
+    4000,
+    8000
    ],
    "win_s": [
-    13.115,
-    13.2408
+    21.552,
+    21.6778
    ],
    "visual": "land"
   },
@@ -406,18 +406,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 13.345,
-   "peak_s": 13.345,
+   "cue_s": 21.841,
+   "peak_s": 21.841,
    "pan": 0.4,
-   "gain_db": -23.06,
+   "gain_db": -21.73,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    13.335,
-    13.385
+    21.831,
+    21.881
    ],
    "visual": "appear"
   },
@@ -429,18 +429,18 @@
    ],
    "weight": "support",
    "align": "start",
-   "cue_s": 13.775,
-   "peak_s": 13.8121,
+   "cue_s": 22.384,
+   "peak_s": 22.4211,
    "pan": 0.4,
-   "gain_db": -22.17,
+   "gain_db": -20.75,
    "limited_by": "best-band target",
    "band_hz": [
-    500,
-    1000
+    1000,
+    2000
    ],
    "win_s": [
-    13.8021,
-    13.9621
+    22.4111,
+    22.5711
    ],
    "visual": "move"
   },
@@ -452,18 +452,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 15.1,
-   "peak_s": 15.1,
+   "cue_s": 24.059,
+   "peak_s": 24.059,
    "pan": -0.5,
-   "gain_db": -21.81,
+   "gain_db": -18.7,
    "limited_by": "best-band target",
    "band_hz": [
-    250,
-    500
+    1000,
+    2000
    ],
    "win_s": [
-    15.09,
-    15.25
+    24.049,
+    24.209
    ],
    "visual": "appear"
   },
@@ -475,18 +475,18 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 15.35,
-   "peak_s": 14.8646,
+   "cue_s": 24.375,
+   "peak_s": 23.8896,
    "pan": 0.0,
-   "gain_db": -21.96,
+   "gain_db": -23.05,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    14.8546,
-    15.0146
+    23.8796,
+    24.0396
    ],
    "visual": "cut"
   },
@@ -498,18 +498,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 15.46,
-   "peak_s": 15.46,
+   "cue_s": 24.526,
+   "peak_s": 24.526,
    "pan": 0.5,
-   "gain_db": -22.15,
+   "gain_db": -22.7,
    "limited_by": "best-band target",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    15.45,
-    15.6069
+    24.516,
+    24.6729
    ],
    "visual": "appear"
   },
@@ -521,18 +521,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 15.82,
-   "peak_s": 15.82,
+   "cue_s": 25.022,
+   "peak_s": 25.022,
    "pan": -0.5,
-   "gain_db": -23.98,
+   "gain_db": -22.7,
    "limited_by": "best-band target",
    "band_hz": [
-    1000,
-    2000
+    500,
+    1000
    ],
    "win_s": [
-    15.81,
-    15.97
+    25.012,
+    25.172
    ],
    "visual": "appear"
   },
@@ -544,18 +544,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 16.18,
-   "peak_s": 16.18,
+   "cue_s": 25.517,
+   "peak_s": 25.517,
    "pan": 0.5,
-   "gain_db": -19.98,
+   "gain_db": -20.64,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    16.17,
-    16.33
+    25.507,
+    25.667
    ],
    "visual": "appear"
   },
@@ -567,18 +567,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 16.54,
-   "peak_s": 16.54,
+   "cue_s": 26.013,
+   "peak_s": 26.013,
    "pan": -0.5,
-   "gain_db": -19.98,
+   "gain_db": -18.7,
    "limited_by": "best-band target",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    16.53,
-    16.683
+    26.003,
+    26.156
    ],
    "visual": "appear"
   },
@@ -590,18 +590,18 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 18.95,
-   "peak_s": 18.6584,
+   "cue_s": 29.329,
+   "peak_s": 29.0374,
    "pan": 0.0,
-   "gain_db": -17.94,
+   "gain_db": -22.94,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    18.6484,
-    18.7009
+    29.0274,
+    29.0799
    ],
    "visual": "cut"
   },
@@ -613,18 +613,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 19.1,
-   "peak_s": 19.1,
+   "cue_s": 29.536,
+   "peak_s": 29.536,
    "pan": 0.0,
-   "gain_db": -37.03,
+   "gain_db": -30.29,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    19.09,
-    19.1641
+    29.526,
+    29.6001
    ],
    "visual": "appear"
   },
@@ -636,18 +636,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 20.2,
-   "peak_s": 20.2,
+   "cue_s": 31.049,
+   "peak_s": 31.049,
    "pan": 0.0,
-   "gain_db": -33.52,
+   "gain_db": -32.29,
    "limited_by": "best-band target",
    "band_hz": [
     4000,
     8000
    ],
    "win_s": [
-    20.19,
-    20.24
+    31.039,
+    31.089
    ],
    "visual": "appear"
   },
@@ -659,18 +659,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 21.3,
-   "peak_s": 21.3,
+   "cue_s": 32.563,
+   "peak_s": 32.563,
    "pan": 0.0,
-   "gain_db": -35.52,
+   "gain_db": -34.29,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    21.29,
-    21.34
+    32.553,
+    32.603
    ],
    "visual": "appear"
   },
@@ -682,18 +682,18 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 22.55,
-   "peak_s": 22.2898,
+   "cue_s": 34.283,
+   "peak_s": 34.0228,
    "pan": 0.0,
-   "gain_db": -13.96,
-   "limited_by": "2-8 kHz cap",
+   "gain_db": -20.64,
+   "limited_by": "best-band target",
    "band_hz": [
-    125,
-    250
+    500,
+    1000
    ],
    "win_s": [
-    22.2798,
-    22.4059
+    34.0128,
+    34.1389
    ],
    "visual": "cut"
   },
@@ -705,18 +705,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 22.85,
-   "peak_s": 22.85,
+   "cue_s": 34.696,
+   "peak_s": 34.696,
    "pan": -0.45,
-   "gain_db": -23.02,
+   "gain_db": -25.76,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    22.84,
-    22.89
+    34.686,
+    34.736
    ],
    "visual": "land"
   },
@@ -728,18 +728,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 23.15,
-   "peak_s": 23.15,
+   "cue_s": 35.109,
+   "peak_s": 35.109,
    "pan": -0.15,
-   "gain_db": -25.02,
+   "gain_db": -27.76,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    23.14,
-    23.19
+    35.099,
+    35.149
    ],
    "visual": "land"
   },
@@ -751,18 +751,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 23.45,
-   "peak_s": 23.45,
+   "cue_s": 35.522,
+   "peak_s": 35.522,
    "pan": 0.15,
-   "gain_db": -24.49,
+   "gain_db": -27.76,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    23.44,
-    23.49
+    35.512,
+    35.562
    ],
    "visual": "land"
   },
@@ -774,18 +774,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 23.75,
-   "peak_s": 23.75,
+   "cue_s": 35.935,
+   "peak_s": 35.935,
    "pan": 0.45,
-   "gain_db": -22.01,
+   "gain_db": -23.76,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    23.74,
-    23.79
+    35.925,
+    35.975
    ],
    "visual": "land"
   },
@@ -797,18 +797,18 @@
    ],
    "weight": "support",
    "align": "end",
-   "cue_s": 24.5,
-   "peak_s": 24.3298,
+   "cue_s": 36.967,
+   "peak_s": 36.7968,
    "pan": 0.0,
-   "gain_db": -23.98,
+   "gain_db": -21.52,
    "limited_by": "best-band target",
    "band_hz": [
     500,
     1000
    ],
    "win_s": [
-    24.3198,
-    24.4798
+    36.7868,
+    36.9468
    ],
    "visual": "move"
   },
@@ -820,18 +820,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 25.6,
-   "peak_s": 25.6,
+   "cue_s": 38.481,
+   "peak_s": 38.481,
    "pan": 0.0,
-   "gain_db": -15.52,
+   "gain_db": -18.36,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    25.59,
-    25.75
+    38.471,
+    38.631
    ],
    "visual": "appear"
   },
@@ -843,18 +843,18 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 26.25,
-   "peak_s": 26.25,
+   "cue_s": 39.375,
+   "peak_s": 39.375,
    "pan": 0.0,
-   "gain_db": -9.16,
+   "gain_db": -9.08,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    26.24,
-    26.39
+    39.365,
+    39.515
    ],
    "visual": "cut"
   },
@@ -866,18 +866,18 @@
    ],
    "weight": "hero",
    "align": "peak",
-   "cue_s": 26.25,
-   "peak_s": 26.25,
+   "cue_s": 39.375,
+   "peak_s": 39.375,
    "pan": 0.0,
-   "gain_db": -9.78,
+   "gain_db": -9.77,
    "limited_by": "main-band target (hero)",
    "band_hz": [
     125,
     250
    ],
    "win_s": [
-    26.24,
-    26.4
+    39.365,
+    39.525
    ],
    "visual": "cut"
   },
@@ -889,18 +889,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 28.125,
-   "peak_s": 28.125,
+   "cue_s": 42.188,
+   "peak_s": 42.188,
    "pan": 0.0,
-   "gain_db": -25.02,
+   "gain_db": -27.76,
    "limited_by": "best-band target",
    "band_hz": [
     1000,
     2000
    ],
    "win_s": [
-    28.115,
-    28.165
+    42.178,
+    42.228
    ],
    "visual": "land"
   },
@@ -912,18 +912,18 @@
    ],
    "weight": "support",
    "align": "peak",
-   "cue_s": 28.594,
-   "peak_s": 28.594,
+   "cue_s": 42.891,
+   "peak_s": 42.891,
    "pan": 0.0,
-   "gain_db": -25.06,
+   "gain_db": -21.99,
    "limited_by": "best-band target",
    "band_hz": [
     2000,
     4000
    ],
    "win_s": [
-    28.584,
-    28.634
+    42.881,
+    42.931
    ],
    "visual": "appear"
   }

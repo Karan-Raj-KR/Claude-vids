@@ -1,6 +1,6 @@
 {
  "fps": 60,
- "duration_s": 30.0,
+ "duration_s": 45.0,
  "energy": "high",
  "kit": "audio/kit",
  "music": {
@@ -11,15 +11,15 @@
  },
  "silence_ok": [
   [
-   29.2,
-   30.0
+   44.2,
+   45.0
   ]
  ],
- "_note": "Times come straight from index.html timeline constants (128 BPM, beat 0.46875 s). 'category/?' sound ids are picked with `sfx.py browse` once `sfx.py kit` can download the CC0 packs.",
+ "_note": "Times come from index.html's 30 s authoring base mapped through its time-warp window.W (45 s). Sounds picked from the opus-sound-layer kit.",
  "cues": [
   {
    "id": "intro-dot",
-   "t": 2.55,
+   "t": 3.825,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -28,27 +28,27 @@
   },
   {
    "id": "name-slam",
-   "t": 3.75,
+   "t": 5.625,
    "sound": "hit/fs-441593-deep-impact-1",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
-   "visual": "land",
+   "visual": "cut",
    "stop_before": 0.3,
    "build": "riser/?"
   },
   {
    "id": "name-boom",
-   "t": 3.75,
+   "t": 5.625,
    "sound": "boom",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
-   "visual": "land"
+   "visual": "cut"
   },
   {
    "id": "degree-type",
-   "t": 4.75,
+   "t": 7.125,
    "sound": "tick",
    "weight": "support",
    "align": "peak",
@@ -57,7 +57,7 @@
   },
   {
    "id": "whip-edc",
-   "t": 6.1,
+   "t": 9.15,
    "sound": "transition",
    "weight": "support",
    "align": "end",
@@ -66,7 +66,7 @@
   },
   {
    "id": "best-member-pill",
-   "t": 6.35,
+   "t": 9.525,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -75,7 +75,7 @@
   },
   {
    "id": "event-1",
-   "t": 7.2,
+   "t": 10.8,
    "sound": "tap",
    "weight": "support",
    "align": "peak",
@@ -84,7 +84,7 @@
   },
   {
    "id": "event-2",
-   "t": 7.7,
+   "t": 11.55,
    "sound": "tap",
    "weight": "support",
    "align": "peak",
@@ -93,7 +93,7 @@
   },
   {
    "id": "event-3",
-   "t": 8.2,
+   "t": 12.3,
    "sound": "tap",
    "weight": "support",
    "align": "peak",
@@ -102,7 +102,7 @@
   },
   {
    "id": "event-4",
-   "t": 8.66,
+   "t": 12.99,
    "sound": "tap",
    "weight": "support",
    "align": "peak",
@@ -111,7 +111,7 @@
   },
   {
    "id": "whip-140",
-   "t": 9.6,
+   "t": 14.4,
    "sound": "whoosh",
    "weight": "support",
    "align": "end",
@@ -120,27 +120,27 @@
   },
   {
    "id": "six-figures-slam",
-   "t": 11.25,
+   "t": 16.875,
    "sound": "hit/fs-441593-deep-impact-1",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
-   "visual": "land",
+   "visual": "cut",
    "stop_before": 0.35,
    "build": "reverse/?"
   },
   {
    "id": "six-figures-boom",
-   "t": 11.25,
+   "t": 16.875,
    "sound": "boom",
    "weight": "hero",
    "align": "peak",
    "pan": 0.0,
-   "visual": "land"
+   "visual": "cut"
   },
   {
    "id": "figures-slide",
-   "t": 11.53,
+   "t": 17.575,
    "sound": "swish",
    "weight": "support",
    "align": "start",
@@ -149,7 +149,7 @@
   },
   {
    "id": "figures-sheen",
-   "t": 12.0,
+   "t": 18.75,
    "sound": "shimmer",
    "weight": "support",
    "align": "start",
@@ -158,7 +158,7 @@
   },
   {
    "id": "iit-card",
-   "t": 12.25,
+   "t": 19.375,
    "sound": "paper",
    "weight": "support",
    "align": "peak",
@@ -167,7 +167,7 @@
   },
   {
    "id": "open-loop-1st",
-   "t": 13.125,
+   "t": 21.562,
    "sound": "hit",
    "weight": "support",
    "align": "peak",
@@ -176,7 +176,7 @@
   },
   {
    "id": "ol-stats",
-   "t": 13.345,
+   "t": 21.841,
    "sound": "tick",
    "weight": "support",
    "align": "peak",
@@ -185,7 +185,7 @@
   },
   {
    "id": "ol-bars",
-   "t": 13.775,
+   "t": 22.384,
    "sound": "swish",
    "weight": "support",
    "align": "start",
@@ -194,7 +194,7 @@
   },
   {
    "id": "fly-constellation",
-   "t": 15.35,
+   "t": 24.375,
    "sound": "transition",
    "weight": "support",
    "align": "end",
@@ -203,7 +203,7 @@
   },
   {
    "id": "card-1",
-   "t": 15.1,
+   "t": 24.059,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -212,7 +212,7 @@
   },
   {
    "id": "card-4",
-   "t": 15.46,
+   "t": 24.526,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -221,7 +221,7 @@
   },
   {
    "id": "card-7",
-   "t": 15.82,
+   "t": 25.022,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -230,7 +230,7 @@
   },
   {
    "id": "card-10",
-   "t": 16.18,
+   "t": 25.517,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -239,7 +239,7 @@
   },
   {
    "id": "card-13",
-   "t": 16.54,
+   "t": 26.013,
    "sound": "swish",
    "weight": "support",
    "align": "peak",
@@ -248,7 +248,7 @@
   },
   {
    "id": "whip-impact",
-   "t": 18.95,
+   "t": 29.329,
    "sound": "whoosh",
    "weight": "support",
    "align": "end",
@@ -257,7 +257,7 @@
   },
   {
    "id": "impact-1",
-   "t": 19.1,
+   "t": 29.536,
    "sound": "click",
    "weight": "support",
    "align": "peak",
@@ -266,7 +266,7 @@
   },
   {
    "id": "impact-2",
-   "t": 20.2,
+   "t": 31.049,
    "sound": "click",
    "weight": "support",
    "align": "peak",
@@ -275,7 +275,7 @@
   },
   {
    "id": "impact-3",
-   "t": 21.3,
+   "t": 32.563,
    "sound": "click",
    "weight": "support",
    "align": "peak",
@@ -284,7 +284,7 @@
   },
   {
    "id": "whip-plan",
-   "t": 22.55,
+   "t": 34.283,
    "sound": "whoosh",
    "weight": "support",
    "align": "end",
@@ -293,7 +293,7 @@
   },
   {
    "id": "plan-1",
-   "t": 22.85,
+   "t": 34.696,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -302,7 +302,7 @@
   },
   {
    "id": "plan-2",
-   "t": 23.15,
+   "t": 35.109,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -311,7 +311,7 @@
   },
   {
    "id": "plan-3",
-   "t": 23.45,
+   "t": 35.522,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -320,7 +320,7 @@
   },
   {
    "id": "plan-4",
-   "t": 23.75,
+   "t": 35.935,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -329,7 +329,7 @@
   },
   {
    "id": "rise-quote",
-   "t": 24.5,
+   "t": 36.967,
    "sound": "swish",
    "weight": "support",
    "align": "end",
@@ -338,7 +338,7 @@
   },
   {
    "id": "companies",
-   "t": 25.6,
+   "t": 38.481,
    "sound": "chime",
    "weight": "support",
    "align": "peak",
@@ -347,7 +347,7 @@
   },
   {
    "id": "final-slam",
-   "t": 26.25,
+   "t": 39.375,
    "sound": "hit",
    "weight": "hero",
    "align": "peak",
@@ -358,7 +358,7 @@
   },
   {
    "id": "final-boom",
-   "t": 26.25,
+   "t": 39.375,
    "sound": "boom",
    "weight": "hero",
    "align": "peak",
@@ -367,7 +367,7 @@
   },
   {
    "id": "pill",
-   "t": 28.125,
+   "t": 42.188,
    "sound": "pop",
    "weight": "support",
    "align": "peak",
@@ -376,7 +376,7 @@
   },
   {
    "id": "voting-type",
-   "t": 28.594,
+   "t": 42.891,
    "sound": "tick",
    "weight": "support",
    "align": "peak",
