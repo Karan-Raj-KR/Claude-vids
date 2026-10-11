@@ -5,10 +5,22 @@ message: "From organising events to building an ecosystem."
 arc: Identity → EDC record → Proof → Builds → Impact → Proposals → Close
 audience: NIAT-S-VYASA students and Instagram followers
 mode: collaborative
-version: 1
+version: 2
 ---
 
-# Karan for EDC President — storyboard v1
+# Karan for EDC President — storyboard v2 (built)
+
+## Build notes
+
+- Built as one continuous composition (index.html) so the signal dot travels unbroken
+  across every scene; scenes are `<section class="clip">` blocks s01–s12.
+- Skills used: motion-design (energetic personality, expo.out signature ease),
+  gsap-plugins (SplitText masks, CustomEase), hyperframes-keyframes (camera moves,
+  squash/stretch landings), hyperframes-registry (grain-overlay, whip-pan-cut and
+  number-wheel recipes), threejs-postprocessing (bloom on the 3D network finale).
+- GSAP and Three.js are vendored under assets/vendor (CDN is blocked in this sandbox
+  and local files keep renders reproducible).
+- Teaser lives in ../karan-edc-teaser (10s, same grid, its own score).
 
 **This video tells NIAT-S-VYASA students that Karan has gone from organising events
 to building things, and will build an ecosystem as EDC President.**
@@ -36,8 +48,8 @@ Total: 8+4+4+4+6+6+4+6+4+6+6+6 = 64 beats = 30.0s.
 - start: 0
 - poster: 3.4
 - transition_in: cut
-- status: built
-- src: compositions/f01-identity.html
+- status: animated
+- src: index.html#s01 (was compositions/f01-identity.html)
 - voiceover: onscreen
 - blueprint: kinetic-type-beats (adapt) + rules kinetic-beat-slam, ambient-glow-bloom
 - audio: sub swell 0–1.875, impact + snare on 1.875, ticks on beats 6 and 7
@@ -55,8 +67,8 @@ fill the frame with signal red.
 - start: 3.75
 - poster: 1.5
 - transition_in: dot-iris (from F01)
-- status: built
-- src: compositions/f02-edc-role.html
+- status: animated
+- src: index.html#s02 (was compositions/f02-edc-role.html)
 - voiceover: onscreen
 - rules: waterfall-entry, spring-pop-entrance
 - audio: whoosh into downbeat, pop on beat 3
@@ -72,8 +84,8 @@ outline "EDC" at right. Seam out: the ink baseline extends into F03's event line
 - start: 5.625
 - poster: 1.7
 - transition_in: cut (line continuity)
-- status: built
-- src: compositions/f03-edc-events.html
+- status: animated
+- src: index.html#s03 (was compositions/f03-edc-events.html)
 - voiceover: onscreen
 - rules: svg-path-draw, spring-pop-entrance
 - audio: four pitched blips on the beats
@@ -89,8 +101,8 @@ Seam out: whip left onto ink.
 - start: 7.5
 - poster: 1.7
 - transition_in: whip-left
-- status: built
-- src: compositions/f04-attendees.html
+- status: animated
+- src: index.html#s04 (was compositions/f04-attendees.html)
 - voiceover: onscreen
 - rules: counting-dynamic-scale, center-outward-expansion
 - audio: rising tick run under the count, hit on the landing
@@ -106,8 +118,8 @@ from the bottom on the downbeat.
 - start: 9.375
 - poster: 2.5
 - transition_in: wipe-up (cobalt)
-- status: built
-- src: compositions/f05-proof-money.html
+- status: animated
+- src: index.html#s05 (was compositions/f05-proof-money.html)
 - voiceover: onscreen
 - blueprint: dataviz-countup (adapt) + rules kinetic-beat-slam, nudge-curve
 - audio: impact on downbeat, whoosh + click as the card lands
@@ -123,8 +135,8 @@ On screen: "03 — PROOF" (mono), "6 FIGURES+" (display), "earned through produc
 - start: 12.1875
 - poster: 2.6
 - transition_in: cut
-- status: built
-- src: compositions/f06-open-loop.html
+- status: animated
+- src: index.html#s06 (was compositions/f06-open-loop.html)
 - voiceover: onscreen
 - blueprint: dataviz-countup + rules counting-dynamic-scale, stat-bars-and-fills
 - audio: big hit on "1ST", ticks under the counts
@@ -140,8 +152,8 @@ score bars "FORMPILOT 80" (acid) vs "NEXT BEST 60". Seam out: tiles flip.
 - start: 15.0
 - poster: 1.7
 - transition_in: cut
-- status: built
-- src: compositions/f07-proof-wall.html
+- status: animated
+- src: index.html#s07 (was compositions/f07-proof-wall.html)
 - voiceover: onscreen
 - blueprint: grid-card-assemble
 - audio: six hi-hat stabs, one per tile
@@ -158,8 +170,8 @@ Seam out: the grid tilts back into the F08 card wall.
 - start: 16.875
 - poster: 2.0
 - transition_in: tilt (3D)
-- status: built
-- src: compositions/f08-builds.html
+- status: animated
+- src: index.html#s08 (was compositions/f08-builds.html)
 - voiceover: onscreen
 - rules: 3d-camera-flight, depth-of-field-blur
 - audio: airy riser, soft clicks as cards pass focus
@@ -176,8 +188,8 @@ MANAGER · built in 24 hours", "SCHOOL ERP", "VC PITCHES", "OSS MENTOR",
 - start: 19.6875
 - poster: 1.7
 - transition_in: push-in
-- status: built
-- src: compositions/f09-impact.html
+- status: animated
+- src: index.html#s09 (was compositions/f09-impact.html)
 - voiceover: onscreen
 - rules: waterfall-entry
 - audio: three soft plucks
@@ -193,8 +205,8 @@ orientation." Seam out: paper wipes in from the right.
 - start: 21.5625
 - poster: 2.4
 - transition_in: wipe-left (paper)
-- status: built
-- src: compositions/f10-vision.html
+- status: animated
+- src: index.html#s10 (was compositions/f10-vision.html)
 - voiceover: onscreen
 - blueprint: grid-card-assemble (adapt) + rules spring-pop-entrance
 - audio: bright pops per card, music filter opens
@@ -211,8 +223,8 @@ internships · programmes · competitions". Seam out: cards collapse into the do
 - start: 24.375
 - poster: 2.6
 - transition_in: scale-swap (cards → dot)
-- status: built
-- src: compositions/f11-quote.html
+- status: animated
+- src: index.html#s11 (was compositions/f11-quote.html)
 - voiceover: onscreen
 - rules: kinetic-beat-slam
 - audio: music drops to pads, one hit on "Now"
@@ -228,8 +240,8 @@ On screen: "We've attended events." (serif italic, muted), "We've built projects
 - start: 27.1875
 - poster: 2.6
 - transition_in: cut (dot continuity)
-- status: built
-- src: compositions/f12-lockup.html
+- status: animated
+- src: index.html#s12 (was compositions/f12-lockup.html)
 - voiceover: onscreen
 - blueprint: constellation-hub (scatter end card adapt) + logo-assemble-lockup
 - audio: final impact on the downbeat, tail rings out to 30.0

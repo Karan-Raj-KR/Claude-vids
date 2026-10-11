@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap/gsap.min.js"></script>
+    <script src="assets/vendor/gsap/SplitText.min.js"></script>
+    <script src="assets/vendor/gsap/CustomEase.min.js"></script>
+    <style>
+      @font-face { font-family: "Archivo Black"; src: url(assets/fonts/archivo-black-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2190-21FF, U+2600-26FF; }
+      @font-face { font-family: "Archivo Black"; src: url(assets/fonts/archivo-black-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; src: url(assets/fonts/instrument-serif-italic-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; src: url(assets/fonts/instrument-serif-italic-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url(assets/fonts/jetbrains-mono-latin.woff2) format("woff2"); unicode-range: U+0000-00FF, U+2000-206F, U+2190-21FF, U+2600-26FF; }
+      @font-face { font-family: "JetBrains Mono"; font-weight: 100 800; src: url(assets/fonts/jetbrains-mono-latin-ext.woff2) format("woff2"); unicode-range: U+0100-02BA, U+1E00-1EFF; }
+      :root { --ink: #0e0d0c; --paper: #f3efe7; --signal: #ff4b1f; --cobalt: #2b3df5; --acid: #d9ff3a; --muted: #8c857c; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #0e0d0c; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--ink); color: var(--paper); font-family: "JetBrains Mono", monospace; -webkit-font-smoothing: antialiased; }
+      .scene { position: absolute; inset: 0; }
+      .inner { position: absolute; inset: 0; overflow: hidden; will-change: transform; }
+      .a { position: absolute; }
+      .disp { font-family: "Archivo Black", sans-serif; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.88; white-space: nowrap; }
+      .serif { font-family: "Instrument Serif", serif; font-style: italic; letter-spacing: -0.02em; line-height: 1.04; white-space: nowrap; }
+      .mono { font-family: "JetBrains Mono", monospace; text-transform: uppercase; letter-spacing: 0.14em; white-space: nowrap; }
+      .mask { display: block; overflow: hidden; padding: 0 0.12em 0.1em 0.02em; margin: 0 -0.12em -0.1em -0.02em; }
+      .ln { display: block; }
+      .dotbg { position: absolute; inset: -60px; background-image: radial-gradient(rgba(243, 239, 231, 0.07) 2.2px, transparent 2.6px); background-size: 48px 48px; }
+
+      #spine { position: absolute; left: 0; top: 0; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: var(--signal); z-index: 40; opacity: 0; }
+      #halo { position: absolute; left: 960px; top: 540px; width: 1100px; height: 1100px; margin: -550px 0 0 -550px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 75, 31, 0.26), rgba(255, 75, 31, 0.07) 34%, rgba(255, 75, 31, 0) 62%); opacity: 0; }
+      .ripple { position: absolute; left: 960px; top: 540px; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; border: 2px solid rgba(243, 239, 231, 0.55); opacity: 0; }
+      #motif { left: 0; right: 0; top: 630px; text-align: center; font-size: 22px; color: rgba(243, 239, 231, 0.72); }
+
+      #name { left: 140px; top: 400px; display: flex; align-items: flex-end; }
+      #name .nm { font-size: 196px; }
+      #name .stop { display: inline-block; width: 46px; height: 46px; margin: 0 0 14px 18px; }
+      #run { left: 146px; top: 622px; font-size: 84px; }
+      #run em { color: var(--signal); font-style: italic; }
+      #sch { left: 150px; top: 754px; font-size: 26px; color: var(--muted); }
+
+      .flash .big { position: absolute; left: 130px; top: 300px; font-size: 330px; }
+      .flash .sub { position: absolute; left: 146px; top: 640px; font-size: 80px; }
+      .flash .tag { position: absolute; left: 150px; top: 230px; font-size: 26px; }
+      #f1 .inner { background: var(--signal); color: var(--ink); }
+      #f2 .inner { background: var(--cobalt); }
+      #f2 .big { color: var(--acid); }
+      #f3 .inner { background: var(--paper); color: var(--ink); }
+      #f3 .big { font-size: 236px; top: 340px; }
+      #f4 .inner { background: var(--ink); }
+      #f4 .big span { color: var(--signal); }
+
+      #lock { left: 0; right: 0; top: 296px; display: flex; flex-direction: column; align-items: center; }
+      #karan { display: flex; align-items: flex-end; font-size: 260px; }
+      #karan .stop { display: inline-block; width: 60px; height: 60px; margin: 0 0 18px 16px; }
+      #for { font-size: 76px; color: var(--signal); margin-top: 22px; letter-spacing: -0.02em; }
+      #pill { margin-top: 46px; background: var(--acid); color: var(--ink); border-radius: 999px; padding: 20px 40px; font-family: "Archivo Black"; text-transform: uppercase; font-size: 42px; }
+      #vote { margin-top: 54px; font-size: 26px; }
+
+      #hud { position: absolute; inset: 0; z-index: 60; color: rgba(243, 239, 231, 0.84); font-size: 20px; }
+      #hud .br { position: absolute; width: 28px; height: 28px; border: 0 solid currentColor; opacity: 0.6; }
+      #hud .tl { left: 48px; top: 48px; border-left-width: 2px; border-top-width: 2px; }
+      #hud .tr { right: 48px; top: 48px; border-right-width: 2px; border-top-width: 2px; }
+      #hud .bl { left: 48px; bottom: 48px; border-left-width: 2px; border-bottom-width: 2px; }
+      #hud .bk { right: 48px; bottom: 48px; border-right-width: 2px; border-bottom-width: 2px; }
+      #hud .lt { position: absolute; left: 96px; top: 56px; }
+      #hud .rt { position: absolute; right: 96px; top: 56px; }
+      #hud .rb { position: absolute; right: 96px; bottom: 56px; }
+      #vignette { position: absolute; inset: 0; z-index: 64; background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.32) 100%); }
+      #grain-overlay .grain-texture {
+        position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+        background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        opacity: 0.07; mix-blend-mode: overlay; animation: hf-grain-noise 0.5s steps(1) 0s 20 both;
+      }
+      @keyframes hf-grain-noise {
+        0%, 100% { transform: translate(0, 0); } 10% { transform: translate(-5%, -5%); } 20% { transform: translate(-10%, 5%); }
+        30% { transform: translate(5%, -10%); } 40% { transform: translate(-5%, 15%); } 50% { transform: translate(-10%, 5%); }
+        60% { transform: translate(15%, 0); } 70% { transform: translate(0, 10%); } 80% { transform: translate(-15%, 0); } 90% { transform: translate(10%, 5%); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="teaser" data-start="0" data-duration="10" data-width="1920" data-height="1080">
+      <section id="t0" class="clip scene" data-start="0" data-duration="3.75" data-track-index="1">
+        <div class="inner">
+          <div class="dotbg"></div>
+          <div id="halo"></div>
+          <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+          <div id="motif" class="a mono">Ideas → Execution → Opportunities</div>
+          <div id="name" class="a"><span class="nm disp">KARAN RAJ KR</span><span class="stop"></span></div>
+          <div id="run" class="a serif"><span class="mask"><span class="ln">is running for <em>EDC President</em></span></span></div>
+          <div id="sch" class="a mono">Founder, KĀRYO · NIAT-S-VYASA, Bengaluru</div>
+        </div>
+      </section>
+
+      <section id="f1" class="clip scene flash" data-start="3.75" data-duration="0.9375" data-track-index="2">
+        <div class="inner"><div class="tag mono">EDC · last term</div><div class="big disp">140+</div><div class="sub serif"><span class="mask"><span class="ln">at the biggest event</span></span></div></div>
+      </section>
+      <section id="f2" class="clip scene flash" data-start="4.6875" data-duration="0.9375" data-track-index="3">
+        <div class="inner"><div class="tag mono">Open Loop 2026</div><div class="big disp">1st</div><div class="sub serif"><span class="mask"><span class="ln">place · with FormPilot</span></span></div></div>
+      </section>
+      <section id="f3" class="clip scene flash" data-start="5.625" data-duration="0.9375" data-track-index="4">
+        <div class="inner"><div class="tag mono">Founder, KĀRYO</div><div class="big disp">6 figures+</div><div class="sub serif"><span class="mask"><span class="ln">earned through products &amp; agencies</span></span></div></div>
+      </section>
+      <section id="f4" class="clip scene flash" data-start="6.5625" data-duration="0.9375" data-track-index="5">
+        <div class="inner"><div class="tag mono">Hack BLR 2026 · solo</div><div class="big disp">Top 40<span>.</span></div><div class="sub serif"><span class="mask"><span class="ln">of 2,500+ teams</span></span></div></div>
+      </section>
+
+      <section id="t5" class="clip scene" data-start="7.5" data-duration="2.5" data-track-index="6">
+        <div class="inner">
+          <div class="dotbg"></div>
+          <div id="lock" class="a">
+            <div id="karan" class="disp"><span class="nm">Karan</span><span class="stop"></span></div>
+            <div id="for" class="disp">For EDC President</div>
+            <div id="pill"><span class="mask"><span class="ln">Don't just attend. Build.</span></span></div>
+            <div id="vote" class="mono">Voting starts Monday</div>
+          </div>
+        </div>
+      </section>
+
+      <div id="spine"></div>
+      <div id="vignette"></div>
+      <div id="hud"><i class="br tl"></i><i class="br tr"></i><i class="br bl"></i><i class="br bk"></i><span class="lt mono">Karan Raj KR · EDC 2026</span><span class="rt mono" id="hudr">Teaser</span><span class="rb mono">EDC President · 2026</span></div>
+      <div id="grain-overlay" style="position:absolute;inset:0;pointer-events:none;z-index:70;overflow:hidden"><div class="grain-texture"></div></div>
+      <audio id="teaser-music" src="assets/audio/teaser.wav" data-start="0" data-duration="10" data-track-index="20" data-volume="1"></audio>
+    </div>
+
+    <script>
+      (function () {
+        const B = 0.46875, T = (n) => n * B;
+        const root = document.getElementById("root");
+        const $ = (s) => document.querySelector(s), $$ = (s) => Array.from(document.querySelectorAll(s));
+        function center(el) {
+          let x = 0, y = 0, n = el;
+          while (n && n !== root) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+          return { x: x + el.offsetWidth / 2, y: y + el.offsetHeight / 2 };
+        }
+        function build() {
+          gsap.registerPlugin(SplitText, CustomEase);
+          CustomEase.create("snap", "0.16,1,0.3,1");
+          const tl = gsap.timeline({ paused: true, defaults: { ease: "expo.out" } });
+          const spine = $("#spine");
+          gsap.set(spine, { x: 960, y: 540, scale: 0, opacity: 1 });
+
+          // dot breathes on the beat
+          tl.to("#halo", { opacity: 1, duration: 1.2, ease: "sine.out" }, 0);
+          tl.to(spine, { scale: 0.62, duration: 0.42, ease: "back.out(2.4)" }, 0.02);
+          for (let i = 1; i < 4; i++) tl.to(spine, { keyframes: [{ scale: 0.86, duration: 0.09, ease: "power2.out" }, { scale: 0.62, duration: 0.3, ease: "power2.inOut" }] }, T(i));
+          $$(".ripple").forEach((r, i) => tl.fromTo(r, { scale: 0.5, opacity: 0.7 }, { scale: 3.4, opacity: 0, duration: 1.1, ease: "power2.out" }, T(i) + 0.02));
+          tl.fromTo("#motif", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0.12);
+          tl.to("#motif", { opacity: 0, y: -16, duration: 0.2, ease: "power2.in" }, 1.66);
+          tl.to("#halo", { opacity: 0.4, duration: 0.5 }, 1.7);
+
+          // name slam, dot becomes the full stop
+          const ns = SplitText.create("#name .nm", { type: "chars", mask: "chars" });
+          const stop = center($("#name .stop"));
+          tl.to(spine, { scaleX: 0.8, scaleY: 0.48, duration: 0.16, ease: "power2.in" }, 1.71);
+          tl.fromTo(ns.chars, { yPercent: 145, scaleY: 1.4 }, { yPercent: 0, scaleY: 1, duration: 0.62, stagger: 0.022, ease: "snap" }, T(4));
+          tl.fromTo("#name", { scale: 1.07, transformOrigin: "0% 50%" }, { scale: 1, duration: 1.9 }, T(4));
+          tl.to(spine, { x: stop.x, duration: 0.46, ease: "power2.inOut" }, T(4));
+          tl.to(spine, { keyframes: [{ y: stop.y - 190, duration: 0.2, ease: "power2.out" }, { y: stop.y, duration: 0.26, ease: "power2.in" }] }, T(4));
+          tl.to(spine, { keyframes: [{ scaleX: 1.45, scaleY: 0.62, duration: 0.07, ease: "power2.out" }, { scaleX: 1, scaleY: 1, duration: 0.5, ease: "elastic.out(1, 0.45)" }] }, T(4) + 0.46);
+          tl.fromTo("#run .ln", { yPercent: 112, rotation: 3 }, { yPercent: 0, rotation: 0, duration: 0.9 }, T(5) + 0.1);
+          const sch = SplitText.create("#sch", { type: "chars" });
+          tl.fromTo(sch.chars, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.011, ease: "none" }, T(6));
+          tl.to(spine, { opacity: 0, duration: 0.01 }, 3.75);
+
+          // four proof hits, one per two beats
+          ["#f1", "#f2", "#f3", "#f4"].forEach((id, k) => {
+            const t = T(8 + 2 * k);
+            const big = SplitText.create(id + " .big", { type: "chars", mask: "chars" });
+            tl.fromTo(big.chars, { yPercent: 150, rotation: 6 }, { yPercent: 0, rotation: 0, duration: 0.5, stagger: 0.025, ease: "snap" }, t);
+            tl.fromTo(id + " .big", { scale: 1.12, transformOrigin: "0% 50%" }, { scale: 1, duration: 0.9 }, t);
+            tl.fromTo(id + " .tag", { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, t + 0.04);
+            tl.fromTo(id + " .ln", { yPercent: 112 }, { yPercent: 0, duration: 0.55 }, t + 0.16);
+          });
+          const hudColor = [[3.75, "rgba(14,13,12,0.8)"], [4.6875, "rgba(243,239,231,0.84)"], [5.625, "rgba(14,13,12,0.8)"], [6.5625, "rgba(243,239,231,0.84)"]];
+          hudColor.forEach(([t, c]) => tl.set("#hud", { color: c }, t));
+
+          // lockup
+          const ks = SplitText.create("#karan .nm", { type: "chars", mask: "chars" });
+          const fs = SplitText.create("#for", { type: "words", mask: "words" });
+          const vs = SplitText.create("#vote", { type: "chars" });
+          const stopK = center($("#karan .stop"));
+          tl.set(spine, { x: 960, y: 540, scale: 0, opacity: 1 }, 7.5);
+          tl.to(spine, { keyframes: [{ scale: 2.4, duration: 0.1, ease: "power2.out" }, { scale: 1, duration: 0.4 }] }, 7.5);
+          tl.to(spine, { x: stopK.x, duration: 0.44, ease: "power2.inOut" }, 7.62);
+          tl.to(spine, { keyframes: [{ y: stopK.y - 170, duration: 0.2, ease: "power2.out" }, { y: stopK.y, duration: 0.24, ease: "power2.in" }] }, 7.62);
+          tl.to(spine, { scale: 1.3, duration: 0.44, ease: "power2.inOut" }, 7.62);
+          tl.to(spine, { keyframes: [{ scaleX: 1.9, scaleY: 0.8, duration: 0.07 }, { scaleX: 1.3, scaleY: 1.3, duration: 0.5, ease: "elastic.out(1, 0.45)" }] }, 8.06);
+          tl.fromTo(ks.chars, { yPercent: 150, scaleY: 1.5 }, { yPercent: 0, scaleY: 1, duration: 0.6, stagger: 0.035, ease: "snap" }, 7.7);
+          tl.fromTo(fs.words, { yPercent: 112 }, { yPercent: 0, duration: 0.6, stagger: 0.06, ease: "snap" }, 7.95);
+          tl.fromTo("#pill", { scaleX: 0.05, scaleY: 0.6, opacity: 0 }, { scaleX: 1, scaleY: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, T(17));
+          tl.fromTo("#pill .ln", { yPercent: 112 }, { yPercent: 0, duration: 0.55 }, T(17) + 0.12);
+          tl.fromTo(vs.chars, { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.014, ease: "none" }, T(18));
+          tl.fromTo("#lock", { scale: 1.04 }, { scale: 1, duration: 1.6 }, 7.7);
+          tl.fromTo("#hud", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, 0.1);
+          return tl;
+        }
+        document.fonts.ready.then(() => {
+          window.__timelines["teaser"] = build();
+          if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+        });
+      })();
+    </script>
+  </body>
+</html>

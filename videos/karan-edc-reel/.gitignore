@@ -3,3 +3,8 @@ assets/audio/sfx.wav
 assets/audio/mix-raw.wav
 .hyperframes/
 node_modules/
+assets/audio/teaser-raw.wav
+renders/work-*/
+renders/.*hf-transaction*/
+renders/.hf-segments/
+audio-src/__pycache__/
